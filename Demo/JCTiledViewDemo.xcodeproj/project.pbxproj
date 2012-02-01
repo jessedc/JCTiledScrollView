@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8809DC4D14D8E44A0003B4C6 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = 8809DC4C14D8E44A0003B4C6 /* tiles */; };
+		8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8809DC4F14D8E4C40003B4C6 /* RootViewController.m */; };
+		8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8809DC5114D8E8560003B4C6 /* QuartzCore.framework */; };
 		887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94514D8DC2D00AB0A92 /* UIKit.framework */; };
 		887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94714D8DC2D00AB0A92 /* Foundation.framework */; };
 		887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */; };
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
+		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
+		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8809DC4C14D8E44A0003B4C6 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tiles; path = ../tiles; sourceTree = "<group>"; };
+		8809DC4E14D8E4C40003B4C6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		8809DC4F14D8E4C40003B4C6 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		8809DC5114D8E8560003B4C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		887EE94514D8DC2D00AB0A92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		887EE94714D8DC2D00AB0A92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -26,6 +35,10 @@
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+		887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollView.h; sourceTree = "<group>"; };
+		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
+		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
+		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */,
 				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
 				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
 				887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */,
@@ -45,7 +59,9 @@
 		887EE93614D8DC2D00AB0A92 = {
 			isa = PBXGroup;
 			children = (
+				8809DC5114D8E8560003B4C6 /* QuartzCore.framework */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
+				887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
 				887EE94214D8DC2D00AB0A92 /* Products */,
 			);
@@ -72,8 +88,11 @@
 		887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8809DC4C14D8E44A0003B4C6 /* tiles */,
 				887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */,
 				887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */,
+				8809DC4E14D8E4C40003B4C6 /* RootViewController.h */,
+				8809DC4F14D8E4C40003B4C6 /* RootViewController.m */,
 				887EE94C14D8DC2D00AB0A92 /* Supporting Files */,
 			);
 			path = JCTiledViewDemo;
@@ -88,6 +107,18 @@
 				887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */,
+				887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */,
+				887EE98114D8DDDA00AB0A92 /* JCTiledView.h */,
+				887EE98214D8DDDA00AB0A92 /* JCTiledView.m */,
+			);
+			name = JCTiledScrollView;
+			path = ../JCTiledScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */,
+				8809DC4D14D8E44A0003B4C6 /* tiles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +186,9 @@
 			files = (
 				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
 				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
+				887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */,
+				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
+				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +292,7 @@
 				887EE95B14D8DC2D00AB0A92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "JCAppDelegate.h"
+#import "RootViewController.h"
 
 @implementation JCAppDelegate
 
@@ -20,11 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];  
+  
+  self.window.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+  
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
