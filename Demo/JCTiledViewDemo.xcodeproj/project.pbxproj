@@ -59,7 +59,6 @@
 		887EE93614D8DC2D00AB0A92 = {
 			isa = PBXGroup;
 			children = (
-				8809DC5114D8E8560003B4C6 /* QuartzCore.framework */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
 				887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
@@ -78,6 +77,7 @@
 		887EE94414D8DC2D00AB0A92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8809DC5114D8E8560003B4C6 /* QuartzCore.framework */,
 				887EE94514D8DC2D00AB0A92 /* UIKit.framework */,
 				887EE94714D8DC2D00AB0A92 /* Foundation.framework */,
 				887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */,

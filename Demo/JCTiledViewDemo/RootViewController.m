@@ -15,15 +15,6 @@
 
 @synthesize scrollView = scrollView_;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
-{
-  if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
-  {
-    
-  }
-  return self;
-}
-
 - (void)dealloc;
 {
   [super dealloc];
@@ -37,7 +28,8 @@
 
 - (void)viewDidLoad;
 {
-  self.scrollView = [[JCTiledScrollView alloc] initWithFrame:self.view.frame contentSize:SkippingGirlImageSize];
+  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:self.view.bounds contentSize:SkippingGirlImageSize] autorelease];
+  self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
   self.scrollView.levelsOfZoom = 4; // ^2
   self.scrollView.zoomScale = 1;
