@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94514D8DC2D00AB0A92 /* UIKit.framework */; };
+		887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94714D8DC2D00AB0A92 /* Foundation.framework */; };
+		887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */; };
+		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
+		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
+		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		887EE94514D8DC2D00AB0A92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		887EE94714D8DC2D00AB0A92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JCTiledViewDemo-Info.plist"; sourceTree = "<group>"; };
+		887EE94F14D8DC2D00AB0A92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		887EE95114D8DC2D00AB0A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
+		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		887EE93E14D8DC2D00AB0A92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
+				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
+				887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		887EE93614D8DC2D00AB0A92 = {
+			isa = PBXGroup;
+			children = (
+				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
+				887EE94414D8DC2D00AB0A92 /* Frameworks */,
+				887EE94214D8DC2D00AB0A92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		887EE94214D8DC2D00AB0A92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		887EE94414D8DC2D00AB0A92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				887EE94514D8DC2D00AB0A92 /* UIKit.framework */,
+				887EE94714D8DC2D00AB0A92 /* Foundation.framework */,
+				887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */,
+				887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */,
+				887EE94C14D8DC2D00AB0A92 /* Supporting Files */,
+			);
+			path = JCTiledViewDemo;
+			sourceTree = "<group>";
+		};
+		887EE94C14D8DC2D00AB0A92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */,
+				887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */,
+				887EE95114D8DC2D00AB0A92 /* main.m */,
+				887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		887EE94014D8DC2D00AB0A92 /* JCTiledViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 887EE95914D8DC2D00AB0A92 /* Build configuration list for PBXNativeTarget "JCTiledViewDemo" */;
+			buildPhases = (
+				887EE93D14D8DC2D00AB0A92 /* Sources */,
+				887EE93E14D8DC2D00AB0A92 /* Frameworks */,
+				887EE93F14D8DC2D00AB0A92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCTiledViewDemo;
+			productName = JCTiledViewDemo;
+			productReference = 887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		887EE93814D8DC2D00AB0A92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "JC Multimedia Design";
+			};
+			buildConfigurationList = 887EE93B14D8DC2D00AB0A92 /* Build configuration list for PBXProject "JCTiledViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 887EE93614D8DC2D00AB0A92;
+			productRefGroup = 887EE94214D8DC2D00AB0A92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				887EE94014D8DC2D00AB0A92 /* JCTiledViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		887EE93F14D8DC2D00AB0A92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		887EE93D14D8DC2D00AB0A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
+				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				887EE94F14D8DC2D00AB0A92 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		887EE95714D8DC2D00AB0A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		887EE95814D8DC2D00AB0A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		887EE95A14D8DC2D00AB0A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		887EE95B14D8DC2D00AB0A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		887EE93B14D8DC2D00AB0A92 /* Build configuration list for PBXProject "JCTiledViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				887EE95714D8DC2D00AB0A92 /* Debug */,
+				887EE95814D8DC2D00AB0A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		887EE95914D8DC2D00AB0A92 /* Build configuration list for PBXNativeTarget "JCTiledViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				887EE95A14D8DC2D00AB0A92 /* Debug */,
+				887EE95B14D8DC2D00AB0A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 887EE93814D8DC2D00AB0A92 /* Project object */;
+}
