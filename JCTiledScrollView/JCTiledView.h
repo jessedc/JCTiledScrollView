@@ -21,4 +21,8 @@
 
 @property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
 - (JCTiledLayer *)tiledLayer;
+
+- (void)setNumberOfZoomLevels:(size_t)levels;
+- (size_t)numberOfZoomLevels;
+
 @end

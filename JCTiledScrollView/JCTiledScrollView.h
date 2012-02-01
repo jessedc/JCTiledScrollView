@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) id <JCTileSource> dataSource;
 @property (nonatomic, assign) float levelsOfZoom;
+@property (nonatomic, assign) float levelsOfDetail;
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
 

@@ -69,6 +69,7 @@
   if (levelsOfZoom != levelsOfZoom_)
   {
     levelsOfZoom_ = levelsOfZoom;
+    [self.tiledView setNumberOfZoomLevels:levelsOfZoom];
     self.maximumZoomScale = powf(2, MAX(0, levelsOfZoom));
   }
 }

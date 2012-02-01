@@ -44,7 +44,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   {
     [self.tiledLayer setTileSize:CGSizeMake(kDefaultTileSize * self.tiledLayer.contentsScale, kDefaultTileSize * self.tiledLayer.contentsScale)];
     self.tiledLayer.levelsOfDetail  = 0;
-    self.tiledLayer.levelsOfDetailBias  = 3;
+    [self setNumberOfZoomLevels:3];
   }
 
   return self;
@@ -70,7 +70,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   NSInteger col = CGRectGetMinX(rect) * scale / tile_size.width;
   NSInteger row = CGRectGetMinY(rect) * scale / tile_size.height;
 
-  //NB: high resolution devices will start at a scale of 2; non-retina will start at 1.
+  //NB: high resolution devices will start at a scale of 2; standard def will start at 1.
 
   UIImage *image = [[self delegate] tiledView:self imageForRow:row column:col scale:scale];
   [image drawInRect:rect];
