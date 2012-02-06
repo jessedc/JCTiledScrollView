@@ -9,15 +9,14 @@
 
 @implementation JCTiledLayer
 
-+ (CFTimeInterval)fadeDuration;
++ (CFTimeInterval)fadeDuration
 {
   return 0.08;
 }
 
 @end
 
-static const CGFloat kDefaultTileSize = 256.;
-
+static const CGFloat kDefaultTileSize = 256.0f;
 
 @interface JCTiledView ()
 -(void)annotateRect:(CGRect)rect;
@@ -29,17 +28,17 @@ static const CGFloat kDefaultTileSize = 256.;
 
 #pragma mark - Properties
 
-+(Class)layerClass;
++(Class)layerClass
 {
   return [JCTiledLayer class];
 }
 
-- (JCTiledLayer *)tiledLayer;
+- (JCTiledLayer *)tiledLayer
 {
   return (JCTiledLayer *)self.layer;
 }
 
-- (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame]))
   {
@@ -51,7 +50,17 @@ static const CGFloat kDefaultTileSize = 256.;
   return self;
 }
 
-- (void)drawRect:(CGRect)rect;
+- (void)setNumberOfZoomLevels:(size_t)levels
+{
+  self.tiledLayer.levelsOfDetailBias = levels;
+}
+
+- (size_t)numberOfZoomLevels
+{
+  return self.tiledLayer.levelsOfDetailBias;
+}
+
+- (void)drawRect:(CGRect)rect
 {
   CGContextRef c = UIGraphicsGetCurrentContext();
 
@@ -61,7 +70,7 @@ static const CGFloat kDefaultTileSize = 256.;
   NSInteger col = CGRectGetMinX(rect) * scale / tile_size.width;
   NSInteger row = CGRectGetMinY(rect) * scale / tile_size.height;
 
-  //Retina devices will start at 50% and move through to 200%, non-retina will go from 25% -> 100%
+  //NB: high resolution devices will start at a scale of 2; non-retina will start at 1.
 
   UIImage *image = [[self delegate] tiledView:self imageForRow:row column:col scale:scale];
   [image drawInRect:rect];
@@ -69,7 +78,7 @@ static const CGFloat kDefaultTileSize = 256.;
   [self annotateRect:rect];
 }
 
--(void)annotateRect:(CGRect)rect;
+-(void)annotateRect:(CGRect)rect
 {
   CGContextRef c = UIGraphicsGetCurrentContext();
   CGFloat scale = CGContextGetCTM(c).a / self.tiledLayer.contentsScale;

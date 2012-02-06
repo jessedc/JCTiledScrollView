@@ -8,10 +8,8 @@
 #import "JCTiledScrollView.h"
 
 @interface JCTiledScrollView ()
-
 @property (nonatomic, retain) UIView *canvasView;
 @property (nonatomic, retain) JCTiledView *tiledView;
-
 @end
 
 @implementation JCTiledScrollView
@@ -20,7 +18,7 @@
 @synthesize levelsOfZoom = levelsOfZoom_;
 @synthesize canvasView = canvasView_;
 
-- (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
+- (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
 {
 	if ((self = [super initWithFrame:frame]))
   {
@@ -46,7 +44,7 @@
 	return self;
 }
 
--(void)dealloc;
+-(void)dealloc
 {	
   [tiledView_ release];
   tiledView_ = nil;
@@ -59,14 +57,14 @@
 
 #pragma mark - UIScrolViewDelegate
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
   return self.canvasView;
 }
 
 #pragma mark - JCTiledScrollView
 
--(void)setLevelsOfZoom:(float)levelsOfZoom;
+-(void)setLevelsOfZoom:(float)levelsOfZoom
 {
   if (levelsOfZoom != levelsOfZoom_)
   {
@@ -75,7 +73,7 @@
   }
 }
 
-- (void)setContentCenter:(CGPoint)center animated:(BOOL)animated;
+- (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
   CGPoint new_contentOffset;
   new_contentOffset.x = MAX(0, (center.x * self.zoomScale) - (self.bounds.size.width / 2));
@@ -89,7 +87,7 @@
 
 #pragma mark - JCTileSource
 
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+-(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
