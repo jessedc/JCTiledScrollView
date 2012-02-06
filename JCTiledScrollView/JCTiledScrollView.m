@@ -17,6 +17,7 @@
 @synthesize tiledView = tiledView_;
 @synthesize levelsOfZoom = levelsOfZoom_;
 @synthesize canvasView = canvasView_;
+@synthesize levelsOfDetail = levelsOfDetail_;
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
 {
@@ -71,6 +72,15 @@
     levelsOfZoom_ = levelsOfZoom;
     [self.tiledView setNumberOfZoomLevels:levelsOfZoom];
     self.maximumZoomScale = powf(2, MAX(0, levelsOfZoom));
+  }
+}
+
+- (void)setLevelsOfDetail:(float)levelsOfDetail
+{
+  if (levelsOfDetail != levelsOfDetail_)
+  {
+    levelsOfDetail_ = levelsOfDetail;
+    [self.tiledView setNumberOfZoomLevels:levelsOfDetail];
   }
 }
 

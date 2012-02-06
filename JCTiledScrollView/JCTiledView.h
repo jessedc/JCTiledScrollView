@@ -20,9 +20,8 @@
 @interface JCTiledView : UIView
 
 @property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
-- (JCTiledLayer *)tiledLayer;
+@property (nonatomic, assign) size_t numberOfZoomLevels;
 
-- (void)setNumberOfZoomLevels:(size_t)levels;
-- (size_t)numberOfZoomLevels;
+- (JCTiledLayer *)tiledLayer;
 
 @end
