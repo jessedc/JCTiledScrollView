@@ -23,7 +23,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 @interface JCTiledView ()
 @property (nonatomic, assign) CGSize tileSize;
 @property (nonatomic, assign) CGSize scaledTileSize;
--(void)annotateRect:(CGRect)rect;
+-(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
 @end
 
 @implementation JCTiledView
@@ -71,8 +71,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 - (void)drawRect:(CGRect)rect
 {
-  CGContextRef c = UIGraphicsGetCurrentContext();
-  CGFloat scale = CGContextGetCTM(c).a / self.tiledLayer.contentsScale;
+  CGContextRef ctx = UIGraphicsGetCurrentContext();
+  CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
 
   NSInteger col = (CGRectGetMinX(rect) * scale) / self.tileSize.width;
   NSInteger row = (CGRectGetMinY(rect) * scale) / self.tileSize.height;
@@ -80,17 +80,16 @@ static const CGFloat kDefaultTileSize = 256.0f;
   UIImage *tile_image = [self.delegate tiledView:self imageForRow:row column:col scale:scale];
   [tile_image drawInRect:rect];
   
-  [self annotateRect:rect];
+  [self annotateRect:rect inContext:ctx];
 }
 
--(void)annotateRect:(CGRect)rect
+-(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
-  CGContextRef c = UIGraphicsGetCurrentContext();
-  CGFloat scale = CGContextGetCTM(c).a / self.tiledLayer.contentsScale;
+  CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
 
   [[UIColor redColor] set];
-  CGContextSetLineWidth(c, 2.0f / scale);
-  CGContextStrokeRect(c, rect);
+  CGContextSetLineWidth(ctx, 2.0f / scale);
+  CGContextStrokeRect(ctx, rect);
 }
 
 @end
