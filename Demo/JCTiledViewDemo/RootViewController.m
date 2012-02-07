@@ -15,7 +15,7 @@
 
 @synthesize scrollView = scrollView_;
 
-- (void)dealloc;
+- (void)dealloc
 {
   [super dealloc];
 
@@ -26,7 +26,7 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad;
+- (void)viewDidLoad
 {
   self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:self.view.bounds contentSize:SkippingGirlImageSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -37,21 +37,21 @@
   [self.view addSubview:self.scrollView];
 }
 
-- (void)viewDidUnload;
+- (void)viewDidUnload
 {
   [super viewDidUnload];
 
   self.scrollView = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return YES;
 }
 
 #pragma mark - JCTileSource
 
-- (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+- (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
  return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%dx_%d_%d.png", SkippingGirlImageName, scale, row, column]]; 
 }
