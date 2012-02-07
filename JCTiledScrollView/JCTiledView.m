@@ -7,11 +7,13 @@
 
 #import "JCTiledView.h"
 
+static const CFTimeInterval kDefaultFadeDuration = 0.08;
+
 @implementation JCTiledLayer
 
 + (CFTimeInterval)fadeDuration
 {
-  return 0.08;
+  return kDefaultFadeDuration;
 }
 
 @end
