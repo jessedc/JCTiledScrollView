@@ -31,8 +31,8 @@
   self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:self.view.bounds contentSize:SkippingGirlImageSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
-  self.scrollView.levelsOfZoom = 3;
-  self.scrollView.zoomScale = 1;
+  self.scrollView.zoomScale = 1.0f;
+  self.scrollView.levelsOfZoom = 3.0f;
   
   [self.view addSubview:self.scrollView];
 }

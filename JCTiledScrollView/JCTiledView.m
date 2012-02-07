@@ -43,7 +43,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   if ((self = [super initWithFrame:frame]))
   {
     [self.tiledLayer setTileSize:CGSizeMake(kDefaultTileSize * self.tiledLayer.contentsScale, kDefaultTileSize * self.tiledLayer.contentsScale)];
-    self.tiledLayer.levelsOfDetail  = 0;
+    self.tiledLayer.levelsOfDetail = 0;
     [self setNumberOfZoomLevels:3];
   }
 
@@ -84,7 +84,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGFloat scale = CGContextGetCTM(c).a / self.tiledLayer.contentsScale;
 
   [[UIColor redColor] set];
-  CGContextSetLineWidth(c, 2 / scale);
+  CGContextSetLineWidth(c, 2.0f / scale);
   CGContextStrokeRect(c, rect);
 }
 
