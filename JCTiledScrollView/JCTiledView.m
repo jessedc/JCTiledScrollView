@@ -19,12 +19,16 @@
 static const CGFloat kDefaultTileSize = 256.0f;
 
 @interface JCTiledView ()
+@property (nonatomic, assign) CGSize tileSize;
+@property (nonatomic, assign) CGSize scaledTileSize;
 -(void)annotateRect:(CGRect)rect;
 @end
 
 @implementation JCTiledView
 
 @synthesize delegate = delegate_;
+@synthesize tileSize = tileSize_;
+@synthesize scaledTileSize = scaledTileSize_;
 
 #pragma mark - Properties
 
@@ -42,7 +46,10 @@ static const CGFloat kDefaultTileSize = 256.0f;
 {
   if ((self = [super initWithFrame:frame]))
   {
-    [self.tiledLayer setTileSize:CGSizeMake(kDefaultTileSize * self.tiledLayer.contentsScale, kDefaultTileSize * self.tiledLayer.contentsScale)];
+    self.tileSize = CGSizeMake(kDefaultTileSize, kDefaultTileSize);
+    self.scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
+
+    self.tiledLayer.tileSize = self.scaledTileSize;
     self.tiledLayer.levelsOfDetail = 0;
     [self setNumberOfZoomLevels:3];
   }
@@ -63,17 +70,13 @@ static const CGFloat kDefaultTileSize = 256.0f;
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef c = UIGraphicsGetCurrentContext();
-
-  CGSize tile_size = CGSizeApplyAffineTransform(self.tiledLayer.tileSize, CGAffineTransformMakeScale(1 / self.tiledLayer.contentsScale, 1 / self.tiledLayer.contentsScale));
   CGFloat scale = CGContextGetCTM(c).a / self.tiledLayer.contentsScale;
 
-  NSInteger col = CGRectGetMinX(rect) * scale / tile_size.width;
-  NSInteger row = CGRectGetMinY(rect) * scale / tile_size.height;
+  NSInteger col = (CGRectGetMinX(rect) * scale) / self.tileSize.width;
+  NSInteger row = (CGRectGetMinY(rect) * scale) / self.tileSize.height;
 
-  //NB: high resolution devices will start at a scale of 2; standard def will start at 1.
-
-  UIImage *image = [[self delegate] tiledView:self imageForRow:row column:col scale:scale];
-  [image drawInRect:rect];
+  UIImage *tile_image = [self.delegate tiledView:self imageForRow:row column:col scale:scale];
+  [tile_image drawInRect:rect];
   
   [self annotateRect:rect];
 }
