@@ -18,6 +18,9 @@
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
 		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
 		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
+		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
+		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
+		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,7 @@
 		8809DC4E14D8E4C40003B4C6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		8809DC4F14D8E4C40003B4C6 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8809DC5114D8E8560003B4C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		887EE94114D8DC2D00AB0A92 /* JCTiledView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		887EE94514D8DC2D00AB0A92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		887EE94714D8DC2D00AB0A92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -39,6 +42,9 @@
 		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
 		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
 		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
+		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +75,7 @@
 		887EE94214D8DC2D00AB0A92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */,
+				887EE94114D8DC2D00AB0A92 /* JCTiledView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +107,9 @@
 		887EE94C14D8DC2D00AB0A92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				88CD1A3714E2007F00B54AF0 /* Icon-72.png */,
+				88CD1A3814E2007F00B54AF0 /* Icon.png */,
+				88CD1A3914E2007F00B54AF0 /* Icon@2x.png */,
 				887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */,
 				887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */,
 				887EE95114D8DC2D00AB0A92 /* main.m */,
@@ -138,7 +147,7 @@
 			);
 			name = JCTiledViewDemo;
 			productName = JCTiledViewDemo;
-			productReference = 887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */;
+			productReference = 887EE94114D8DC2D00AB0A92 /* JCTiledView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -174,6 +183,9 @@
 			files = (
 				887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */,
 				8809DC4D14D8E44A0003B4C6 /* tiles in Resources */,
+				88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */,
+				88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */,
+				88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +237,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -243,7 +255,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -257,7 +269,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JCTiledView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -268,7 +280,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JCTiledView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
