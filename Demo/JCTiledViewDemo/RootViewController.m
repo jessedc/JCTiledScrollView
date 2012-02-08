@@ -33,8 +33,10 @@
   self.scrollView.dataSource = self;
   self.scrollView.zoomScale = 1.0f;
 
-  self.scrollView.levelsOfZoom = 2;
-  self.scrollView.levelsOfDetail = 2;
+  // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
+  // it could be worth restricting the scrollView levelsOfZoom and levelsOfDetail on non-retina device to be one less than retina
+  self.scrollView.levelsOfZoom = 3;
+  self.scrollView.levelsOfDetail = 3;
   
   [self.view addSubview:self.scrollView];
 }
