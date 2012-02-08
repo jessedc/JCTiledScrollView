@@ -38,15 +38,14 @@
   [self.detailView setFrame:CGRectMake(0,0,size_for_detail.width, size_for_detail.height)];
   [self.view addSubview:self.detailView];
   
-  
-  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f) contentSize:SkippingGirlImageSize] autorelease];
+  CGRect scrollView_frame = CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f);
+  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
   self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
 
   // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
-  // it could be worth restricting the scrollView levelsOfZoom and levelsOfDetail on non-retina device to be one less than retina
   self.scrollView.levelsOfZoom = 3;
   self.scrollView.levelsOfDetail = 3;
   

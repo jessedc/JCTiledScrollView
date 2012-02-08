@@ -112,6 +112,8 @@
 
 - (void)setLevelsOfDetail:(size_t)levelsOfDetail
 {
+  if (levelsOfDetail == 1) NSLog(@"Note: Setting levelsOfDetail to 1 causes strange behaviour");
+
   levelsOfDetail_ = levelsOfDetail;
   [self.tiledView setNumberOfZoomLevels:levelsOfDetail];
 }
