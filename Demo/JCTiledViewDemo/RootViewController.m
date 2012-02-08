@@ -14,13 +14,17 @@
 @implementation RootViewController
 
 @synthesize scrollView = scrollView_;
+@synthesize detailView = detailView_;
 
 - (void)dealloc
 {
-  [super dealloc];
-
   [scrollView_ release];
   scrollView_ = nil;
+
+  [detailView_ release];
+  detailView_ = nil;
+  
+  [super dealloc];
 }
 
 
@@ -28,7 +32,14 @@
 
 - (void)viewDidLoad
 {
-  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:self.view.bounds contentSize:SkippingGirlImageSize] autorelease];
+  self.detailView = [[[DetailView alloc] initWithFrame:CGRectZero] autorelease];
+  self.detailView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+  CGSize size_for_detail = [self.detailView sizeThatFits:self.view.bounds.size];
+  [self.detailView setFrame:CGRectMake(0,0,size_for_detail.width, size_for_detail.height)];
+  [self.view addSubview:self.detailView];
+  
+  
+  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f) contentSize:SkippingGirlImageSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
   self.scrollView.zoomScale = 1.0f;
@@ -46,6 +57,7 @@
   [super viewDidUnload];
 
   self.scrollView = nil;
+  self.detailView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

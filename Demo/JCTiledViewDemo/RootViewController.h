@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JCTiledScrollView.h"
+#import "DetailView.h"
 
 @interface RootViewController : UIViewController <JCTileSource>
 
 @property (nonatomic, retain) JCTiledScrollView *scrollView;
-
+@property (nonatomic, retain) DetailView *detailView;
 
 @end

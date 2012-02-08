@@ -21,6 +21,7 @@
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
+		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		88E49D3614E2788400D688DF /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		88E49D3714E2788400D688DF /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */,
 				8809DC4E14D8E4C40003B4C6 /* RootViewController.h */,
 				8809DC4F14D8E4C40003B4C6 /* RootViewController.m */,
+				88E49D3614E2788400D688DF /* DetailView.h */,
+				88E49D3714E2788400D688DF /* DetailView.m */,
 				887EE94C14D8DC2D00AB0A92 /* Supporting Files */,
 			);
 			path = JCTiledViewDemo;
@@ -201,6 +206,7 @@
 				887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */,
 				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
 				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
+				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
