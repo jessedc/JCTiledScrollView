@@ -107,8 +107,7 @@
 -(void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
   levelsOfZoom_ = levelsOfZoom;
-  [self.tiledView setNumberOfZoomLevels:levelsOfZoom];
-  self.maximumZoomScale = (float)pow(2, MAX(0, levelsOfZoom));
+  self.maximumZoomScale = (float)powf(2, MAX(0, levelsOfZoom));
 }
 
 - (void)setLevelsOfDetail:(size_t)levelsOfDetail
