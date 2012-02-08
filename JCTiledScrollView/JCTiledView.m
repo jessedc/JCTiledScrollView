@@ -84,8 +84,6 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 - (void)setNumberOfZoomLevels:(size_t)levels
 {
-  NSAssert(!(levels == 1 && self.tiledLayer.levelsOfDetail == 1), @"There is a strange edge case when levelsOfDetail and levelsOfDetailBias are both 1.");
-  
   self.tiledLayer.levelsOfDetailBias = levels;
 }
 
