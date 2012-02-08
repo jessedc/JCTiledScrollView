@@ -76,7 +76,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
     self.tiledLayer.tileSize = self.scaledTileSize;
     self.tiledLayer.levelsOfDetail = 1;
-    [self setNumberOfZoomLevels:3];
+    self.numberOfZoomLevels = 3;
   }
 
   return self;

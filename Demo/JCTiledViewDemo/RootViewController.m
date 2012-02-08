@@ -32,7 +32,9 @@
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
   self.scrollView.zoomScale = 1.0f;
-  self.scrollView.levelsOfZoom = 3.0f;
+
+  self.scrollView.levelsOfZoom = 2;
+  self.scrollView.levelsOfDetail = 2;
   
   [self.view addSubview:self.scrollView];
 }

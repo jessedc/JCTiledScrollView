@@ -46,7 +46,7 @@
 	if ((self = [super initWithFrame:frame]))
   {
     self.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-    [self setLevelsOfZoom:2];
+    self.levelsOfZoom = 2;
     self.minimumZoomScale = 1.;
     self.delegate = self;
     self.backgroundColor = [UIColor whiteColor];
@@ -87,30 +87,24 @@
 
 #pragma mark - JCTiledScrollView
 
--(void)setLevelsOfZoom:(float)levelsOfZoom
+-(void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
-  if (levelsOfZoom != levelsOfZoom_)
-  {
-    levelsOfZoom_ = levelsOfZoom;
-    [self.tiledView setNumberOfZoomLevels:levelsOfZoom];
-    self.maximumZoomScale = powf(2, MAX(0, levelsOfZoom));
-  }
+  levelsOfZoom_ = levelsOfZoom;
+  [self.tiledView setNumberOfZoomLevels:levelsOfZoom];
+  self.maximumZoomScale = (float)pow(2, MAX(0, levelsOfZoom));
 }
 
-- (void)setLevelsOfDetail:(float)levelsOfDetail
+- (void)setLevelsOfDetail:(size_t)levelsOfDetail
 {
-  if (levelsOfDetail != levelsOfDetail_)
-  {
-    levelsOfDetail_ = levelsOfDetail;
-    [self.tiledView setNumberOfZoomLevels:levelsOfDetail];
-  }
+  levelsOfDetail_ = levelsOfDetail;
+  [self.tiledView setNumberOfZoomLevels:levelsOfDetail];
 }
 
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
   CGPoint new_contentOffset;
-  new_contentOffset.x = MAX(0, (center.x * self.zoomScale) - (self.bounds.size.width / 2));
-  new_contentOffset.y = MAX(0, (center.y * self.zoomScale) - (self.bounds.size.height / 2));
+  new_contentOffset.x = MAX(0, (center.x * self.zoomScale) - (self.bounds.size.width / 2.0f));
+  new_contentOffset.y = MAX(0, (center.y * self.zoomScale) - (self.bounds.size.height / 2.0f));
   
   new_contentOffset.x = MIN(new_contentOffset.x, (self.contentSize.width - self.bounds.size.width));
   new_contentOffset.y = MIN(new_contentOffset.y, (self.contentSize.height - self.bounds.size.height));

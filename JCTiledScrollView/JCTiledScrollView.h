@@ -39,8 +39,8 @@
 @interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate, JCTiledViewDelegate>
 
 @property (nonatomic, assign) id <JCTileSource> dataSource;
-@property (nonatomic, assign) float levelsOfZoom;
-@property (nonatomic, assign) float levelsOfDetail;
+@property (nonatomic, assign) size_t levelsOfZoom;
+@property (nonatomic, assign) size_t levelsOfDetail;
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
 
