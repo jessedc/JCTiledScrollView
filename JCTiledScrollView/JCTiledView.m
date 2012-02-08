@@ -28,6 +28,7 @@
 //
 
 #import "JCTiledView.h"
+#import "math.h"
 
 static const CFTimeInterval kDefaultFadeDuration = 0.08;
 
@@ -110,9 +111,14 @@ static const CGFloat kDefaultTileSize = 256.0f;
 -(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
+  CGFloat line_width = 2.0f / scale;
+  CGFloat font_size = 16.0f / scale;
+
+  [[UIColor whiteColor] set];
+  [[NSString stringWithFormat:@" %0.0f", log2f(scale)] drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withFont:[UIFont boldSystemFontOfSize:font_size]];
 
   [[UIColor redColor] set];
-  CGContextSetLineWidth(ctx, 2.0f / scale);
+  CGContextSetLineWidth(ctx, line_width);
   CGContextStrokeRect(ctx, rect);
 }
 
