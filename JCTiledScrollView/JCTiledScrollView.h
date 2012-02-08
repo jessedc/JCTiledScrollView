@@ -36,9 +36,16 @@
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 
+@protocol JCTiledScrollViewDelegate <NSObject>
+@optional
+- (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView;
+- (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
+@end
+
 @interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate, JCTiledViewDelegate>
 
 @property (nonatomic, assign) id <JCTileSource> dataSource;
+@property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
 

@@ -36,6 +36,7 @@
 
 @implementation JCTiledScrollView
 @synthesize dataSource = dataSource_;
+@synthesize tiledScrollViewDelegate = tiledScrollViewDelegate_;
 @synthesize tiledView = tiledView_;
 @synthesize levelsOfZoom = levelsOfZoom_;
 @synthesize canvasView = canvasView_;
@@ -83,6 +84,22 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
   return self.canvasView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidZoom:)])
+  {
+    [self.tiledScrollViewDelegate tiledScrollViewDidZoom:self];
+  }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidScroll:)])
+  {
+    [self.tiledScrollViewDelegate tiledScrollViewDidScroll:self];
+  }
 }
 
 #pragma mark - JCTiledScrollView

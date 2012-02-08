@@ -42,6 +42,7 @@
   self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f) contentSize:SkippingGirlImageSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
+  self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
 
   // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
@@ -63,6 +64,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return YES;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView
+{
+  self.detailView.textLabel.text = [NSString stringWithFormat:@"zoomScale: %0.2f", scrollView.zoomScale];
 }
 
 #pragma mark - JCTileSource

@@ -10,7 +10,7 @@
 #import "JCTiledScrollView.h"
 #import "DetailView.h"
 
-@interface RootViewController : UIViewController <JCTileSource>
+@interface RootViewController : UIViewController <JCTileSource, JCTiledScrollViewDelegate>
 
 @property (nonatomic, retain) JCTiledScrollView *scrollView;
 @property (nonatomic, retain) DetailView *detailView;
