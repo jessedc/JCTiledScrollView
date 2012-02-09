@@ -9,7 +9,7 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
  * Demo code and tiles included
  * iOS 4+
 
-<img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" style="width:206px;"/>
+<img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
 ### Future plans
 
