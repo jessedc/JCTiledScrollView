@@ -9,15 +9,17 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
  * Demo code and tiles included
  * iOS 4+
 
+<img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" style="width:206px;"/>
+
 ### Future plans
 
  * Handle zooming in both directions
- * Advanced UIGestureRecognizer support
+ * Advanced UIGestureRecognizer support (tap, double tap)
  * Support for overlay views
- * iOS 3 compatibility (it's possible using _drawLayer:inContext:_, but conflicts with UIGestureRecognizer support)
+ * PDF / Vector / SVG drawing as an option over bitmap
+ * <s>iOS 3 compatibility (it's possible using _drawLayer:inContext:_, but conflicts with UIGestureRecognizer support)</s> - actually, never mind...
 
 ### Handy Links
-
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
 
 ### Further Reading
