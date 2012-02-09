@@ -11,8 +11,10 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
 
 ### Future plans
 
- * Handle zooming out
- * iOS 3 compatibility (it's possible using _drawLayer:inContext:_)
+ * Handle zooming in both directions
+ * Advanced UIGestureRecognizer support
+ * Support for overlay views
+ * iOS 3 compatibility (it's possible using _drawLayer:inContext:_, but conflicts with UIGestureRecognizer support)
 
 ### Handy Links
 
@@ -23,6 +25,7 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
   * Apple Tech-Note [Thread Safe UIKit Drawing][7] (in iOS 4+)  mentioned at WWDC 2010
   * Tread safe objects in iOS4 _UIGraphicsGetCurrentContext, UIImage, UIColor, UIFont_
   * Apple Documentation on [Supporting High Resolution Screens][8]
+  * Apple's [View Programming Guide for iOS][10]
   * WWDC 2010 Session 104 - Designing Apps with ScrollViews
   * WWDC 2011 Session 104 - Advanced Scroll View Techniques
 
@@ -69,3 +72,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [7]: https://developer.apple.com/library/ios/#qa/qa1637/_index.html "Thread Safe UIKit Drawing"
 [8]: https://developer.apple.com/library/ios/#documentation/2DDrawing/Conceptual/DrawingPrintingiOS/SupportingHiResScreens/SupportingHiResScreens.html "Supporting High Resolution Screens"
 [9]: http://www.cimgf.com/2011/03/01/subduing-catiledlayer/ "Subduing CATiledLayer on Cocoa Is My Girlfriend"
+[10]: https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1 "View Programming Guide for iOS - View and Window Architecture"
