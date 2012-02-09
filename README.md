@@ -1,4 +1,4 @@
-# JCTiledView
+# JCTiledScrollView
 
 A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simplify displaying large images at multiple zoom scales. The classes and associated demo code should provide a good reference for how to implement CATiledLayer on iOS devices.
 
