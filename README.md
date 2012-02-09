@@ -19,7 +19,7 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
 
 ### Further Reading
-
+  * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
   * Apple Tech-Note [Thread Safe UIKit Drawing][7] (in iOS 4+)  mentioned at WWDC 2010
   * Tread safe objects in iOS4 _UIGraphicsGetCurrentContext, UIImage, UIColor, UIFont_
   * Apple Documentation on [Supporting High Resolution Screens][8]
@@ -68,3 +68,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [6]: http://iphonedevelopment.blogspot.com/ "iPhone Development.blogspot.com"
 [7]: https://developer.apple.com/library/ios/#qa/qa1637/_index.html "Thread Safe UIKit Drawing"
 [8]: https://developer.apple.com/library/ios/#documentation/2DDrawing/Conceptual/DrawingPrintingiOS/SupportingHiResScreens/SupportingHiResScreens.html "Supporting High Resolution Screens"
+[9]: http://www.cimgf.com/2011/03/01/subduing-catiledlayer/ "Subduing CATiledLayer on Cocoa Is My Girlfriend"
