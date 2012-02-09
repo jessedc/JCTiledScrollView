@@ -16,38 +16,34 @@
  * Insisting on iOS 3 compatibility caused a number of problems supporting high resolution displays without _[CALayer contentsScale]_ and having to check for _[UIScreen screenScale]_
  * I just **couldn't** get it right. I was going round in circles, adjusting zoom scales, levelsOfDetail.
 
-### 3. Introduction to CATiledLayer
+### 3. My Introduction to CATiledLayer
  * WWDC 2010 scroll view talk mentioned CATiledLayer in an iOS4 context, but no retina display details
  * My understanding of CALayers and [CALayer contentsScale] and [UIView contentScaleFactor] were severely limited
+ * Most CATiledLayer info was OSX, or PDF related and just didn't solve my immediate issue
  * I was struggling to ask the right questions
  * First demo project created in 2010, but just couldn't get it right
 
 
-#### I had two requirements: understand the effect the retina display was having on my views
-* Work out what CATiledLayer was actually doing
-* Provide only one set of tiles, not @2x images like I was previously.
+#### Main goals of the CATiledLayer project
+ * CATiledLayer in a scrollView with programable zoom levels
+ * Seamless integration into iOS4+
+ * Seamless integration between retina / non-retina screens
+ * Provide only one sized tile (not @2x)
 
 ### 4. Finally, in late 2011 I worked it out
 
-> I'll try and give as much insight as possible, but most of this is based on my trial, error and reflection rather than a 100% understanding of everything.
+> I'll try and give as much insight as possible, but most of this is based on my trial, error and reflection rather than a 100% understanding of everything. Most of my issues revolved around using the Apple Demo code as an example, rather than actually understanding it from the ground up.
 
  * Everyone is always saying each UIView is backed by a CALayer
  * All good CALayer documentation and the main Core Animation Programming Guide is OSX based
  * NSView is not CALayer backed, so if you're starting with no idea, this difference can mean a lot
  * The missing piece is that the _drawRect:_ method on a UIView subclass is essentially the same as it's underlying CALayer's delegate callback _drawLayer:inContext:_ that all the documentation talks about
- * It's also important to note that CALayer's _contentsScale_ method is set as it's created by it's accompanying UIView in iOS
- * Finally, UIView/CoreGraphics handles _contentsScale_ and _contentScaleFactor_  for you **most** of the time
- 
- Apple's docs on [Supporting High Resolution screens][1]:
- 
-> [You] may need to adjust [Core Animation Layers] drawing code to account for scale factors. Normally, when you draw in your view’s _drawRect:_ method ... of the layer’s delegate, the system automatically adjusts the graphics context to account for scale factors. **However**, knowing or changing that scale factor might still be necessary when your view does one of the following:
-
-> * Creates additional Core Animation layers with **different scale factors** and composites them into its own content.
-
- * CATiledLayer just a a CALayer subclass, that's instantiated as a UIView's layer, and then uses _drawRect:_ and it's _contentScale_ is the same as it's UIView
+ * A CALayer's _contentsScale_ property is set on creation by it's accompanying UIView in iOS
+ * UIView/CoreGraphics handles _contentsScale_ and _contentScaleFactor_  for you **most** of the time (see Retina display)
+ * CATiledLayer is just a CALayer subclass that's instantiated as a UIView's layer; it uses _drawRect:_ and _contentScale_ is the same as it's UIView
  * Although I had no specific examples at this point, the pieces started to come together.
 
-#### Here's a basic CATiledLayer UIView subclass implementation
+#### A basic CATiledLayer UIView subclass implementation
 
     +(Class)layerClass
     {
@@ -64,13 +60,16 @@
 
     - (void)drawRect:(CGRect)rect
     {
-      CGContextRef ctx = UIGraphicsGetCurrentContext();
-      CGFloat scale = CGContextGetCTM(ctx).a;
+      CGContextRef c = UIGraphicsGetCurrentContext();
+      CGFloat scale = CGContextGetCTM(c).a;
 
       NSInteger col = (CGRectGetMinX(rect) * scale) / self.tileSize.width;
       NSInteger row = (CGRectGetMinY(rect) * scale) / self.tileSize.height;
 
-      UIImage *tile_image = [self.tileSource tiledView:self imageForRow:row column:col scale:scale];
+      UIImage *tile_image = [self.tileSource tiledView:self 
+                                           imageForRow:row 
+                                                column:col 
+                                                 scale:scale];
       [tile_image drawInRect:rect];
     }
 
@@ -78,9 +77,9 @@
 ### 5. levelsOfDetail (LOD) and levelsOfDetailBias (LODB)
 
  * LOD is the number of levels CATiledLayer will ask you for as you **zoom out**. (defaults to 1)
- * LODB is the number of levels it will use as you **zoom in**
+ * LODB is the number of levels it will use as you **zoom in** (defaults to 0)
 
-#### UIScrollViewScale vs. CATiledLayer LODB
+#### UIScrollView zoomScale vs. CATiledLayer LODB
 
  * UIScrollView's zoom scale works on a linear scale, but each LODB from CATiledLayer (or LOD) is a power of two more or less than the previous level of detail. 
  * You'll get a new LODB on each UIScrollView zoomScale that's a power of two.
@@ -98,16 +97,27 @@
   
   * If you set your LODB to 2 and your UIScrollView's zoomScale is at 8, then you'll only see up to the second level.
 
-  #### Things to note
+#### Things to note
    * Setting LOD and LODB to 0 causes a blank view
    * Setting LOD and LODB  to 1 seems to be undefined behaviour
    * Setting LOD to 1, and LODB > 1 is fine, but I like to set LOD to 0 if I'm using LODB.
    * Default value for LODB is 0
 
+#### CATiledLayer UIView subclass implementation demo with UIScrollView wrapper
+> Go go gadget demo
+
+ * Show the effect of changing the LODB
+
 #### Retina Display
 
 > Running the code without any compensation for _contentsScale_ shows interesting results. There are obviously four times as many tiles. We can do better.
+
+ Apple's docs on [Supporting High Resolution screens][1]:
  
+> [You] may need to adjust [Core Animation Layers] drawing code to account for scale factors. Normally, when you draw in your view’s _drawRect:_ method ... of the layer’s delegate, the system automatically adjusts the graphics context to account for scale factors. **However**, knowing or changing that scale factor might still be necessary when your view does one of the following:
+
+> * Creates additional Core Animation layers with **different scale factors** and composites them into its own content.
+
 > Because of the _contentsScale_ value is 2, everything in pixel land is squared. Lets do that to our pixel values.
  
  * Multiply the _tileSize_ width and height by the contentsScale. (It's a pixel value).
@@ -118,7 +128,7 @@
 > It's clear at this point that we're looking more like normal tiled UIViews with @2x graphics, and we've even skipped the first _0_ LODB that we get on the standard resolution devices. 
 
 ### 6. What's next? 
- * JCTiledScrollView is my wapper class around UIScrollView and is up on GitHub
+ * JCTiledScrollView is my wrapper class around UIScrollView and is up on GitHub
  * Add gesture recognisers and overlay support (show metro editor)
  * Replace UIImage tiles with vector SVG drawing
 
