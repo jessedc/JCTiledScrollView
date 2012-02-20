@@ -31,7 +31,7 @@
 
 @interface JCTiledScrollView ()
 @property (nonatomic, retain) UIView *canvasView;
-@property (nonatomic, retain) JCTiledView *tiledView;
+@property (nonatomic, retain) JCPDFTiledView *tiledView;
 @end
 
 @implementation JCTiledScrollView
@@ -58,8 +58,8 @@
     CGRect canvas_frame = CGRectMake(0., 0., self.contentSize.width, self.contentSize.height);
     self.canvasView = [[[UIView alloc] initWithFrame:canvas_frame] autorelease];
 
-    self.tiledView = [[[JCTiledView alloc] initWithFrame:canvas_frame] autorelease];
-    self.tiledView.delegate = self;
+    self.tiledView = [[[JCPDFTiledView alloc] initWithFrame:canvas_frame] autorelease];
+    //self.tiledView.delegate = self;
     [self.canvasView addSubview:self.tiledView];
 
     [self addSubview:self.canvasView];
@@ -67,6 +67,9 @@
 
 	return self;
 }
+
+
+
 
 -(void)dealloc
 {	

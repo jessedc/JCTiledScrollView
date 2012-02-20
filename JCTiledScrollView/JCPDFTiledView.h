@@ -1,7 +1,7 @@
 //
-//  JCTiledView.h
+//  JCPDFTiledView.h
 //  
-//  Created by Jesse Collis on 1/2/2012.
+//  Created by Jesse Collis on 20/2/2012.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>
 //  All rights reserved.
 //
@@ -25,20 +25,25 @@
 //  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
-//
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 
-@class JCTiledView, JCTiledLayer;
+@class JCTiledLayer, JCPDFTiledView;
 
-@protocol JCTiledViewDelegate
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+@protocol JCPDFTiledViewDelegate <NSObject>
+- (CGPDFDocumentRef *)pdfDocumentForTiledView:(JCPDFTiledView *)tiledView;
 @end
 
-@interface JCTiledView : UIView
+@interface JCPDFTiledView : UIView
+{
+  @private
+  CGPDFDocumentRef PDFDocRef_;
+	CGPDFPageRef PDFPageRef_;
+  NSInteger pageAngle_;
+  CGSize pageSize_;
+}
 
-@property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
+//@property (nonatomic, assign) id<JCPDFTiledViewDelegate> delegate;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
 
 - (JCTiledLayer *)tiledLayer;

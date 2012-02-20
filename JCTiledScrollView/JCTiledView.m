@@ -28,18 +28,8 @@
 //
 
 #import "JCTiledView.h"
+#import "JCTiledLayer.h"
 #import "math.h"
-
-static const CFTimeInterval kDefaultFadeDuration = 0.08;
-
-@implementation JCTiledLayer
-
-+ (CFTimeInterval)fadeDuration
-{
-  return kDefaultFadeDuration;
-}
-
-@end
 
 static const CGFloat kDefaultTileSize = 256.0f;
 

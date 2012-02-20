@@ -1,7 +1,7 @@
 //
-//  JCTiledView.h
-//  
-//  Created by Jesse Collis on 1/2/2012.
+//  JCTiledLayer.m
+//
+//  Created by Jesse Collis on 20/02/12.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>
 //  All rights reserved.
 //
@@ -27,20 +27,15 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 //
 
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "JCTiledLayer.h"
 
-@class JCTiledView, JCTiledLayer;
+static const CFTimeInterval kDefaultFadeDuration = 0.08;
 
-@protocol JCTiledViewDelegate
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
-@end
+@implementation JCTiledLayer
 
-@interface JCTiledView : UIView
-
-@property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
-@property (nonatomic, assign) size_t numberOfZoomLevels;
-
-- (JCTiledLayer *)tiledLayer;
++ (CFTimeInterval)fadeDuration
+{
+  return kDefaultFadeDuration;
+}
 
 @end
