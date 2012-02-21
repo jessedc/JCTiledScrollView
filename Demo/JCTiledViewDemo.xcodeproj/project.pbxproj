@@ -21,6 +21,10 @@
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
+		88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */; };
+		88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */; };
+		88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */; };
+		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +50,13 @@
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		88DCC87714F3BEAA00B206F5 /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
+		88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
+		88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPDFTiledView.h; sourceTree = "<group>"; };
+		88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPDFTiledView.m; sourceTree = "<group>"; };
+		88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledLayer.h; sourceTree = "<group>"; };
+		88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledLayer.m; sourceTree = "<group>"; };
+		88DCC88214F3BEF800B206F5 /* Map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Map.pdf; path = ../Map.pdf; sourceTree = "<group>"; };
 		88E49D3614E2788400D688DF /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		88E49D3714E2788400D688DF /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +108,7 @@
 		887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				88DCC88214F3BEF800B206F5 /* Map.pdf */,
 				8809DC4C14D8E44A0003B4C6 /* tiles */,
 				887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */,
 				887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */,
@@ -126,6 +138,11 @@
 		887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				88DCC88114F3BEAF00B206F5 /* Support */,
+				88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */,
+				88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */,
+				88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */,
+				88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */,
 				887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */,
 				887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */,
 				887EE98114D8DDDA00AB0A92 /* JCTiledView.h */,
@@ -133,6 +150,15 @@
 			);
 			name = JCTiledScrollView;
 			path = ../JCTiledScrollView;
+			sourceTree = "<group>";
+		};
+		88DCC88114F3BEAF00B206F5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				88DCC87714F3BEAA00B206F5 /* CGPDFDocument.h */,
+				88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +217,7 @@
 				88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */,
 				88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */,
 				88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */,
+				88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +234,9 @@
 				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
 				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
 				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
+				88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */,
+				88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */,
+				88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
