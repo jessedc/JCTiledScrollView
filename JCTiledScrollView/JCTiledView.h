@@ -33,6 +33,9 @@
 @class JCTiledView, JCTiledLayer;
 
 @protocol JCTiledViewDelegate
+@end
+
+@protocol JCTiledBitmapViewDelegate <JCTiledViewDelegate>
 -(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 

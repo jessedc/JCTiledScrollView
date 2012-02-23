@@ -42,37 +42,6 @@ static const CGFloat kDefaultTileSize = 512.0f;
     self.tiledLayer.tileSize = self.scaledTileSize;
     self.tiledLayer.levelsOfDetail = 1;
     self.numberOfZoomLevels = 3;
-    
-    CGRect contentSize = CGRectZero;
-
-      PDFDocRef_ = CGPDFDocumentCreateX((CFURLRef)[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"], @"");
-      
-      if (PDFDocRef_ != NULL) // Check for non-NULL CGPDFDocumentRef
-      {
-        PDFPageRef_ = CGPDFDocumentGetPage(PDFDocRef_, 1);
-
-        if (PDFPageRef_ != NULL) // Check for non-NULL CGPDFPageRef
-        {
-          CGPDFPageRetain(PDFPageRef_); // Retain the PDF page
-          
-          CGRect cropBoxRect = CGPDFPageGetBoxRect(PDFPageRef_, kCGPDFCropBox);
-          CGRect mediaBoxRect = CGPDFPageGetBoxRect(PDFPageRef_, kCGPDFMediaBox);
-          CGRect effectiveRect = CGRectIntersection(cropBoxRect, mediaBoxRect);
-          
-          contentSize.size = effectiveRect.size;
-        }
-        else // Error out with a diagnostic
-        {
-          CGPDFDocumentRelease(PDFDocRef_);
-          PDFDocRef_ = NULL;
-          
-          NSAssert(NO, @"CGPDFPageRef == NULL");
-        }
-      }
-      else // Error out with a diagnostic
-      {
-        NSAssert(NO, @"CGPDFDocumentRef == NULL");
-      }
   }
   
   return self;
@@ -93,10 +62,10 @@ static const CGFloat kDefaultTileSize = 512.0f;
   CGContextRef ctx = UIGraphicsGetCurrentContext();
 
 	CGPDFPageRef drawPDFPageRef = NULL;
-	CGPDFDocumentRef drawPDFDocRef = NULL;
+	//CGPDFDocumentRef drawPDFDocRef = NULL;
 
-  drawPDFDocRef = CGPDFDocumentRetain(PDFDocRef_);
-  drawPDFPageRef = CGPDFPageRetain(PDFPageRef_);
+  //drawPDFDocRef = CGPDFDocumentRetain(PDFDocRef_);
+  drawPDFPageRef = CGPDFPageRetain([(id<JCPDFTiledViewDelegate>)self.delegate pdfPageForTiledView:self]);
 
 	CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
 	CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
@@ -115,8 +84,7 @@ static const CGFloat kDefaultTileSize = 512.0f;
 	}
   
 	CGPDFPageRelease(drawPDFPageRef);
-  CGPDFDocumentRelease(drawPDFDocRef);
-
+  //CGPDFDocumentRelease(drawPDFDocRef);
 }
 
 @end

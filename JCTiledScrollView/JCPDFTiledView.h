@@ -27,25 +27,15 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
 #import <UIKit/UIKit.h>
+#import "JCTiledView.h"
 
-@class JCTiledLayer, JCPDFTiledView;
+@class JCPDFTiledView;
 
 @protocol JCPDFTiledViewDelegate <NSObject>
-- (CGPDFDocumentRef *)pdfDocumentForTiledView:(JCPDFTiledView *)tiledView;
+- (CGPDFDocumentRef)pdfDocumentForTiledView:(JCPDFTiledView *)tiledView;
+- (CGPDFPageRef)pdfPageForTiledView:(JCPDFTiledView *)tiledView;
 @end
 
-@interface JCPDFTiledView : UIView
-{
-  @private
-  CGPDFDocumentRef PDFDocRef_;
-	CGPDFPageRef PDFPageRef_;
-  NSInteger pageAngle_;
-  CGSize pageSize_;
-}
-
-//@property (nonatomic, assign) id<JCPDFTiledViewDelegate> delegate;
-@property (nonatomic, assign) size_t numberOfZoomLevels;
-
-- (JCTiledLayer *)tiledLayer;
+@interface JCPDFTiledView : JCTiledView
 
 @end

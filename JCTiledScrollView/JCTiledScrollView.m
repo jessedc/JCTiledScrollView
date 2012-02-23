@@ -30,9 +30,8 @@
 #import "JCTiledScrollView.h"
 #import "JCTiledView.h"
 
-@interface JCTiledScrollView ()
+@interface JCTiledScrollView () <JCTiledBitmapViewDelegate>
 @property (nonatomic, retain) UIView *canvasView;
-@property (nonatomic, retain) JCTiledView *tiledView;
 @end
 
 @implementation JCTiledScrollView
@@ -43,6 +42,11 @@
 @synthesize tiledView = _tiledView;
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
+
++ (Class)tiledLayerClass
+{
+  return [JCTiledView class];
+}
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
 {
@@ -60,7 +64,7 @@
     CGRect canvas_frame = CGRectMake(0., 0., self.contentSize.width, self.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
 
-    self.tiledView = [[[JCTiledView alloc] initWithFrame:canvas_frame] autorelease];
+    self.tiledView = [[[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame] autorelease];
     self.tiledView.delegate = self;
     
     [self.canvasView addSubview:self.tiledView];

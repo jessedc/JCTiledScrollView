@@ -91,7 +91,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   NSInteger col = (CGRectGetMinX(rect) * scale) / self.tileSize.width;
   NSInteger row = (CGRectGetMinY(rect) * scale) / self.tileSize.height;
 
-  UIImage *tile_image = [self.delegate tiledView:self imageForRow:row column:col scale:scale];
+  UIImage *tile_image = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:scale];
   [tile_image drawInRect:rect];
   
   [self annotateRect:rect inContext:ctx];

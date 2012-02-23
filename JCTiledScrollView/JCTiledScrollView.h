@@ -29,7 +29,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class JCTiledScrollView;
+@class JCTiledScrollView, JCTiledView;
 
 @protocol JCTileSource <NSObject>
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
@@ -41,14 +41,15 @@
 - (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
 @end
 
-@protocol JCTiledViewDelegate;
-
-@interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate, JCTiledViewDelegate>
+@interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate>
 
 @property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
 @property (nonatomic, assign) id <JCTileSource> dataSource;
+@property (nonatomic, retain) JCTiledView *tiledView;
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
+
++ (Class)tiledLayerClass;
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
 

@@ -8,6 +8,12 @@
 
 #import "JCTiledScrollView.h"
 
-@interface JCTiledPDFScrollView : JCTiledScrollView
+@interface JCTiledPDFScrollView : JCTiledScrollView {
+  @private
+  CGPDFDocumentRef _PDFDocRef;
+	CGPDFPageRef _PDFPageRef;
+}
+
+- (id)initWithFrame:(CGRect)frame URL:(NSURL *)url;
 
 @end
