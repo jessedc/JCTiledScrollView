@@ -49,7 +49,7 @@ static const CGFloat kDefaultTileSize = 256.;
 	CGPDFPageRelease(drawPDFPageRef);
   
   //hidden
-  [self annotateRect:rect inContext:ctx];
+  //[self annotateRect:rect inContext:ctx];
 }
 
 @end
