@@ -30,17 +30,16 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@class JCBitmapTiledView, JCTiledLayer;
+@class JCTiledView, JCTiledLayer;
 
-@protocol JCBitmapTiledViewDelegate
--(UIImage *)tiledView:(JCBitmapTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+@protocol JCTiledViewDelegate
+-(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 
-@interface JCBitmapTiledView : UIView
+@interface JCTiledView : UIView
 
-@property (nonatomic, assign) id<JCBitmapTiledViewDelegate> delegate;
+@property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
+@property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
-
-- (JCTiledLayer *)tiledLayer;
 
 @end

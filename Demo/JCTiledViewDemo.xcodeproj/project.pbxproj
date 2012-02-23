@@ -17,7 +17,7 @@
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
 		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
-		887EE98414D8DDDA00AB0A92 /* JCBitmapTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */; };
+		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
@@ -47,8 +47,8 @@
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
 		887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollView.h; sourceTree = "<group>"; };
 		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
-		887EE98114D8DDDA00AB0A92 /* JCBitmapTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCBitmapTiledView.h; sourceTree = "<group>"; };
-		887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBitmapTiledView.m; sourceTree = "<group>"; };
+		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = JCTiledView.h; sourceTree = "<group>"; };
+		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 			children = (
 				88DCC88414F64FC200B206F5 /* JCTiledBitmapScrollView.h */,
 				88DCC88514F64FC200B206F5 /* JCTiledBitmapScrollView.m */,
-				887EE98114D8DDDA00AB0A92 /* JCBitmapTiledView.h */,
-				887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */,
+				887EE98114D8DDDA00AB0A92 /* JCTiledView.h */,
+				887EE98214D8DDDA00AB0A92 /* JCTiledView.m */,
 			);
 			name = Bitmap;
 			sourceTree = "<group>";
@@ -257,7 +257,7 @@
 				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
 				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
 				887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */,
-				887EE98414D8DDDA00AB0A92 /* JCBitmapTiledView.m in Sources */,
+				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
 				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
 				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
 				88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */,

@@ -27,44 +27,33 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 //
 
-#import "JCBitmapTiledView.h"
+#import "JCTiledView.h"
 #import "JCTiledLayer.h"
 #import "math.h"
 
 static const CGFloat kDefaultTileSize = 256.0f;
 
-@interface JCBitmapTiledView ()
-@property (nonatomic, assign) CGSize tileSize;
-@property (nonatomic, assign) CGSize scaledTileSize;
--(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
+@interface JCTiledView ()
+- (JCTiledLayer *)tiledLayer;
+- (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
 @end
 
-@implementation JCBitmapTiledView
+@implementation JCTiledView
 
-@synthesize delegate = delegate_;
-@synthesize tileSize = tileSize_;
-@synthesize scaledTileSize = scaledTileSize_;
-
-#pragma mark - Properties
+@dynamic tileSize;
+@synthesize delegate = _delegate;
 
 +(Class)layerClass
 {
   return [JCTiledLayer class];
 }
 
-- (JCTiledLayer *)tiledLayer
-{
-  return (JCTiledLayer *)self.layer;
-}
-
 - (id)initWithFrame:(CGRect)frame
 {
-  if ((self = [super initWithFrame:frame]))
+  if (self = [super initWithFrame:frame])
   {
-    self.tileSize = CGSizeMake(kDefaultTileSize, kDefaultTileSize);
-    self.scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
-
-    self.tiledLayer.tileSize = self.scaledTileSize;
+    CGSize scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
+    self.tiledLayer.tileSize = scaledTileSize;
     self.tiledLayer.levelsOfDetail = 1;
     self.numberOfZoomLevels = 3;
   }
@@ -72,14 +61,26 @@ static const CGFloat kDefaultTileSize = 256.0f;
   return self;
 }
 
-- (void)setNumberOfZoomLevels:(size_t)levels
+#pragma mark - Properties
+
+- (JCTiledLayer *)tiledLayer
 {
-  self.tiledLayer.levelsOfDetailBias = levels;
+  return (JCTiledLayer *)self.layer;
+}
+
+- (CGSize)tileSize
+{
+  return CGSizeMake(kDefaultTileSize, kDefaultTileSize);
 }
 
 - (size_t)numberOfZoomLevels
 {
   return self.tiledLayer.levelsOfDetailBias;
+}
+
+- (void)setNumberOfZoomLevels:(size_t)levels
+{
+  self.tiledLayer.levelsOfDetailBias = levels;
 }
 
 - (void)drawRect:(CGRect)rect
