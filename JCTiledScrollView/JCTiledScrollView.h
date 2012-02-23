@@ -28,8 +28,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JCBitmapTiledView.h"
-#import "JCPDFTiledView.h"
 
 @class JCTiledScrollView;
 
@@ -43,10 +41,12 @@
 - (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
 @end
 
+@protocol JCTiledViewDelegate;
+
 @interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate, JCTiledViewDelegate>
 
-@property (nonatomic, assign) id <JCTileSource> dataSource;
 @property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
+@property (nonatomic, assign) id <JCTileSource> dataSource;
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
 

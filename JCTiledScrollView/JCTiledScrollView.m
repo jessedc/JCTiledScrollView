@@ -28,25 +28,27 @@
 //
 
 #import "JCTiledScrollView.h"
+#import "JCTiledView.h"
 
 @interface JCTiledScrollView ()
 @property (nonatomic, retain) UIView *canvasView;
-@property (nonatomic, retain) JCPDFTiledView *tiledView;
+@property (nonatomic, retain) JCTiledView *tiledView;
 @end
 
 @implementation JCTiledScrollView
-@synthesize dataSource = dataSource_;
-@synthesize tiledScrollViewDelegate = tiledScrollViewDelegate_;
-@synthesize tiledView = tiledView_;
-@synthesize levelsOfZoom = levelsOfZoom_;
-@synthesize canvasView = canvasView_;
-@synthesize levelsOfDetail = levelsOfDetail_;
+
+@synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
+@synthesize levelsOfZoom = _levelsOfZoom;
+@synthesize levelsOfDetail = _levelsOfDetail;
+@synthesize tiledView = _tiledView;
+@synthesize canvasView = _canvasView;
+@synthesize dataSource = _dataSource;
 
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
 {
 	if ((self = [super initWithFrame:frame]))
   {
-    self.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+    self.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     self.levelsOfZoom = 2;
     self.minimumZoomScale = 1.;
     self.delegate = self;
@@ -56,10 +58,11 @@
     self.bounces = YES;
 
     CGRect canvas_frame = CGRectMake(0., 0., self.contentSize.width, self.contentSize.height);
-    self.canvasView = [[[UIView alloc] initWithFrame:canvas_frame] autorelease];
+    _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
 
-    self.tiledView = [[[JCPDFTiledView alloc] initWithFrame:canvas_frame] autorelease];
-    //self.tiledView.delegate = self;
+    self.tiledView = [[[JCTiledView alloc] initWithFrame:canvas_frame] autorelease];
+    self.tiledView.delegate = self;
+    
     [self.canvasView addSubview:self.tiledView];
 
     [self addSubview:self.canvasView];
@@ -68,16 +71,13 @@
 	return self;
 }
 
-
-
-
 -(void)dealloc
 {	
-  [tiledView_ release];
-  tiledView_ = nil;
+  [_tiledView release];
+  _tiledView = nil;
 
-  [canvasView_ release];
-  canvasView_ = nil;
+  [_canvasView release];
+  _canvasView = nil;
 
 	[super dealloc];
 }
@@ -109,7 +109,7 @@
 
 -(void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
-  levelsOfZoom_ = levelsOfZoom;
+  _levelsOfZoom = levelsOfZoom;
   self.maximumZoomScale = (float)powf(2, MAX(0, levelsOfZoom));
 }
 
@@ -117,7 +117,7 @@
 {
   if (levelsOfDetail == 1) NSLog(@"Note: Setting levelsOfDetail to 1 causes strange behaviour");
 
-  levelsOfDetail_ = levelsOfDetail;
+  _levelsOfDetail = levelsOfDetail;
   [self.tiledView setNumberOfZoomLevels:levelsOfDetail];
 }
 
@@ -135,7 +135,7 @@
 
 #pragma mark - JCTileSource
 
--(UIImage *)tiledView:(JCBitmapTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
+-(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
