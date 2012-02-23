@@ -11,50 +11,15 @@
 #import "CGPDFDocument.h"
 
 @interface JCPDFTiledView ()
-@property (nonatomic, assign) CGSize tileSize;
-@property (nonatomic, assign) CGSize scaledTileSize;
 @end
 
-static const CGFloat kDefaultTileSize = 512.0f;
+static const CGFloat kDefaultTileSize = 256.;
 
 @implementation JCPDFTiledView
 
-@synthesize tileSize = tileSize_;
-@synthesize scaledTileSize = scaledTileSize_;
-
-+(Class)layerClass
+- (CGSize)tileSize;
 {
-  return [JCTiledLayer class];
-}
-
-- (JCTiledLayer *)tiledLayer
-{
-  return (JCTiledLayer *)self.layer;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-  if ((self = [super initWithFrame:frame]))
-  {
-    self.tileSize = CGSizeMake(kDefaultTileSize, kDefaultTileSize);
-    self.scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
-    
-    self.tiledLayer.tileSize = self.scaledTileSize;
-    self.tiledLayer.levelsOfDetail = 1;
-    self.numberOfZoomLevels = 3;
-  }
-  
-  return self;
-}
-
-- (void)setNumberOfZoomLevels:(size_t)levels
-{
-  self.tiledLayer.levelsOfDetailBias = levels;
-}
-
-- (size_t)numberOfZoomLevels
-{
-  return self.tiledLayer.levelsOfDetailBias;
+  return CGSizeMake(kDefaultTileSize, kDefaultTileSize);
 }
 
 - (void)drawRect:(CGRect)rect
@@ -62,9 +27,7 @@ static const CGFloat kDefaultTileSize = 512.0f;
   CGContextRef ctx = UIGraphicsGetCurrentContext();
 
 	CGPDFPageRef drawPDFPageRef = NULL;
-	//CGPDFDocumentRef drawPDFDocRef = NULL;
 
-  //drawPDFDocRef = CGPDFDocumentRetain(PDFDocRef_);
   drawPDFPageRef = CGPDFPageRetain([(id<JCPDFTiledViewDelegate>)self.delegate pdfPageForTiledView:self]);
 
 	CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
@@ -84,7 +47,9 @@ static const CGFloat kDefaultTileSize = 512.0f;
 	}
   
 	CGPDFPageRelease(drawPDFPageRef);
-  //CGPDFDocumentRelease(drawPDFDocRef);
+  
+  //hidden
+  [self annotateRect:rect inContext:ctx];
 }
 
 @end
