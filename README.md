@@ -11,13 +11,18 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simpl
 
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
-### Future plans
+### PDF Rendering
 
+I've added PDF rendering on an [experimental branch][11] to test the waters. At this stage it's added a as a subclass of JCTiledLayer and JCTiledScrollview, overriding the appropriate `init` and `drawRect:` methods.
+
+I'm finding the PDF rendering a bit slow in my initial tests so it will stay experimental until I've had a good play with it.
+
+### Future plans (in rough order)
+
+ * Complete PDF rendering support.
  * Handle zooming in both directions
  * Advanced UIGestureRecognizer support (tap, double tap)
  * Support for overlay views
- * PDF / Vector / SVG drawing as an option over bitmap
- * <s>iOS 3 compatibility (it's possible using _drawLayer:inContext:_, but conflicts with UIGestureRecognizer support)</s> - actually, never mind...
 
 ### Handy Links
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
@@ -75,3 +80,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [8]: https://developer.apple.com/library/ios/#documentation/2DDrawing/Conceptual/DrawingPrintingiOS/SupportingHiResScreens/SupportingHiResScreens.html "Supporting High Resolution Screens"
 [9]: http://www.cimgf.com/2011/03/01/subduing-catiledlayer/ "Subduing CATiledLayer on Cocoa Is My Girlfriend"
 [10]: https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1 "View Programming Guide for iOS - View and Window Architecture"
+[11]: https://github.com/jessedc/JCTiledScrollView/tree/pdf-experimental "JCTiledView - Experimental PDF branch"
