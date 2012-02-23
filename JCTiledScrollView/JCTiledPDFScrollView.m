@@ -20,8 +20,6 @@
   return [JCPDFTiledView class];
 }
 
-//[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]
-
 - (id)initWithFrame:(CGRect)frame URL:(NSURL *)url;
 {
   CGSize contentSize = CGSizeZero;
