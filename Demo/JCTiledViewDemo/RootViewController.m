@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
+#define CityMetroMapSize CGSizeMake(800., 600.)
 #define SkippingGirlImageName @"SkippingGirl"
 
 @implementation RootViewController
@@ -39,7 +40,7 @@
   [self.view addSubview:self.detailView];
   
   CGRect scrollView_frame = CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f);
-  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
+  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:CityMetroMapSize] autorelease];
   self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
   self.scrollView.dataSource = self;
   self.scrollView.tiledScrollViewDelegate = self;

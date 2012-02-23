@@ -28,7 +28,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JCTiledView.h"
+#import "JCBitmapTiledView.h"
 #import "JCPDFTiledView.h"
 
 @class JCTiledScrollView;

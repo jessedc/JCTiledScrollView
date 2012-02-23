@@ -135,7 +135,7 @@
 
 #pragma mark - JCTileSource
 
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
+-(UIImage *)tiledView:(JCBitmapTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }

@@ -27,19 +27,19 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 //
 
-#import "JCTiledView.h"
+#import "JCBitmapTiledView.h"
 #import "JCTiledLayer.h"
 #import "math.h"
 
 static const CGFloat kDefaultTileSize = 256.0f;
 
-@interface JCTiledView ()
+@interface JCBitmapTiledView ()
 @property (nonatomic, assign) CGSize tileSize;
 @property (nonatomic, assign) CGSize scaledTileSize;
 -(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
 @end
 
-@implementation JCTiledView
+@implementation JCBitmapTiledView
 
 @synthesize delegate = delegate_;
 @synthesize tileSize = tileSize_;

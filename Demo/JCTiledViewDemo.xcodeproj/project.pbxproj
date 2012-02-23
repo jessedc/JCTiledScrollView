@@ -17,7 +17,7 @@
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
 		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
-		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
+		887EE98414D8DDDA00AB0A92 /* JCBitmapTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
@@ -25,6 +25,8 @@
 		88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */; };
 		88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */; };
 		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
+		88DCC88614F64FC200B206F5 /* JCTiledBitmapScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC88514F64FC200B206F5 /* JCTiledBitmapScrollView.m */; };
+		88DCC88914F6505300B206F5 /* JCTiledPDFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */; };
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +47,8 @@
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
 		887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollView.h; sourceTree = "<group>"; };
 		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
-		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
-		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
+		887EE98114D8DDDA00AB0A92 /* JCBitmapTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCBitmapTiledView.h; sourceTree = "<group>"; };
+		887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBitmapTiledView.m; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -57,6 +59,10 @@
 		88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledLayer.h; sourceTree = "<group>"; };
 		88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledLayer.m; sourceTree = "<group>"; };
 		88DCC88214F3BEF800B206F5 /* Map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Map.pdf; path = ../Map.pdf; sourceTree = "<group>"; };
+		88DCC88414F64FC200B206F5 /* JCTiledBitmapScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledBitmapScrollView.h; sourceTree = "<group>"; };
+		88DCC88514F64FC200B206F5 /* JCTiledBitmapScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledBitmapScrollView.m; sourceTree = "<group>"; };
+		88DCC88714F6505300B206F5 /* JCTiledPDFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledPDFScrollView.h; sourceTree = "<group>"; };
+		88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledPDFScrollView.m; sourceTree = "<group>"; };
 		88E49D3614E2788400D688DF /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		88E49D3714E2788400D688DF /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,15 +144,11 @@
 		887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				88DCC88114F3BEAF00B206F5 /* Support */,
-				88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */,
-				88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */,
-				88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */,
-				88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */,
 				887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */,
 				887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */,
-				887EE98114D8DDDA00AB0A92 /* JCTiledView.h */,
-				887EE98214D8DDDA00AB0A92 /* JCTiledView.m */,
+				88DCC88C14F6514A00B206F5 /* Bitmap */,
+				88DCC88B14F6513700B206F5 /* PDF */,
+				88DCC88114F3BEAF00B206F5 /* Support */,
 			);
 			name = JCTiledScrollView;
 			path = ../JCTiledScrollView;
@@ -157,8 +159,32 @@
 			children = (
 				88DCC87714F3BEAA00B206F5 /* CGPDFDocument.h */,
 				88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */,
+				88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */,
+				88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		88DCC88B14F6513700B206F5 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				88DCC88714F6505300B206F5 /* JCTiledPDFScrollView.h */,
+				88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */,
+				88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */,
+				88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */,
+			);
+			name = PDF;
+			sourceTree = "<group>";
+		};
+		88DCC88C14F6514A00B206F5 /* Bitmap */ = {
+			isa = PBXGroup;
+			children = (
+				88DCC88414F64FC200B206F5 /* JCTiledBitmapScrollView.h */,
+				88DCC88514F64FC200B206F5 /* JCTiledBitmapScrollView.m */,
+				887EE98114D8DDDA00AB0A92 /* JCBitmapTiledView.h */,
+				887EE98214D8DDDA00AB0A92 /* JCBitmapTiledView.m */,
+			);
+			name = Bitmap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,12 +257,14 @@
 				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
 				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
 				887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */,
-				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
+				887EE98414D8DDDA00AB0A92 /* JCBitmapTiledView.m in Sources */,
 				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
 				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
 				88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */,
 				88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */,
 				88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */,
+				88DCC88614F64FC200B206F5 /* JCTiledBitmapScrollView.m in Sources */,
+				88DCC88914F6505300B206F5 /* JCTiledPDFScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
