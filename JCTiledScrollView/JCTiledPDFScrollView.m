@@ -47,13 +47,13 @@
   
   _PDFDocRef = CGPDFDocumentCreateX((CFURLRef)url, @"");
   
-  if (_PDFDocRef != NULL) // Check for non-NULL CGPDFDocumentRef
+  if (_PDFDocRef != NULL)
   {
     _PDFPageRef = CGPDFDocumentGetPage(_PDFDocRef, 1);
     
-    if (_PDFPageRef != NULL) // Check for non-NULL CGPDFPageRef
+    if (_PDFPageRef != NULL)
     {
-      CGPDFPageRetain(_PDFPageRef); // Retain the PDF page
+      CGPDFPageRetain(_PDFPageRef);
       
       CGRect cropBoxRect = CGPDFPageGetBoxRect(_PDFPageRef, kCGPDFCropBox);
       CGRect mediaBoxRect = CGPDFPageGetBoxRect(_PDFPageRef, kCGPDFMediaBox);
@@ -61,7 +61,7 @@
       
       contentSize = effectiveRect.size;
     }
-    else // Error out with a diagnostic
+    else
     {
       CGPDFDocumentRelease(_PDFDocRef);
       _PDFDocRef = NULL;
@@ -69,7 +69,7 @@
       NSAssert(NO, @"CGPDFPageRef == NULL");
     }
   }
-  else // Error out with a diagnostic
+  else
   {
     NSAssert(NO, @"CGPDFDocumentRef == NULL");
   }
