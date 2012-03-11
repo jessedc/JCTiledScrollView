@@ -1,31 +1,30 @@
 # JCTiledScrollView
 
-A set of handy classes wrapping UIScrollView and CATiledLayer that aims to simplify displaying large images at multiple zoom scales. The classes and associated demo code should provide a good reference for how to implement CATiledLayer on iOS devices.
+A set of handy classes wrapping UIScrollView and CATiledLayer that simplifes displaying large images and PDFs at multiple zoom scales. The classes and associated demo code should provide a good reference for how to implement CATiledLayer on iOS devices.
 
 ### Features
 
- * Works on both standard and high resolution displays
- * Only provide a single set of tiles; no need for double resolution @2x tiles
- * Demo code and tiles included
+ * Supports Bitmap tiles, and PDF files through two seperate classes
+ * Works on both standard and high resolution displays (hellooooo retina display iPad!)
+ * For bitmap images you only need toprovide a single set of tiles, no need for @2x tiles
+ * Demo code, tiles, and example PDF file included
  * iOS 4+
 
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
-### PDF Rendering
+### Latest Updates (March 2012)
 
-I've added PDF rendering on an [experimental branch][11] to test the waters. At this stage it's added a as a subclass of JCTiledLayer and JCTiledScrollview, overriding the appropriate `init` and `drawRect:` methods.
+  * Merged experimental PDF rendering classes into the main project. Welcome JCTiledPDFScrollView.
 
-I'm finding the PDF rendering a bit slow in my initial tests so it will stay experimental until I've had a good play with it.
+### Future plans
 
-### Future plans (in rough order)
-
- * Complete PDF rendering support.
  * Handle zooming in both directions
- * Advanced UIGestureRecognizer support (tap, double tap)
+ * More advanced UIGestureRecognizer support
  * Support for overlay views
 
 ### Handy Links
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
+ * Cut your images on the command line with my fork of [Chris Miles'][3] experimental [SliceTool][12] program.
 
 ### Further Reading
   * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
@@ -81,3 +80,5 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [9]: http://www.cimgf.com/2011/03/01/subduing-catiledlayer/ "Subduing CATiledLayer on Cocoa Is My Girlfriend"
 [10]: https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1 "View Programming Guide for iOS - View and Window Architecture"
 [11]: https://github.com/jessedc/JCTiledScrollView/tree/pdf-experimental "JCTiledView - Experimental PDF branch"
+[12]: https://github.com/jessedc/SliceTool "jessedc's fork of SliceTool on github"
+[13: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"
