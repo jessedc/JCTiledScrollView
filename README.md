@@ -24,7 +24,7 @@ A set of handy classes wrapping UIScrollView and CATiledLayer that simplifes dis
 
 ### Handy Links
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
- * Cut your images on the command line with my fork of [Chris Miles'][3] experimental [SliceTool][12] program.
+ * Cut your images on the command line with my fork of [Chris Miles'][13] experimental [SliceTool][12] program.
 
 ### Further Reading
   * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
