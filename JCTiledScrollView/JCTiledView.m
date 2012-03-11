@@ -92,10 +92,12 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
   UIImage *tile_image = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:scale];
   [tile_image drawInRect:rect];
-  
+#ifdef ANNOTATE_TILES  
   [self annotateRect:rect inContext:ctx];
+#endif
 }
 
+#ifdef ANNOTATE_TILES
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
@@ -109,5 +111,6 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGContextSetLineWidth(ctx, line_width);
   CGContextStrokeRect(ctx, rect);
 }
+#endif
 
 @end

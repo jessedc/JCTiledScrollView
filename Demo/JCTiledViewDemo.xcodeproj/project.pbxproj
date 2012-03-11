@@ -322,6 +322,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					ANNOTATE_TILES,
+				);
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
 				PRODUCT_NAME = JCTiledView;
 				WRAPPER_EXTENSION = app;

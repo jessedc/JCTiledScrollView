@@ -48,11 +48,11 @@
   CGRect scrollView_frame = CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f);
   
   //PDF
-  self.scrollView = [[[JCTiledPDFScrollView alloc] initWithFrame:scrollView_frame URL:[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]] autorelease];
+  //self.scrollView = [[[JCTiledPDFScrollView alloc] initWithFrame:scrollView_frame URL:[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]] autorelease];
   
   //Bitmap
-  //self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
-  //self.scrollView.dataSource = self;
+  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
+  self.scrollView.dataSource = self;
 
   self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;

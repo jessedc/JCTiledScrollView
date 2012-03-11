@@ -45,7 +45,8 @@
 @property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
 
-//Debug
+#ifdef ANNOTATE_TILES
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
+#endif
 
 @end
