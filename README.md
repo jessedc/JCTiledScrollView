@@ -81,4 +81,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [10]: https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW1 "View Programming Guide for iOS - View and Window Architecture"
 [11]: https://github.com/jessedc/JCTiledScrollView/tree/pdf-experimental "JCTiledView - Experimental PDF branch"
 [12]: https://github.com/jessedc/SliceTool "jessedc's fork of SliceTool on github"
-[13: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"
+[13]: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"

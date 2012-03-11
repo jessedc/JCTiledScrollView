@@ -49,7 +49,7 @@
 		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
 		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
 		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
-		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		887EE93614D8DC2D00AB0A92 = {
 			isa = PBXGroup;
 			children = (
+				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
 				887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
@@ -127,7 +128,6 @@
 		887EE94C14D8DC2D00AB0A92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				88C19C7F150C4D6E007184E6 /* README.md */,
 				88DCC88214F3BEF800B206F5 /* Map.pdf */,
 				8809DC4C14D8E44A0003B4C6 /* tiles */,
 				88CD1A3714E2007F00B54AF0 /* Icon-72.png */,
