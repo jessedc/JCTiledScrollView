@@ -35,7 +35,6 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 @interface JCTiledView ()
 - (JCTiledLayer *)tiledLayer;
-- (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
 @end
 
 @implementation JCTiledView
@@ -97,7 +96,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   [self annotateRect:rect inContext:ctx];
 }
 
--(void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
+- (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
   CGFloat line_width = 2.0f / scale;
