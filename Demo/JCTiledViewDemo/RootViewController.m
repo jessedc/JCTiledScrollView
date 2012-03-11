@@ -10,8 +10,6 @@
 #import "JCTiledPDFScrollView.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
-#define CityMetroMapSize CGSizeMake(800., 600.)
-#define SkippingGirlImageName @"SkippingGirl"
 
 @implementation RootViewController
 
@@ -32,6 +30,13 @@
 
 #pragma mark - View lifecycle
 
+- (void)loadView
+{
+  UIView *view = [[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f)] autorelease];
+  view.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+  self.view = view;
+}
+
 - (void)viewDidLoad
 {
   self.detailView = [[[DetailView alloc] initWithFrame:CGRectZero] autorelease];
@@ -48,8 +53,8 @@
   //Bitmap
   //self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
   //self.scrollView.dataSource = self;
-  //self.scrollView.tiledScrollViewDelegate = self;
 
+  self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
 
   // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
@@ -80,6 +85,8 @@
 }
 
 #pragma mark - JCTileSource
+
+#define SkippingGirlImageName @"SkippingGirl"
 
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
