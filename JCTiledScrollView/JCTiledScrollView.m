@@ -77,11 +77,8 @@
 
 -(void)dealloc
 {	
-  [_tiledView release];
-  _tiledView = nil;
-
-  [_canvasView release];
-  _canvasView = nil;
+  RELEASE(_tiledView);
+  RELEASE(_canvasView);
 
 	[super dealloc];
 }

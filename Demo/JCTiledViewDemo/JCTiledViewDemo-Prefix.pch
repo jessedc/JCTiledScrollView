@@ -11,4 +11,22 @@
 #ifdef __OBJC__
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
+
+
+#define RELEASE(INSTANCE__)      { [INSTANCE__ release]; INSTANCE__ = nil; }
+
+#define SWAP_INSTANCE_RETAIN(DESTINATION__, SOURCE__) \
+{                                                   \
+id old_value__ = DESTINATION__;                   \
+DESTINATION__ = [SOURCE__ retain];                \
+[old_value__ release];                            \
+}
+
+#define SWAP_INSTANCE_COPY(DESTINATION__, SOURCE__) \
+{                                                 \
+id old_value__ = DESTINATION__;                 \
+DESTINATION__ = [SOURCE__ copy];                \
+[old_value__ release];                          \
+}
+
 #endif
