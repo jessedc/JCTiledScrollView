@@ -72,7 +72,7 @@
     self.bouncesZoom = YES;
     self.bounces = YES;
 
-    CGRect canvas_frame = CGRectMake(0., 0., self.contentSize.width, self.contentSize.height);
+    CGRect canvas_frame = CGRectMake(0.0f, 0.0f, self.contentSize.width, self.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
 
     self.tiledView = [[[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame] autorelease];
