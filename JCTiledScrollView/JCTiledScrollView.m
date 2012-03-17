@@ -50,6 +50,9 @@
 @synthesize tiledView = _tiledView;
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
+@synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
+@synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
+@synthesize centerSingleTap = _centerSingleTap;
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
@@ -71,6 +74,10 @@
     self.contentSize = contentSize;
     self.bouncesZoom = YES;
     self.bounces = YES;
+
+    self.zoomsInOnDoubleTap = YES;
+    self.zoomsOutOnTwoFingerTap = YES;
+    self.centerSingleTap = YES;
 
     CGRect canvas_frame = CGRectMake(0.0f, 0.0f, self.contentSize.width, self.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
@@ -137,6 +144,11 @@
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
+  if (self.centerSingleTap)
+  {
+    [self setContentCenter:[gestureRecognizer locationInView:self.tiledView] animated:YES];
+  }
+
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveSingleTap:)])
   {
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveSingleTap:gestureRecognizer];
@@ -145,6 +157,12 @@
 
 - (void)doubleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
+  if (self.zoomsInOnDoubleTap)
+  {
+    float newZoom = MIN(powf(2, (log2f(self.zoomScale) + 1.0f)), self.maximumZoomScale); //zoom in one level of detail
+    [self setZoomScale:newZoom animated:YES];
+  }
+
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveDoubleTap:)])
   {
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveDoubleTap:gestureRecognizer];
@@ -153,6 +171,12 @@
 
 - (void)twoFingerTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
+  if (self.zoomsOutOnTwoFingerTap)
+  {
+    float newZoom = MAX(powf(2, (log2f(self.zoomScale) - 1.0f)), self.minimumZoomScale); //zoom out one level of detail
+    [self setZoomScale:newZoom animated:YES];
+  }
+
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveTwoFingerTap:)])
   {
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];

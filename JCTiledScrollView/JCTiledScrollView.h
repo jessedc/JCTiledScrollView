@@ -53,6 +53,9 @@
 @property (nonatomic, retain) JCTiledView *tiledView;
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
+@property (nonatomic, assign) BOOL centerSingleTap;
+@property (nonatomic, assign) BOOL zoomsInOnDoubleTap;
+@property (nonatomic, assign) BOOL zoomsOutOnTwoFingerTap;
 
 + (Class)tiledLayerClass;
 
