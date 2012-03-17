@@ -32,6 +32,14 @@
 
 @interface JCTiledScrollView () <JCTiledBitmapViewDelegate>
 @property (nonatomic, retain) UIView *canvasView;
+@property (nonatomic, retain) UITapGestureRecognizer *singleTapGestureRecognizer;
+@property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
+@property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
+
+- (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
+- (void)twoFingerTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
+- (void)doubleTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
+
 @end
 
 @implementation JCTiledScrollView
@@ -42,6 +50,9 @@
 @synthesize tiledView = _tiledView;
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
+@synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
+@synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
+@synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
 
 + (Class)tiledLayerClass
 {
@@ -70,6 +81,19 @@
     [self.canvasView addSubview:self.tiledView];
 
     [self addSubview:self.canvasView];
+
+    _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
+    _singleTapGestureRecognizer.numberOfTapsRequired = 1;
+    [self.canvasView addGestureRecognizer:self.singleTapGestureRecognizer];
+
+    _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapReceived:)];
+    _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.canvasView addGestureRecognizer:self.doubleTapGestureRecognizer];
+
+    _twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapReceived:)];
+    _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
+    _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
+    [self.canvasView addGestureRecognizer:_twoFingerTapGestureRecognizer];
 	}
 
 	return self;
@@ -79,6 +103,9 @@
 {	
   RELEASE(_tiledView);
   RELEASE(_canvasView);
+  RELEASE(_singleTapGestureRecognizer);
+  RELEASE(_doubleTapGestureRecognizer);
+  RELEASE(_twoFingerTapGestureRecognizer);
 
 	[super dealloc];
 }
@@ -103,6 +130,32 @@
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidScroll:)])
   {
     [self.tiledScrollViewDelegate tiledScrollViewDidScroll:self];
+  }
+}
+
+#pragma mark - Gesture Suport
+
+- (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
+{
+  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveSingleTap:)])
+  {
+    [self.tiledScrollViewDelegate tiledScrollView:self didReceiveSingleTap:gestureRecognizer];
+  }
+}
+
+- (void)doubleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
+{
+  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveDoubleTap:)])
+  {
+    [self.tiledScrollViewDelegate tiledScrollView:self didReceiveDoubleTap:gestureRecognizer];
+  }
+}
+
+- (void)twoFingerTapReceived:(UITapGestureRecognizer *)gestureRecognizer
+{
+  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveTwoFingerTap:)])
+  {
+    [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];
   }
 }
 

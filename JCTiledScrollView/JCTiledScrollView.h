@@ -39,6 +39,11 @@
 @optional
 - (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView;
 - (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
+
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveSingleTap:(UIGestureRecognizer *)gestureRecognizer;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer;
+
 @end
 
 @interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate>
