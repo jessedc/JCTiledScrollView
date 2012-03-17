@@ -1,30 +1,36 @@
 # JCTiledScrollView
 
-A set of handy classes wrapping UIScrollView and CATiledLayer that simplifes displaying large images and PDFs at multiple zoom scales. The classes and associated demo code should provide a good reference for how to implement CATiledLayer on iOS devices.
+JCTiledScrollView is a set of classes that wraps UIScrollView and CATiledLayer. It aims to simplify displaying large images and PDFs at multiple zoom scales.
+
+JCTiledScrollView is under continuous development by [Jesse Collis][3] <jesse@jmcultimedia.com.au>.
+
+Feature requests and pull-requests are more than welcome.
 
 ### Features
 
- * Supports Bitmap tiles, and PDF files through two seperate classes
- * Works on both standard and high resolution displays (hellooooo retina display iPad!)
- * For bitmap images you only need toprovide a single set of tiles, no need for @2x tiles
- * Demo code, tiles, and example PDF file included
- * iOS 4+
+ * Supports tiled bitmap images and single page PDF files through two separate classes
+ * Works on both standard and high resolution displays
+ * Only need to provide a single set of bitmap tiles; no need for @2x tiles
+ * A handy set of default UIGestureRecognizer actions and delegate callbacks
+ * Demo code, example PNG tiles and PDF file are included
+ * Supports iOS 4.0+
 
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
 ### Latest Updates (March 2012)
 
   * Merged experimental PDF rendering classes into the main project. Welcome JCTiledPDFScrollView.
+  * Added an initial set of UIGestureRecognizers with some optional default behaviour, similar to MKMapView
 
-### Future plans
+### Next Steps
 
- * Handle zooming in both directions
- * More advanced UIGestureRecognizer support
- * Support for overlay views
+ * Support for adding overlay views
+ * More advanced UIGestureRecognizer support (dragging overlays etc)
+ * Zooming in both directions
 
 ### Handy Links
- * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6].
- * Cut your images on the command line with my fork of [Chris Miles'][13] experimental [SliceTool][12] program.
+ * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6]
+ * Cut your images on the command line with [my fork][12] of [Chris Miles'][13] experimental [SliceTool][12] program
 
 ### Further Reading
   * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
