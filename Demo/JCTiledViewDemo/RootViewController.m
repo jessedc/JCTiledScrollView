@@ -62,6 +62,8 @@
   self.scrollView.levelsOfDetail = 3;
   
   [self.view addSubview:self.scrollView];
+
+  [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
 }
 
 - (void)viewDidUnload
