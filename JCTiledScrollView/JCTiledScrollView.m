@@ -97,6 +97,8 @@
     _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
     [self.canvasView addGestureRecognizer:self.doubleTapGestureRecognizer];
 
+    [self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
+
     _twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapReceived:)];
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
