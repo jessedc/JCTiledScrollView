@@ -79,11 +79,19 @@
   return YES;
 }
 
-#pragma mark - UIScrollViewDelegate
+#pragma mark - JCTiledScrollViewDelegate
 
 - (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView
 {
   self.detailView.textLabel.text = [NSString stringWithFormat:@"zoomScale: %0.2f", scrollView.zoomScale];
+}
+
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveSingleTap:(UIGestureRecognizer *)gestureRecognizer
+{
+  CGPoint tapPoint = [gestureRecognizer locationInView:(UIView *)scrollView.tiledView];
+
+  //tap point on the tiledView does not inlcude the zoomScale applied by the scrollView
+  self.detailView.textLabel.text = [NSString stringWithFormat:@"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y];
 }
 
 #pragma mark - JCTileSource
