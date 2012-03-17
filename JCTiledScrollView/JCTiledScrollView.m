@@ -111,7 +111,7 @@
 -(void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
   _levelsOfZoom = levelsOfZoom;
-  self.maximumZoomScale = (float)powf(2, MAX(0, levelsOfZoom));
+  self.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, levelsOfZoom));
 }
 
 - (void)setLevelsOfDetail:(size_t)levelsOfDetail
@@ -125,8 +125,8 @@
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
   CGPoint new_contentOffset;
-  new_contentOffset.x = MAX(0, (center.x * self.zoomScale) - (self.bounds.size.width / 2.0f));
-  new_contentOffset.y = MAX(0, (center.y * self.zoomScale) - (self.bounds.size.height / 2.0f));
+  new_contentOffset.x = MAX(0.0f, (center.x * self.zoomScale) - (self.bounds.size.width / 2.0f));
+  new_contentOffset.y = MAX(0.0f, (center.y * self.zoomScale) - (self.bounds.size.height / 2.0f));
   
   new_contentOffset.x = MIN(new_contentOffset.x, (self.contentSize.width - self.bounds.size.width));
   new_contentOffset.y = MIN(new_contentOffset.y, (self.contentSize.height - self.bounds.size.height));
