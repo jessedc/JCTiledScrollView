@@ -45,9 +45,13 @@
 @implementation JCTiledScrollView
 
 @synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
+
 @synthesize levelsOfZoom = _levelsOfZoom;
 @synthesize levelsOfDetail = _levelsOfDetail;
+@dynamic zoomScale;
+
 @synthesize tiledView = _tiledView;
+@synthesize scrollView = _scrollView;
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
 
@@ -59,6 +63,7 @@
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
 
+
 + (Class)tiledLayerClass
 {
   return [JCTiledView class];
@@ -68,43 +73,49 @@
 {
 	if ((self = [super initWithFrame:frame]))
   {
-    self.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
-    self.levelsOfZoom = 2;
-    self.minimumZoomScale = 1.;
-    self.delegate = self;
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.backgroundColor = [UIColor whiteColor];
-    self.contentSize = contentSize;
-    self.bouncesZoom = YES;
-    self.bounces = YES;
+
+    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    _scrollView.delegate = self;
+    _scrollView.backgroundColor = [UIColor whiteColor];
+    _scrollView.contentSize = contentSize;
+    _scrollView.bouncesZoom = YES;
+    _scrollView.bounces = YES;
+    _scrollView.minimumZoomScale = 1.0;
+
+    self.levelsOfZoom = 2;
 
     self.zoomsInOnDoubleTap = YES;
     self.zoomsOutOnTwoFingerTap = YES;
     self.centerSingleTap = YES;
 
-    CGRect canvas_frame = CGRectMake(0.0f, 0.0f, self.contentSize.width, self.contentSize.height);
+    CGRect canvas_frame = CGRectMake(0.0f, 0.0f, _scrollView.contentSize.width, _scrollView.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
 
-    self.tiledView = [[[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame] autorelease];
-    self.tiledView.delegate = self;
-    
-    [self.canvasView addSubview:self.tiledView];
+    _tiledView = [[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame];
+    _tiledView.delegate = self;
 
-    [self addSubview:self.canvasView];
+    [_canvasView addSubview:self.tiledView];
+    [_scrollView addSubview:self.canvasView];
+
+    [self addSubview:_scrollView];
 
     _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
-    [self.canvasView addGestureRecognizer:self.singleTapGestureRecognizer];
+    [_canvasView addGestureRecognizer:self.singleTapGestureRecognizer];
 
     _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapReceived:)];
     _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [self.canvasView addGestureRecognizer:self.doubleTapGestureRecognizer];
+    [_canvasView addGestureRecognizer:self.doubleTapGestureRecognizer];
 
     [self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 
     _twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapReceived:)];
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
-    [self.canvasView addGestureRecognizer:_twoFingerTapGestureRecognizer];
+    [_canvasView addGestureRecognizer:_twoFingerTapGestureRecognizer];
 	}
 
 	return self;
@@ -112,6 +123,7 @@
 
 - (void)dealloc
 {	
+  RELEASE(_scrollView);
   RELEASE(_tiledView);
   RELEASE(_canvasView);
   RELEASE(_singleTapGestureRecognizer);
@@ -163,8 +175,8 @@
 {
   if (self.zoomsInOnDoubleTap)
   {
-    float newZoom = MIN(powf(2, (log2f(self.zoomScale) + 1.0f)), self.maximumZoomScale); //zoom in one level of detail
-    [self setZoomScale:newZoom animated:YES];
+    float newZoom = MIN(powf(2, (log2f(_scrollView.zoomScale) + 1.0f)), _scrollView.maximumZoomScale); //zoom in one level of detail
+    [_scrollView setZoomScale:newZoom animated:YES];
   }
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveDoubleTap:)])
@@ -177,8 +189,8 @@
 {
   if (self.zoomsOutOnTwoFingerTap)
   {
-    float newZoom = MAX(powf(2, (log2f(self.zoomScale) - 1.0f)), self.minimumZoomScale); //zoom out one level of detail
-    [self setZoomScale:newZoom animated:YES];
+    float newZoom = MAX(powf(2, (log2f(_scrollView.zoomScale) - 1.0f)), _scrollView.minimumZoomScale); //zoom out one level of detail
+    [_scrollView setZoomScale:newZoom animated:YES];
   }
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveTwoFingerTap:)])
@@ -189,10 +201,20 @@
 
 #pragma mark - JCTiledScrollView
 
+- (float)zoomScale
+{
+  return _scrollView.zoomScale;
+}
+
+- (void)setZoomScale:(float)zoomScale
+{
+  _scrollView.zoomScale = zoomScale;
+}
+
 - (void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
   _levelsOfZoom = levelsOfZoom;
-  self.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, levelsOfZoom));
+  _scrollView.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, levelsOfZoom));
 }
 
 - (void)setLevelsOfDetail:(size_t)levelsOfDetail
@@ -206,13 +228,13 @@
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
   CGPoint new_contentOffset;
-  new_contentOffset.x = MAX(0.0f, (center.x * self.zoomScale) - (self.bounds.size.width / 2.0f));
-  new_contentOffset.y = MAX(0.0f, (center.y * self.zoomScale) - (self.bounds.size.height / 2.0f));
+  new_contentOffset.x = MAX(0.0f, (center.x * _scrollView.zoomScale) - (_scrollView.bounds.size.width / 2.0f));
+  new_contentOffset.y = MAX(0.0f, (center.y * _scrollView.zoomScale) - (_scrollView.bounds.size.height / 2.0f));
   
-  new_contentOffset.x = MIN(new_contentOffset.x, (self.contentSize.width - self.bounds.size.width));
-  new_contentOffset.y = MIN(new_contentOffset.y, (self.contentSize.height - self.bounds.size.height));
+  new_contentOffset.x = MIN(new_contentOffset.x, (_scrollView.contentSize.width - _scrollView.bounds.size.width));
+  new_contentOffset.y = MIN(new_contentOffset.y, (_scrollView.contentSize.height - _scrollView.bounds.size.height));
   
-  [self setContentOffset:new_contentOffset animated:animated];
+  [_scrollView setContentOffset:new_contentOffset animated:animated];
 }
 
 #pragma mark - JCTileSource
