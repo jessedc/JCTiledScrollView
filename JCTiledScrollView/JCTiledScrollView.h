@@ -48,11 +48,18 @@
 
 @interface JCTiledScrollView : UIScrollView <UIScrollViewDelegate>
 
+//Delegates
 @property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
 @property (nonatomic, assign) id <JCTileSource> dataSource;
+
+//internals
 @property (nonatomic, retain) JCTiledView *tiledView;
+@property (nonatomic, retain) UIScrollView *scrollView;
+
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
+
+//Default gesture behvaiour
 @property (nonatomic, assign) BOOL centerSingleTap;
 @property (nonatomic, assign) BOOL zoomsInOnDoubleTap;
 @property (nonatomic, assign) BOOL zoomsOutOnTwoFingerTap;

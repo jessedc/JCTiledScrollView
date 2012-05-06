@@ -50,9 +50,11 @@
 @synthesize tiledView = _tiledView;
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
+
 @synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
 @synthesize centerSingleTap = _centerSingleTap;
+
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
@@ -108,7 +110,7 @@
 	return self;
 }
 
--(void)dealloc
+- (void)dealloc
 {	
   RELEASE(_tiledView);
   RELEASE(_canvasView);
@@ -187,7 +189,7 @@
 
 #pragma mark - JCTiledScrollView
 
--(void)setLevelsOfZoom:(size_t)levelsOfZoom
+- (void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
   _levelsOfZoom = levelsOfZoom;
   self.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, levelsOfZoom));
@@ -215,7 +217,7 @@
 
 #pragma mark - JCTileSource
 
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
+- (UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
