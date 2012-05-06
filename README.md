@@ -32,6 +32,7 @@ Feature requests and pull-requests are more than welcome.
 ### Handy Links
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6]
  * Cut your images on the command line with [my fork][12] of [Chris Miles'][13] experimental [SliceTool][12] program
+ * Shrink your bitmap tiles with [Image Optim][14]. It can half your tile size and [improve performace greatly][15]
 
 ### Further Reading
   * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
@@ -89,3 +90,5 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [11]: https://github.com/jessedc/JCTiledScrollView/tree/pdf-experimental "JCTiledView - Experimental PDF branch"
 [12]: https://github.com/jessedc/SliceTool "jessedc's fork of SliceTool on github"
 [13]: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"
+[14]: http://imageoptim.com "Image Optim"
+[15]: http://imageoptim.com/tweetbot.html "Image Optim Case study: Tweetbot for iPad"
