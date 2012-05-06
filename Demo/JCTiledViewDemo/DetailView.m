@@ -12,7 +12,7 @@
 
 #pragma mark - Properties
 
-@synthesize textLabel = textLabel_;
+@synthesize textLabel = _textLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,7 +20,7 @@
   {
     self.backgroundColor = [UIColor blackColor];
     
-    self.textLabel = [[[UILabel alloc] initWithFrame:[self bounds]] autorelease];
+    _textLabel = [[UILabel alloc] initWithFrame:[self bounds]];
     self.textLabel.font = [UIFont systemFontOfSize:17.0f];
     self.textLabel.textColor = [UIColor whiteColor];
     self.textLabel.textAlignment = UITextAlignmentLeft;
@@ -28,19 +28,16 @@
     
     [self addSubview:self.textLabel];
   }
-
   return self;
 }
 
 - (void)dealloc
 {
-  [textLabel_ release];
-  textLabel_ = nil;
-
+  RELEASE(_textLabel);
   [super dealloc];
 }
 
-#pragma mark - UIView Methods
+#pragma mark - UIView
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
@@ -51,6 +48,5 @@
 {
   self.textLabel.frame = CGRectInset(self.bounds, 2.0f, 2.0f);
 }
-
 
 @end

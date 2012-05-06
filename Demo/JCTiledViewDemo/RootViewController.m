@@ -13,16 +13,13 @@
 
 @implementation RootViewController
 
-@synthesize scrollView = scrollView_;
-@synthesize detailView = detailView_;
+@synthesize scrollView = _scrollView;
+@synthesize detailView = _detailView;
 
 - (void)dealloc
 {
-  [scrollView_ release];
-  scrollView_ = nil;
-
-  [detailView_ release];
-  detailView_ = nil;
+  RELEASE(_scrollView);
+  RELEASE(_detailView);
   
   [super dealloc];
 }
@@ -44,14 +41,14 @@
   CGSize size_for_detail = [self.detailView sizeThatFits:self.view.bounds.size];
   [self.detailView setFrame:CGRectMake(0,0,size_for_detail.width, size_for_detail.height)];
   [self.view addSubview:self.detailView];
-  
+
   CGRect scrollView_frame = CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f);
-  
+
   //PDF
-  //self.scrollView = [[[JCTiledPDFScrollView alloc] initWithFrame:scrollView_frame URL:[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]] autorelease];
-  
+  //_scrollView = [[JCTiledPDFScrollView alloc] initWithFrame:scrollView_frame URL:[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]];
+
   //Bitmap
-  self.scrollView = [[[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize] autorelease];
+  _scrollView = [[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize];
   self.scrollView.dataSource = self;
 
   self.scrollView.tiledScrollViewDelegate = self;
@@ -60,7 +57,7 @@
   // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
   self.scrollView.levelsOfZoom = 3;
   self.scrollView.levelsOfDetail = 3;
-  
+
   [self.view addSubview:self.scrollView];
 
   [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
@@ -68,10 +65,10 @@
 
 - (void)viewDidUnload
 {
-  [super viewDidUnload];
+  RELEASE(_scrollView);
+  RELEASE(_detailView);
 
-  self.scrollView = nil;
-  self.detailView = nil;
+  [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -102,6 +99,5 @@
 {
  return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%dx_%d_%d.png", SkippingGirlImageName, scale, row, column]]; 
 }
-
 
 @end
