@@ -74,7 +74,6 @@
 	if ((self = [super initWithFrame:frame]))
   {
     self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    self.backgroundColor = [UIColor whiteColor];
 
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
