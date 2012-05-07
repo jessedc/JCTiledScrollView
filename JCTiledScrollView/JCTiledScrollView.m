@@ -36,10 +36,6 @@
 @property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
-- (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)twoFingerTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)doubleTapReceived:(UITapGestureRecognizer *)gestureRecognizer;
-
 @end
 
 @implementation JCTiledScrollView
