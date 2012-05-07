@@ -41,6 +41,7 @@
 @implementation JCTiledScrollView
 
 @synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
+@synthesize dataSource = _dataSource;
 
 @synthesize levelsOfZoom = _levelsOfZoom;
 @synthesize levelsOfDetail = _levelsOfDetail;
@@ -51,14 +52,13 @@
 @synthesize canvasView = _canvasView;
 @synthesize dataSource = _dataSource;
 
-@synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
-@synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
-@synthesize centerSingleTap = _centerSingleTap;
-
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
 
+@synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
+@synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
+@synthesize centerSingleTap = _centerSingleTap;
 
 + (Class)tiledLayerClass
 {
@@ -100,20 +100,19 @@
 
     _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
-    [_canvasView addGestureRecognizer:self.singleTapGestureRecognizer];
+    [_tiledView addGestureRecognizer:_singleTapGestureRecognizer];
 
     _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapReceived:)];
     _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [_canvasView addGestureRecognizer:self.doubleTapGestureRecognizer];
+    [_tiledView addGestureRecognizer:_doubleTapGestureRecognizer];
 
-    [self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
+    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
 
     _twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapReceived:)];
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
     [_canvasView addGestureRecognizer:_twoFingerTapGestureRecognizer];
 	}
-
 	return self;
 }
 
@@ -135,6 +134,10 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
   return self.canvasView;
+}
+
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
+{
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
