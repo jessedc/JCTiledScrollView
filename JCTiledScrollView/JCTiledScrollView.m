@@ -79,6 +79,7 @@
     _scrollView.bouncesZoom = YES;
     _scrollView.bounces = YES;
     _scrollView.minimumZoomScale = 1.0;
+    [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
 
     self.levelsOfZoom = 2;
 
@@ -118,6 +119,7 @@
 
 - (void)dealloc
 {	
+  [_scrollView removeObserver:self forKeyPath:@"contentOffset" context:NULL];
   RELEASE(_scrollView);
   RELEASE(_tiledView);
   RELEASE(_canvasView);
@@ -191,6 +193,16 @@
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveTwoFingerTap:)])
   {
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];
+  }
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+  if (object == _scrollView)
+  {
+
   }
 }
 
