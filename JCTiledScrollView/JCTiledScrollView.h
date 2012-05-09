@@ -29,13 +29,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class JCTiledScrollView, JCTiledView;
+@class JCTiledScrollView, JCTiledView, JCAnnotation, JCAnnotationView;
 
 @protocol JCTileSource <NSObject>
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 
 @protocol JCTiledScrollViewDelegate <NSObject>
+
+- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(JCAnnotation *)annotation;
+
 @optional
 - (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView;
 - (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
@@ -70,5 +73,7 @@
 - (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
 
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated;
+
+- (void)addAnnotation:(JCAnnotation *)annotation;
 
 @end

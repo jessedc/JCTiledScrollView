@@ -20,6 +20,9 @@
 		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
 		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
 		88C19C80150C4D6F007184E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 88C19C7F150C4D6E007184E6 /* README.md */; };
+		88C778A9155A77D7005E5DAD /* JCAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778A8155A77D7005E5DAD /* JCAnnotation.m */; };
+		88C778AD155A784B005E5DAD /* JCAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778AC155A784B005E5DAD /* JCAnnotationView.m */; };
+		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
@@ -52,6 +55,12 @@
 		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
 		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		88C778A7155A77D7005E5DAD /* JCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotation.h; sourceTree = "<group>"; };
+		88C778A8155A77D7005E5DAD /* JCAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotation.m; sourceTree = "<group>"; };
+		88C778AB155A784B005E5DAD /* JCAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotationView.h; sourceTree = "<group>"; };
+		88C778AC155A784B005E5DAD /* JCAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotationView.m; sourceTree = "<group>"; };
+		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
+		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -122,6 +131,8 @@
 				8809DC4F14D8E4C40003B4C6 /* RootViewController.m */,
 				88E49D3614E2788400D688DF /* DetailView.h */,
 				88E49D3714E2788400D688DF /* DetailView.m */,
+				88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */,
+				88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */,
 				887EE94C14D8DC2D00AB0A92 /* Supporting Files */,
 			);
 			path = JCTiledViewDemo;
@@ -153,6 +164,10 @@
 				887EE98214D8DDDA00AB0A92 /* JCTiledView.m */,
 				88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */,
 				88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */,
+				88C778A7155A77D7005E5DAD /* JCAnnotation.h */,
+				88C778A8155A77D7005E5DAD /* JCAnnotation.m */,
+				88C778AB155A784B005E5DAD /* JCAnnotationView.h */,
+				88C778AC155A784B005E5DAD /* JCAnnotationView.m */,
 				88DCC88B14F6513700B206F5 /* PDF */,
 				88DCC88114F3BEAF00B206F5 /* Support */,
 			);
@@ -259,6 +274,9 @@
 				88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */,
 				88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */,
 				88DCC88914F6505300B206F5 /* JCTiledPDFScrollView.m in Sources */,
+				88C778A9155A77D7005E5DAD /* JCAnnotation.m in Sources */,
+				88C778AD155A784B005E5DAD /* JCAnnotationView.m in Sources */,
+				88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

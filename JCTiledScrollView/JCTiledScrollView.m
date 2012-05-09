@@ -29,6 +29,8 @@
 
 #import "JCTiledScrollView.h"
 #import "JCTiledView.h"
+#import "JCAnnotation.h"
+#import "JCAnnotationView.h"
 
 @interface JCTiledScrollView () <JCTiledBitmapViewDelegate>
 @property (nonatomic, retain) UIView *canvasView;
@@ -38,7 +40,9 @@
 
 @end
 
-@implementation JCTiledScrollView
+@implementation JCTiledScrollView {
+  NSMutableArray *_annotations;
+}
 
 @synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
 @synthesize dataSource = _dataSource;
@@ -112,6 +116,8 @@
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
     [_tiledView addGestureRecognizer:_twoFingerTapGestureRecognizer];
+    
+    _annotations = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -125,6 +131,8 @@
   RELEASE(_singleTapGestureRecognizer);
   RELEASE(_doubleTapGestureRecognizer);
   RELEASE(_twoFingerTapGestureRecognizer);
+  
+  RELEASE(_annotations);
 
 	[super dealloc];
 }
@@ -203,9 +211,26 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-  if (object == _scrollView)
+  if (object == _scrollView && [keyPath isEqualToString:@"contentOffset"])
   {
+    CGPoint newContentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
+    [self correctPositionOfVisibleAnnotations];
+  }
+}
 
+- (void)updateAnnotationScreenPosition:(JCAnnotation *)annotation
+{
+  CGPoint position;
+  position.x = (annotation.contentPosition.x * self.zoomScale) - _scrollView.contentOffset.x;
+  position.y = (annotation.contentPosition.y * self.zoomScale) - _scrollView.contentOffset.y;
+  annotation.screenPosition = position;
+}
+
+- (void)correctPositionOfVisibleAnnotations
+{
+  for (JCAnnotation *annotation in _annotations)
+  {
+    [self updateAnnotationScreenPosition:annotation];
   }
 }
 
@@ -252,6 +277,18 @@
 - (UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
+}
+
+#pragma mark - Annotations
+
+- (void)addAnnotation:(JCAnnotation *)annotation
+{
+  [_annotations addObject:annotation];
+  [self updateAnnotationScreenPosition:annotation];
+  
+  annotation.view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
+  
+  [_canvasView addSubview:annotation.view];
 }
 
 @end

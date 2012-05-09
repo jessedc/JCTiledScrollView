@@ -8,6 +8,8 @@
 
 #import "RootViewController.h"
 #import "JCTiledPDFScrollView.h"
+#import "JCAnnotation.h"
+#import "DemoAnnotationView.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
 
@@ -61,6 +63,11 @@
   [self.view addSubview:self.scrollView];
 
   [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
+  
+  JCAnnotation *a1 = [[JCAnnotation alloc] init];
+  a1.contentPosition = CGPointMake(100, 100);
+  [self.scrollView addAnnotation:a1];
+
 }
 
 - (void)viewDidUnload
@@ -91,6 +98,16 @@
   self.detailView.textLabel.text = [NSString stringWithFormat:@"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y];
 }
 
+- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(JCAnnotation *)annotation
+{
+  DemoAnnotationView *view = [[[DemoAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Identifier"] autorelease];
+  view.imageView.image = [UIImage imageNamed:@"marker-red.png"];
+  [view sizeToFit];
+
+  return view;
+}
+
+
 #pragma mark - JCTileSource
 
 #define SkippingGirlImageName @"SkippingGirl"
@@ -99,5 +116,6 @@
 {
  return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%dx_%d_%d.png", SkippingGirlImageName, scale, row, column]]; 
 }
+
 
 @end
