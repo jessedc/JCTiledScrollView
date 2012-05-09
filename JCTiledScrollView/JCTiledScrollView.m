@@ -50,7 +50,6 @@
 @synthesize tiledView = _tiledView;
 @synthesize scrollView = _scrollView;
 @synthesize canvasView = _canvasView;
-@synthesize dataSource = _dataSource;
 
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
@@ -89,14 +88,15 @@
 
     CGRect canvas_frame = CGRectMake(0.0f, 0.0f, _scrollView.contentSize.width, _scrollView.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
+    _canvasView.userInteractionEnabled = NO;
 
     _tiledView = [[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame];
     _tiledView.delegate = self;
 
-    [_canvasView addSubview:self.tiledView];
-    [_scrollView addSubview:self.canvasView];
+    [_scrollView addSubview:self.tiledView];
 
     [self addSubview:_scrollView];
+    [self addSubview:_canvasView];
 
     _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
@@ -111,7 +111,7 @@
     _twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapReceived:)];
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
-    [_canvasView addGestureRecognizer:_twoFingerTapGestureRecognizer];
+    [_tiledView addGestureRecognizer:_twoFingerTapGestureRecognizer];
 	}
 	return self;
 }
@@ -133,7 +133,7 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-  return self.canvasView;
+  return self.tiledView;
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
