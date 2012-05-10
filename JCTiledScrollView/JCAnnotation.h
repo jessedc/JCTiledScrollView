@@ -16,4 +16,6 @@
 @property (nonatomic, assign) CGPoint screenPosition;
 @property (nonatomic, retain) JCAnnotationView *view;
 
+- (BOOL)isWithinBounds:(CGRect)bounds;
+
 @end

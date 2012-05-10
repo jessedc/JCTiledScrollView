@@ -32,7 +32,7 @@
 }
 
 - (BOOL)isWithinBounds:(CGRect)bounds
-{
+{  
   return CGRectContainsPoint(bounds, self.screenPosition);
 }
 
@@ -55,12 +55,13 @@
   {
     [_view removeFromSuperview];
     RELEASE(_view);
-  }
-  if (nil != view)
-  {
-    _view = [view retain];
-    _view.annotation = self;
-    _view.position = self.screenPosition;
+  
+    if (nil != view)
+    {
+      _view = [view retain];
+      _view.annotation = self;
+      _view.position = self.screenPosition;
+    }
   }
 }
 
