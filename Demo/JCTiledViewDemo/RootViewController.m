@@ -64,9 +64,17 @@
 
   [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
   
-  JCAnnotation *a1 = [[JCAnnotation alloc] init];
+  JCAnnotation *a1 = [[[JCAnnotation alloc] init] autorelease];
   a1.contentPosition = CGPointMake(100, 100);
   [self.scrollView addAnnotation:a1];
+  
+  JCAnnotation *a2 = [[[JCAnnotation alloc] init] autorelease];
+  a2.contentPosition = CGPointMake(250, 310);
+  [self.scrollView addAnnotation:a2];
+  
+  JCAnnotation *a3 = [[[JCAnnotation alloc] init] autorelease];
+  a3.contentPosition = CGPointMake(300, 550);
+  [self.scrollView addAnnotation:a3];
 
 }
 

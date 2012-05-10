@@ -16,7 +16,7 @@
   if ((self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]))
   {
     _imageView = [[UIImageView alloc] init];
-    self.backgroundColor = [UIColor greenColor];
+    [self addSubview:_imageView];
   }
   return self;
 }
@@ -29,13 +29,13 @@
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-  return CGSizeMake(30, 30);
+  return CGSizeMake(MAX(_imageView.image.size.width,30), MAX(_imageView.image.size.height,30));
 }
 
-//- (void)layoutSubviews
-//{
-//  [_imageView sizeToFit];
-//  _imageView.frame  = CGRectMake(0,0,CGRectGetWidth(_imageView.frame), CGRectGetHeight(_imageView.frame));
-//}
+- (void)layoutSubviews
+{
+  [_imageView sizeToFit];
+  _imageView.frame  = CGRectMake(0,0,CGRectGetWidth(_imageView.frame), CGRectGetHeight(_imageView.frame));
+}
 
 @end
