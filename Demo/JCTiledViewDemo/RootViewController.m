@@ -108,13 +108,18 @@
 
 - (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(JCAnnotation *)annotation
 {
-  DemoAnnotationView *view = [[[DemoAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Identifier"] autorelease];
-  view.imageView.image = [UIImage imageNamed:@"marker-red.png"];
-  [view sizeToFit];
+  NSString static *reuseIdentifier = @"JCAnnotationReuseIdentifier";
+  DemoAnnotationView *view = (id)[scrollView dequeueReusableAnnotationViewWithReuseIdentifier:reuseIdentifier];
+
+  if (nil == view)
+  {
+    view = [[[DemoAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Identifier"] autorelease];
+    view.imageView.image = [UIImage imageNamed:@"marker-red.png"];
+    [view sizeToFit];
+  }
 
   return view;
 }
-
 
 #pragma mark - JCTileSource
 
