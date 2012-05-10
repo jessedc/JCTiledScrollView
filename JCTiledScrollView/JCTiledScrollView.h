@@ -50,6 +50,13 @@
 @end
 
 @interface JCTiledScrollView : UIView <UIScrollViewDelegate>
+{
+  @private
+  NSMutableSet *_recycledAnnotationViews;
+  NSMutableSet *_annotations;
+  NSMutableSet *_visibleAnnotations;
+  CGFloat _previousZoomScale;
+}
 
 //Delegates
 @property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
@@ -74,6 +81,14 @@
 
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated;
 
+
+//Annotations
+- (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier;
+
 - (void)addAnnotation:(JCAnnotation *)annotation;
+- (void)addAnnotations:(NSArray *)annotations;
+- (void)removeAnnotation:(JCAnnotation *)annotation;
+- (void)removeAnnotations:(NSArray *)annotations;
+- (void)removeAllAnnotations;
 
 @end

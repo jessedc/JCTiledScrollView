@@ -40,8 +40,9 @@
 
 @end
 
-@implementation JCTiledScrollView {
-  NSMutableArray *_annotations;
+@implementation JCTiledScrollView
+{
+  BOOL _suddenZoomChange;
 }
 
 @synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
@@ -82,7 +83,7 @@
     _scrollView.bouncesZoom = YES;
     _scrollView.bounces = YES;
     _scrollView.minimumZoomScale = 1.0;
-    [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
+    [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 
     self.levelsOfZoom = 2;
 
@@ -117,7 +118,11 @@
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
     [_tiledView addGestureRecognizer:_twoFingerTapGestureRecognizer];
     
-    _annotations = [[NSMutableArray alloc] init];
+    _annotations = [[NSMutableSet alloc] init];
+    _visibleAnnotations = [[NSMutableSet alloc] init];
+    _recycledAnnotationViews = [[NSMutableSet alloc] init];
+
+    _suddenZoomChange = NO;
 	}
 	return self;
 }
@@ -133,6 +138,8 @@
   RELEASE(_twoFingerTapGestureRecognizer);
   
   RELEASE(_annotations);
+  RELEASE(_visibleAnnotations);
+  RELEASE(_recycledAnnotationViews);
 
 	[super dealloc];
 }
@@ -213,8 +220,22 @@
 {
   if (object == _scrollView && [keyPath isEqualToString:@"contentOffset"])
   {
-    CGPoint newContentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
-    [self correctPositionOfVisibleAnnotations];
+    //    NSLog(@"old: %@ new-co: %@ zooming: %@ scale: %@ zoomChange: %d",[change valueForKey:NSKeyValueChangeOldKey],[change valueForKey:NSKeyValueChangeNewKey],_scrollView.isZooming?@"YES":@"NO", [NSNumber numberWithFloat:self.zoomScale], _suddenZoomChange   );
+
+    if (self.zoomScale == _previousZoomScale)
+    {
+      [self correctScreenPositionOfAnnotations:NO];
+      
+//    if (_scrollView.isZooming)
+//    {
+//      [self correctScreenPositionOfAnnotations:YES];
+//    }
+    }
+    else
+    {
+      [self correctScreenPositionOfAnnotations:YES];
+      _previousZoomScale = self.zoomScale;
+    }
   }
 }
 
@@ -226,12 +247,64 @@
   annotation.screenPosition = position;
 }
 
-- (void)correctPositionOfVisibleAnnotations
+- (void)correctScreenPositionOfAnnotations:(BOOL)zoom;
 {
-  for (JCAnnotation *annotation in _annotations)
+  [CATransaction begin];
+  [CATransaction setAnimationDuration:0];
+  
+  if (zoom && !_scrollView.isZooming)
   {
-    [self updateAnnotationScreenPosition:annotation];
+    for (JCAnnotation *annotation in _visibleAnnotations)
+    {
+      [self updateAnnotationScreenPosition:annotation];
+    }
   }
+  else
+  {
+    for (JCAnnotation *annotation in _annotations)
+    {
+      [CATransaction begin];
+      [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+      
+      [self updateAnnotationScreenPosition:annotation];
+
+      if ([annotation isWithinBounds:self.bounds])
+      {
+        if (!annotation.view)
+        {
+          annotation.view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];;
+          if (!annotation.view) continue;
+        }
+        
+        if (![_visibleAnnotations containsObject:annotation])
+        {
+          [_canvasView addSubview:annotation.view];
+          [CATransaction begin];
+          CABasicAnimation *theAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+          theAnimation.duration = 0.3;
+          theAnimation.repeatCount = 1;
+          theAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+          theAnimation.toValue = [NSNumber numberWithFloat:1.0];
+          [annotation.view.layer addAnimation:theAnimation forKey:@"animateOpacity"];
+          [CATransaction commit];
+          [_visibleAnnotations addObject:annotation];
+        }
+      }
+      else
+      {
+        if ([_visibleAnnotations containsObject:annotation])
+        {
+          [annotation.view removeFromSuperview];
+          [_recycledAnnotationViews addObject:annotation.view];
+          annotation.view = nil;
+          [_visibleAnnotations removeObject:annotation];
+        }
+      }
+      [CATransaction commit];
+    }
+  }
+
+  [CATransaction commit];
 }
 
 #pragma mark - JCTiledScrollView
@@ -279,6 +352,31 @@
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
 
+#pragma mark - Dequeue Annotations
+
+- (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier
+{
+  id view = nil;
+
+  for (JCAnnotationView *obj in _recycledAnnotationViews)
+  {
+    if ([[obj reuseIdentifier] isEqualToString:reuseIdentifier])
+    {
+      view = obj;
+      break;
+    }
+  }
+  
+  if (nil != view)
+  {
+    [view retain];
+    [_recycledAnnotationViews removeObject:view];
+    return [view autorelease];
+  }
+
+  return nil;
+}
+
 #pragma mark - Annotations
 
 - (void)addAnnotation:(JCAnnotation *)annotation
@@ -286,9 +384,13 @@
   [_annotations addObject:annotation];
   [self updateAnnotationScreenPosition:annotation];
   
-  annotation.view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
-  
-  [_canvasView addSubview:annotation.view];
+  if ([annotation isWithinBounds:self.bounds])
+  {
+    [_visibleAnnotations addObject:annotation];
+    
+    annotation.view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
+    [_canvasView addSubview:annotation.view];
+  }
 }
 
 @end
