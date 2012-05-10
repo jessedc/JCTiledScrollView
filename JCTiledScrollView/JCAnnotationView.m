@@ -12,6 +12,7 @@
 @synthesize annotation = _annotation;
 @synthesize position = _position;
 @synthesize centerOffset = _centerOffset;
+@synthesize reuseIdentifier = _reuseIdentifier;
 
 - (id)initWithAnnotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -20,6 +21,7 @@
     _centerOffset = CGPointZero;
     _position = CGPointZero;
     _annotation = [annotation retain];
+    _reuseIdentifier = [reuseIdentifier retain];
   }
   return self;
 }
@@ -27,9 +29,9 @@
 - (void)dealloc
 {
   RELEASE(_annotation);
+  RELEASE(_reuseIdentifier);
   [super dealloc];
 }
-
 
 - (void)setPosition:(CGPoint)position
 {

@@ -14,6 +14,7 @@
 @property (nonatomic, retain) JCAnnotation *annotation;
 @property (nonatomic, assign) CGPoint position;
 @property (nonatomic, assign) CGPoint centerOffset;
+@property (nonatomic, retain) NSString *reuseIdentifier;
 
 - (id)initWithAnnotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
 
