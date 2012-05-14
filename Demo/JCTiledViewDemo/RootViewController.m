@@ -10,6 +10,7 @@
 #import "JCTiledPDFScrollView.h"
 #import "JCAnnotation.h"
 #import "DemoAnnotationView.h"
+#import "math.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
 
@@ -25,7 +26,6 @@
   
   [super dealloc];
 }
-
 
 #pragma mark - View lifecycle
 
@@ -61,21 +61,16 @@
   self.scrollView.levelsOfDetail = 3;
 
   [self.view addSubview:self.scrollView];
+  
+  UIButton *addButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [addButton setTitle:@"+ Annotations" forState:UIControlStateNormal];
+  addButton.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 115, 25., 110, 38);
+  addButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+  [addButton addTarget:self action:@selector(addRandomAnnotations) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:addButton];
 
   [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
-  
-  JCAnnotation *a1 = [[[JCAnnotation alloc] init] autorelease];
-  a1.contentPosition = CGPointMake(100, 100);
-  [self.scrollView addAnnotation:a1];
-  
-  JCAnnotation *a2 = [[[JCAnnotation alloc] init] autorelease];
-  a2.contentPosition = CGPointMake(250, 310);
-  [self.scrollView addAnnotation:a2];
-  
-  JCAnnotation *a3 = [[[JCAnnotation alloc] init] autorelease];
-  a3.contentPosition = CGPointMake(300, 550);
-  [self.scrollView addAnnotation:a3];
-
+  [self addRandomAnnotations];
 }
 
 - (void)viewDidUnload
@@ -114,6 +109,24 @@
   if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake)
   {
     [_scrollView removeAllAnnotations];
+  }
+}
+
+#pragma mark - Annotations
+
+- (void)addRandomAnnotations
+{
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    srand(42);
+  });
+
+  CGSize size = SkippingGirlImageSize;  
+  for (int i = 0; i < 5; i++)
+  {
+    JCAnnotation *a = [[[JCAnnotation alloc] init] autorelease];
+    a.contentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
+    [self.scrollView addAnnotation:a];
   }
 }
 
