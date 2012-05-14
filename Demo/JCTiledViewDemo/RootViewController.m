@@ -91,11 +91,30 @@
   [super viewDidAppear:animated];
   
   [self.scrollView refreshAnnotations];
+  
+  [self becomeFirstResponder];
 }
+
+#pragma mark - Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return YES;
+}
+
+#pragma mark - Responder
+
+- (BOOL)canBecomeFirstResponder
+{
+  return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+  if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake)
+  {
+    [_scrollView removeAllAnnotations];
+  }
 }
 
 #pragma mark - JCTiledScrollViewDelegate
