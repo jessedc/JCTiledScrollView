@@ -403,4 +403,38 @@
   }
 }
 
+- (void)addAnnotations:(NSArray *)annotations
+{
+  for (id annotation in annotations)
+  {
+    [self addAnnotations:annotations];
+  }
+}
+
+//FIXME: These have not been tested
+
+- (void)removeAnnotation:(JCAnnotation *)annotation
+{
+  if ([_visibleAnnotations containsObject:annotation])
+  {
+    [annotation.view removeFromSuperview];
+    [_visibleAnnotations removeObject:annotation];
+    [_annotations removeObject:annotation];
+  }
+}
+
+- (void)removeAnnotations:(NSArray *)annotations
+{
+  for (id annotation in annotations)
+  {
+    [self removeAnnotation:annotation];
+  }
+}
+
+- (void)removeAllAnnotations
+{
+  [self removeAnnotations:[_annotations allObjects]];
+}
+
+
 @end
