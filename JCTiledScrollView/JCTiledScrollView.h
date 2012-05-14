@@ -55,7 +55,6 @@
   NSMutableSet *_recycledAnnotationViews;
   NSMutableSet *_annotations;
   NSMutableSet *_visibleAnnotations;
-  CGFloat _previousZoomScale;
 }
 
 //Delegates

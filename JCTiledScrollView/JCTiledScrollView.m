@@ -32,18 +32,18 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 
-@interface JCTiledScrollView () <JCTiledBitmapViewDelegate>
+#define kStandardUIScrollViewAnimationTime 0.15
+
+@interface JCTiledScrollView () <JCTiledBitmapViewDelegate, UIGestureRecognizerDelegate>
+
 @property (nonatomic, retain) UIView *canvasView;
 @property (nonatomic, retain) UITapGestureRecognizer *singleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
-
+@property (nonatomic, assign) BOOL muteAnnotationUpdates;
 @end
 
 @implementation JCTiledScrollView
-{
-  BOOL _suddenZoomChange;
-}
 
 @synthesize tiledScrollViewDelegate = _tiledScrollViewDelegate;
 @synthesize dataSource = _dataSource;
@@ -64,6 +64,8 @@
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
 @synthesize centerSingleTap = _centerSingleTap;
 
+@synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
+
 + (Class)tiledLayerClass
 {
   return [JCTiledView class];
@@ -83,7 +85,6 @@
     _scrollView.bouncesZoom = YES;
     _scrollView.bounces = YES;
     _scrollView.minimumZoomScale = 1.0;
-    [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 
     self.levelsOfZoom = 2;
 
@@ -122,14 +123,13 @@
     _visibleAnnotations = [[NSMutableSet alloc] init];
     _recycledAnnotationViews = [[NSMutableSet alloc] init];
 
-    _suddenZoomChange = NO;
+    _muteAnnotationUpdates = NO;
 	}
 	return self;
 }
 
 - (void)dealloc
 {	
-  [_scrollView removeObserver:self forKeyPath:@"contentOffset" context:NULL];
   RELEASE(_scrollView);
   RELEASE(_tiledView);
   RELEASE(_canvasView);
@@ -151,10 +151,6 @@
   return self.tiledView;
 }
 
-- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
-{
-}
-
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidZoom:)])
@@ -165,9 +161,34 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+  //FIXME: refactor this logic
+  if(self.scrollView.zoomBouncing || self.muteAnnotationUpdates)
+  {
+    //Only rearrange annotations in the current bounds, don't add any more
+    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:NO];
+  }
+  else
+  {
+    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
+  }
+
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidScroll:)])
   {
     [self.tiledScrollViewDelegate tiledScrollViewDidScroll:self];
+  }
+}
+
+#pragma mark - 
+
+//FIXME: somewhat messy idea, but both gesture blocks use it
+- (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
+{
+  _muteAnnotationUpdates = muteAnnotationUpdates;
+  _scrollView.userInteractionEnabled = !_muteAnnotationUpdates;
+
+  if (!muteAnnotationUpdates)
+  {
+    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
   }
 }
 
@@ -175,6 +196,7 @@
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
+  //FIXME: This tap needs to be clamped
   if (self.centerSingleTap)
   {
     [self setContentCenter:[gestureRecognizer locationInView:self.tiledView] animated:YES];
@@ -191,6 +213,13 @@
   if (self.zoomsInOnDoubleTap)
   {
     float newZoom = MIN(powf(2, (log2f(_scrollView.zoomScale) + 1.0f)), _scrollView.maximumZoomScale); //zoom in one level of detail
+
+    self.muteAnnotationUpdates = YES;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+      [self setMuteAnnotationUpdates:NO];
+    });
+
     [_scrollView setZoomScale:newZoom animated:YES];
   }
 
@@ -205,37 +234,19 @@
   if (self.zoomsOutOnTwoFingerTap)
   {
     float newZoom = MAX(powf(2, (log2f(_scrollView.zoomScale) - 1.0f)), _scrollView.minimumZoomScale); //zoom out one level of detail
+
+    self.muteAnnotationUpdates = YES;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+      [self setMuteAnnotationUpdates:NO];
+    });
+
     [_scrollView setZoomScale:newZoom animated:YES];
   }
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveTwoFingerTap:)])
   {
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];
-  }
-}
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-  if (object == _scrollView && [keyPath isEqualToString:@"contentOffset"])
-  {
-    //    NSLog(@"old: %@ new-co: %@ zooming: %@ scale: %@ zoomChange: %d",[change valueForKey:NSKeyValueChangeOldKey],[change valueForKey:NSKeyValueChangeNewKey],_scrollView.isZooming?@"YES":@"NO", [NSNumber numberWithFloat:self.zoomScale], _suddenZoomChange   );
-
-    if (self.zoomScale == _previousZoomScale)
-    {
-      [self correctScreenPositionOfAnnotations:NO];
-      
-//    if (_scrollView.isZooming)
-//    {
-//      [self correctScreenPositionOfAnnotations:YES];
-//    }
-    }
-    else
-    {
-      [self correctScreenPositionOfAnnotations:YES];
-      _previousZoomScale = self.zoomScale;
-    }
   }
 }
 
@@ -247,12 +258,12 @@
   annotation.screenPosition = position;
 }
 
-- (void)correctScreenPositionOfAnnotations:(BOOL)zoom;
+- (void)correctScreenPositionAllAnnotationsIncludingOutOfBounds:(BOOL)includeOutOfBoundsAnnotations;
 {
   [CATransaction begin];
-  [CATransaction setAnimationDuration:0];
-  
-  if (zoom && !_scrollView.isZooming)
+  [CATransaction setAnimationDuration:0.0];
+
+  if (!includeOutOfBoundsAnnotations && !_scrollView.isZooming)
   {
     for (JCAnnotation *annotation in _visibleAnnotations)
     {
@@ -264,7 +275,6 @@
     for (JCAnnotation *annotation in _annotations)
     {
       [CATransaction begin];
-      [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
       
       [self updateAnnotationScreenPosition:annotation];
 
@@ -280,6 +290,7 @@
         {
           [_canvasView addSubview:annotation.view];
           [CATransaction begin];
+          [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
           CABasicAnimation *theAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
           theAnimation.duration = 0.3;
           theAnimation.repeatCount = 1;
@@ -303,7 +314,6 @@
       [CATransaction commit];
     }
   }
-
   [CATransaction commit];
 }
 
