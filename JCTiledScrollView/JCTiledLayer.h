@@ -1,6 +1,5 @@
 //
 //  JCTiledLayer.h
-//  JCTiledViewDemo
 //
 //  Created by Jesse Collis on 20/02/12.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>

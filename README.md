@@ -8,11 +8,12 @@ Feature requests and pull-requests are more than welcome.
 
 ### Features
 
- * Supports tiled bitmap images and single page PDF files through two separate classes
- * Works on both standard and high resolution displays
- * Only need to provide a single set of bitmap tiles; no need for @2x tiles
+ * Display tiled bitmap images and single page PDFs with two separate classes
+ * Supports standard and high resolution displays
+ * You only need to provide one set of bitmap tiles; no need for @2x tiles
  * A handy set of default UIGestureRecognizer actions and delegate callbacks
- * Demo code, example PNG tiles and PDF file are included
+ * Annotation support with an interface similar to MKMapView
+ * Demo code, example PNG tiles and PDF file included
  * Supports iOS 4.0+
 
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
@@ -29,14 +30,15 @@ Feature requests and pull-requests are more than welcome.
 
 ### Next Steps
 
- * Support for adding overlay views
- * More advanced UIGestureRecognizer support (dragging overlays etc)
  * Zooming in both directions
+ * Annotation selection
+ * Advanced UIGestureRecognizers (dragging overlays etc)
+ 
 
 ### Handy Links
  * Cut your large images into tiles with [Tile-Cutter][5] by [Jeff La Marche][6]
  * Cut your images on the command line with [my fork][12] of [Chris Miles'][13] experimental [SliceTool][12] program
- * Shrink your bitmap tiles with [Image Optim][14]. It can half your tile size and [improve performace greatly][15]
+ * Shrink your bitmap tiles with [Image Optim][14]. It can half your tile size and [improve performance greatly][15]
 
 ### Further Reading
   * [Subduing CATiledLayer][9] by Matt Long (Cocoa is my Girlfriend)
