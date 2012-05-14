@@ -424,8 +424,8 @@
   {
     [annotation.view removeFromSuperview];
     [_visibleAnnotations removeObject:annotation];
-    [_annotations removeObject:annotation];
   }
+  [_annotations removeObject:annotation];
 }
 
 - (void)removeAnnotations:(NSArray *)annotations
