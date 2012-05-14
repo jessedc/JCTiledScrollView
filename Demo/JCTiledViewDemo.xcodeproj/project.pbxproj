@@ -221,7 +221,7 @@
 		887EE93814D8DC2D00AB0A92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "JC Multimedia Design";
 			};
 			buildConfigurationList = 887EE93B14D8DC2D00AB0A92 /* Build configuration list for PBXProject "JCTiledViewDemo" */;
