@@ -1,12 +1,17 @@
 # JCTiledScrollView
 
-JCTiledScrollView is a set of classes that wraps UIScrollView and CATiledLayer. It aims to simplify displaying large images and PDFs at multiple zoom scales. As the project evolves it's moving towards becoming a fully featured custom map view replacement with gestures and annotation support.
+by Jesse Collis
 
-JCTiledScrollView is under continuous development by [Jesse Collis][3] <jesse@jmcultimedia.com.au>.
+  * [Visit JCMultimedia.com.au][2]
+  * [Follow @sirjec on Twitter][3]
+
+## About JCTiledScrollView
+
+JCTiledScrollView is a set of classes that wraps UIScrollView and CATiledLayer. It aims to simplify displaying large images and PDFs at multiple zoom scales. As the project evolves it's moving towards becoming a fully featured custom map view replacement with gestures and annotation support.
 
 Feature requests and pull-requests are most welcome.
 
-### Features
+## Features
 
  * Display tiled bitmap images and single page PDFs with two separate classes
  * Supports standard and high resolution displays
