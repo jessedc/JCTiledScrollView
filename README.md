@@ -18,8 +18,12 @@ Feature requests and pull-requests are more than welcome.
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
-### Latest Updates (March 2012)
+### Latest Updates
 
+### May 2012
+  * Annotation support
+
+### March 2012
   * Merged experimental PDF rendering classes into the main project. Welcome JCTiledPDFScrollView.
   * Added an initial set of UIGestureRecognizers with some optional default behaviour, similar to MKMapView
 
