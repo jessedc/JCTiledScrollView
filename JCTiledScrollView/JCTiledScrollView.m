@@ -389,6 +389,11 @@
 
 #pragma mark - Annotations
 
+- (void)refreshAnnotations
+{
+  [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
+}
+
 - (void)addAnnotation:(JCAnnotation *)annotation
 {
   [_annotations addObject:annotation];

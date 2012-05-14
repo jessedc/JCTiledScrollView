@@ -83,6 +83,7 @@
 
 //Annotations
 - (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)refreshAnnotations;
 
 - (void)addAnnotation:(JCAnnotation *)annotation;
 - (void)addAnnotations:(NSArray *)annotations;
