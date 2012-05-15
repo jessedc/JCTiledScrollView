@@ -180,7 +180,7 @@
 
 #pragma mark - 
 
-//FIXME: somewhat messy idea, but both gesture blocks use it
+//FIXME: Jesse C - I don't like overloading this here, but the logic is in one place
 - (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
 {
   _muteAnnotationUpdates = muteAnnotationUpdates;
