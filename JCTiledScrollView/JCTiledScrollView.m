@@ -161,16 +161,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-  //FIXME: refactor this logic
-  if(self.scrollView.zoomBouncing || self.muteAnnotationUpdates)
-  {
-    //Only rearrange annotations in the current bounds, don't add any more
-    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:NO];
-  }
-  else
-  {
-    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
-  }
+  [self correctScreenPositionOfAnnotations];
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidScroll:)])
   {
@@ -188,7 +179,7 @@
 
   if (!muteAnnotationUpdates)
   {
-    [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
+    [self correctScreenPositionOfAnnotations];
   }
 }
 
@@ -257,12 +248,12 @@
   annotation.screenPosition = position;
 }
 
-- (void)correctScreenPositionAllAnnotationsIncludingOutOfBounds:(BOOL)includeOutOfBoundsAnnotations;
+- (void)correctScreenPositionOfAnnotations
 {
   [CATransaction begin];
   [CATransaction setAnimationDuration:0.0];
 
-  if (!includeOutOfBoundsAnnotations && !_scrollView.isZooming)
+  if ((_scrollView.isZoomBouncing || _muteAnnotationUpdates) && !_scrollView.isZooming)
   {
     for (JCAnnotation *annotation in _visibleAnnotations)
     {
@@ -396,7 +387,7 @@
 
 - (void)refreshAnnotations
 {
-  [self correctScreenPositionAllAnnotationsIncludingOutOfBounds:YES];
+  [self correctScreenPositionOfAnnotations];
 }
 
 - (void)addAnnotation:(JCAnnotation *)annotation
