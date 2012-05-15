@@ -196,7 +196,6 @@
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
-  //FIXME: This tap needs to be clamped
   if (self.centerSingleTap)
   {
     [self setContentCenter:[gestureRecognizer locationInView:self.tiledView] animated:YES];
@@ -345,13 +344,19 @@
 
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
-  CGPoint new_contentOffset;
-  new_contentOffset.x = MAX(0.0f, (center.x * _scrollView.zoomScale) - (_scrollView.bounds.size.width / 2.0f));
-  new_contentOffset.y = MAX(0.0f, (center.y * _scrollView.zoomScale) - (_scrollView.bounds.size.height / 2.0f));
+  CGPoint new_contentOffset = _scrollView.contentOffset;
   
-  new_contentOffset.x = MIN(new_contentOffset.x, (_scrollView.contentSize.width - _scrollView.bounds.size.width));
-  new_contentOffset.y = MIN(new_contentOffset.y, (_scrollView.contentSize.height - _scrollView.bounds.size.height));
-  
+  if (_scrollView.contentSize.width > _scrollView.bounds.size.width)
+  {
+    new_contentOffset.x = MAX(0.0f, (center.x * _scrollView.zoomScale) - (_scrollView.bounds.size.width / 2.0f));
+    new_contentOffset.x = MIN(new_contentOffset.x, (_scrollView.contentSize.width - _scrollView.bounds.size.width));
+  }
+
+  if (_scrollView.contentSize.height > _scrollView.bounds.size.height)
+  {
+    new_contentOffset.y = MAX(0.0f, (center.y * _scrollView.zoomScale) - (_scrollView.bounds.size.height / 2.0f));
+    new_contentOffset.y = MIN(new_contentOffset.y, (_scrollView.contentSize.height - _scrollView.bounds.size.height));
+  }
   [_scrollView setContentOffset:new_contentOffset animated:animated];
 }
 
