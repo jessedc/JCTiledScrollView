@@ -316,7 +316,12 @@
 
 - (void)setZoomScale:(float)zoomScale
 {
-  _scrollView.zoomScale = zoomScale;
+  [self setZoomScale:zoomScale animated:NO];
+}
+
+- (void)setZoomScale:(float)zoomScale animated:(BOOL)animated
+{
+  [_scrollView setZoomScale:zoomScale animated:animated];
 }
 
 - (void)setLevelsOfZoom:(size_t)levelsOfZoom
