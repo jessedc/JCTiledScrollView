@@ -32,7 +32,7 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 
-#define kStandardUIScrollViewAnimationTime 0.15
+#define kStandardUIScrollViewAnimationTime 0.10
 
 @interface JCTiledScrollView () <JCTiledBitmapViewDelegate, UIGestureRecognizerDelegate>
 

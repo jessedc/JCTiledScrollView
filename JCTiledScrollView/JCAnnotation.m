@@ -53,7 +53,7 @@
 
 - (BOOL)isWithinBounds:(CGRect)bounds
 {  
-  return CGRectContainsPoint(bounds, self.screenPosition);
+  return CGRectContainsPoint(CGRectInset(bounds, -25.0f, -25.0f), self.screenPosition);
 }
 
 - (void)setScreenPosition:(CGPoint)screenPosition
