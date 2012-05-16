@@ -152,7 +152,7 @@
 
   if (nil == view)
   {
-    view = [[[DemoAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Identifier"] autorelease];
+    view = [[[DemoAnnotationView alloc] initWithFrame:CGRectZero annotation:annotation reuseIdentifier:@"Identifier"] autorelease];
     view.imageView.image = [UIImage imageNamed:@"marker-red.png"];
     [view sizeToFit];
   }

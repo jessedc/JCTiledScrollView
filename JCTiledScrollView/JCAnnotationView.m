@@ -35,9 +35,9 @@
 @synthesize centerOffset = _centerOffset;
 @synthesize reuseIdentifier = _reuseIdentifier;
 
-- (id)initWithAnnotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame annotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
-  if ((self = [super initWithFrame:CGRectZero]))
+  if ((self = [super initWithFrame:frame]))
   {
     _centerOffset = CGPointZero;
     _position = CGPointZero;

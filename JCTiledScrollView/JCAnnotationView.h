@@ -37,6 +37,6 @@
 @property (nonatomic, assign) CGPoint centerOffset;
 @property (nonatomic, retain) NSString *reuseIdentifier;
 
-- (id)initWithAnnotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithFrame:(CGRect)frame annotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
