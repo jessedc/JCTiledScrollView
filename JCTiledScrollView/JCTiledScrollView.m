@@ -413,7 +413,7 @@
 {
   for (id annotation in annotations)
   {
-    [self addAnnotations:annotations];
+    [self addAnnotation:annotation];
   }
 }
 
