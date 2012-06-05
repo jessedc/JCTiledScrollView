@@ -130,16 +130,16 @@
 
 - (void)dealloc
 {	
-  RELEASE(_scrollView);
-  RELEASE(_tiledView);
-  RELEASE(_canvasView);
-  RELEASE(_singleTapGestureRecognizer);
-  RELEASE(_doubleTapGestureRecognizer);
-  RELEASE(_twoFingerTapGestureRecognizer);
+  [_scrollView release];
+  [_tiledView release];
+  [_canvasView release];
+  [_singleTapGestureRecognizer release];
+  [_doubleTapGestureRecognizer release];
+  [_twoFingerTapGestureRecognizer release];
   
-  RELEASE(_annotations);
-  RELEASE(_visibleAnnotations);
-  RELEASE(_recycledAnnotationViews);
+  [_annotations release];
+  [_visibleAnnotations release];
+  [_recycledAnnotationViews release];
 
 	[super dealloc];
 }

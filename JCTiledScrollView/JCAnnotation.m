@@ -47,7 +47,7 @@
 
 - (void)dealloc
 {
-  RELEASE(_view);
+  [_view release];
   [super dealloc];
 }
 
@@ -74,7 +74,7 @@
   if (view != _view)
   {
     [_view removeFromSuperview];
-    RELEASE(_view);
+    [_view release]; _view = nil;
   
     if (nil != view)
     {

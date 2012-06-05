@@ -49,8 +49,9 @@
 
 - (void)dealloc
 {
-  RELEASE(_annotation);
-  RELEASE(_reuseIdentifier);
+  [_annotation release];
+  [_reuseIdentifier release];
+
   [super dealloc];
 }
 
