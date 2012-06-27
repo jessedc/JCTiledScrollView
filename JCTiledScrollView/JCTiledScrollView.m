@@ -421,12 +421,16 @@
 
 - (void)removeAnnotation:(JCAnnotation *)annotation
 {
-  if ([_visibleAnnotations containsObject:annotation])
+  if ([_annotations containsObject:annotation])
   {
-    [annotation.view removeFromSuperview];
-    [_visibleAnnotations removeObject:annotation];
+    [_annotations removeObject:annotation];
+
+    if ([_visibleAnnotations containsObject:annotation])
+    {
+      [annotation.view removeFromSuperview];
+      [_visibleAnnotations removeObject:annotation];
+    }
   }
-  [_annotations removeObject:annotation];
 }
 
 - (void)removeAnnotations:(NSArray *)annotations
