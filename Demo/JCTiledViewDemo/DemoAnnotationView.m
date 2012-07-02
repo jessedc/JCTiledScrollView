@@ -23,7 +23,7 @@
 
 - (void)dealloc
 {
-  RELEASE(_imageView);
+  [_imageView release];
   [super dealloc];
 }
 

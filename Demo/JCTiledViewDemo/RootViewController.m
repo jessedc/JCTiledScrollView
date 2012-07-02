@@ -21,9 +21,9 @@
 
 - (void)dealloc
 {
-  RELEASE(_scrollView);
-  RELEASE(_detailView);
-  
+  [_scrollView release];
+  [_detailView release];
+
   [super dealloc];
 }
 
@@ -75,8 +75,8 @@
 
 - (void)viewDidUnload
 {
-  RELEASE(_scrollView);
-  RELEASE(_detailView);
+  [_scrollView release];
+  [_detailView release];
 
   [super viewDidUnload];
 }

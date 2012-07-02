@@ -33,7 +33,7 @@
 
 - (void)dealloc
 {
-  RELEASE(_textLabel);
+  [_textLabel release];
   [super dealloc];
 }
 

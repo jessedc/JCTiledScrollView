@@ -13,8 +13,6 @@
   #import <Foundation/Foundation.h>
 
 
-#define RELEASE(INSTANCE__)      { [INSTANCE__ release]; INSTANCE__ = nil; }
-
 #define SWAP_INSTANCE_RETAIN(DESTINATION__, SOURCE__) \
 {                                                   \
 id old_value__ = DESTINATION__;                   \
