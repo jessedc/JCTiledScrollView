@@ -45,7 +45,7 @@
 {
   CGSize contentSize = CGSizeZero;
   
-  _PDFDocRef = CGPDFDocumentCreateX((CFURLRef)url, @"");
+  _PDFDocRef = CGPDFDocumentCreateX((__bridge CFURLRef)url, @"");
   
   if (_PDFDocRef != NULL)
   {
