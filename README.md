@@ -21,10 +21,17 @@ Feature requests and pull-requests are most welcome.
  * Demo code, example PNG tiles and PDF file included
  * Supports iOS 4.0+
 
+## ARC Compatibility
+
+JCTiledScrollview can easily be converted to ARC compatible code with Xcode's refactor tool. Just boot up the demo project and get Xcode to make the changes.
+
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
 ### Latest Updates
+
+### July 2012
+  * Updated source and demo to be compatible with Xcode's ARC refactor tool
 
 ### May 2012
   * Annotation support
@@ -38,6 +45,7 @@ Feature requests and pull-requests are most welcome.
  * Zooming in both directions
  * Annotation selection
  * Advanced UIGestureRecognizers (dragging overlays etc)
+ * Provide as a static library
  
 
 ### Handy Links
