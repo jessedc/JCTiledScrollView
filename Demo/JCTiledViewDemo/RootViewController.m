@@ -8,8 +8,8 @@
 
 #import "RootViewController.h"
 #import "JCTiledPDFScrollView.h"
-#import "JCAnnotation.h"
 #import "DemoAnnotationView.h"
+#import "DemoAnnotation.h"
 #import "math.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
@@ -124,7 +124,7 @@
   CGSize size = SkippingGirlImageSize;  
   for (int i = 0; i < 5; i++)
   {
-    JCAnnotation *a = [[[JCAnnotation alloc] init] autorelease];
+    id<JCAnnotation> a = [[[DemoAnnotation alloc] init] autorelease];
     a.contentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
     [self.scrollView addAnnotation:a];
   }
