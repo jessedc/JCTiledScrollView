@@ -368,7 +368,7 @@
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
 
-#pragma mark - Dequeue Annotations
+#pragma mark - Annotation Recycling
 
 - (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -389,7 +389,6 @@
     [_recycledAnnotationViews removeObject:view];
     return [view autorelease];
   }
-
   return nil;
 }
 
@@ -458,6 +457,5 @@
 {
   [self removeAnnotations:[_annotations allObjects]];
 }
-
 
 @end
