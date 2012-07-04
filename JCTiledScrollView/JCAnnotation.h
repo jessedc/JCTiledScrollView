@@ -26,16 +26,6 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
-#import <Foundation/Foundation.h>
-
-@class JCAnnotationView;
-
-@interface JCAnnotation : NSObject
-
+@protocol JCAnnotation <NSObject>
 @property (nonatomic, assign) CGPoint contentPosition;
-@property (nonatomic, assign) CGPoint screenPosition;
-@property (nonatomic, retain) JCAnnotationView *view;
-
-- (BOOL)isWithinBounds:(CGRect)bounds;
-
 @end

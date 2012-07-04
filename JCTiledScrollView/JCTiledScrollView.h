@@ -29,7 +29,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class JCTiledScrollView, JCTiledView, JCAnnotation, JCAnnotationView;
+@class JCTiledScrollView, JCTiledView, JCAnnotationView;
+@protocol JCAnnotation;
 
 @protocol JCTileSource <NSObject>
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
@@ -37,7 +38,7 @@
 
 @protocol JCTiledScrollViewDelegate <NSObject>
 
-- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(JCAnnotation *)annotation;
+- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(id<JCAnnotation>)annotation;
 
 @optional
 - (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView;
@@ -87,9 +88,9 @@
 - (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier;
 - (void)refreshAnnotations;
 
-- (void)addAnnotation:(JCAnnotation *)annotation;
+- (void)addAnnotation:(id<JCAnnotation>)annotation;
 - (void)addAnnotations:(NSArray *)annotations;
-- (void)removeAnnotation:(JCAnnotation *)annotation;
+- (void)removeAnnotation:(id<JCAnnotation>)annotation;
 - (void)removeAnnotations:(NSArray *)annotations;
 - (void)removeAllAnnotations;
 

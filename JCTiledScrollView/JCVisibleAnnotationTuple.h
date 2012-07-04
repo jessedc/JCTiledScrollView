@@ -1,7 +1,8 @@
 //
-//  JCAnnotation.m
+//  JCVisibleAnnotationTuple.h
+//  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 9/05/12.
+//  Created by Jesse Collis on 4/07/12.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>
 //  All rights reserved.
 //
@@ -25,64 +26,23 @@
 //  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+//
 
-#import "JCAnnotation.h"
-#import "JCAnnotationView.h"
+@class JCAnnotationView;
+@protocol JCAnnotation;
 
-@implementation JCAnnotation
-@synthesize contentPosition = _contentPosition;
-@synthesize screenPosition = _screenPosition;
-@synthesize view = _view;
+@interface JCVisibleAnnotationTuple : NSObject
+@property (nonatomic, retain) id<JCAnnotation> annotation;
+@property (nonatomic, retain) JCAnnotationView *view;
 
-- (id)init
-{
-  if ((self = [super init]))
-  {
-    _view = nil;
-    _screenPosition = CGPointZero;
-    _contentPosition = CGPointZero;
-  }
-  return self;
-}
++ (JCVisibleAnnotationTuple *)instanceWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
+- (id)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
 
-- (void)dealloc
-{
-  [_view release];
-  [super dealloc];
-}
+@end
 
-- (BOOL)isWithinBounds:(CGRect)bounds
-{  
-  return CGRectContainsPoint(CGRectInset(bounds, -25.0f, -25.0f), self.screenPosition);
-}
+@interface NSSet (JCVisibleAnnotationTupleHelpers)
 
-- (void)setScreenPosition:(CGPoint)screenPosition
-{
-  if (!CGPointEqualToPoint(_screenPosition, screenPosition))
-  {
-    _screenPosition = screenPosition;
-
-    if (nil != _view)
-    {
-      _view.position = screenPosition;
-    }
-  }
-}
-
-- (void)setView:(JCAnnotationView *)view
-{
-  if (view != _view)
-  {
-    [_view removeFromSuperview];
-    [_view release]; _view = nil;
-  
-    if (nil != view)
-    {
-      _view = [view retain];
-      _view.annotation = self;
-      _view.position = self.screenPosition;
-    }
-  }
-}
+- (id)visibleAnnotationTupleForAnnotation:(id<JCAnnotation>)annotation;
+- (id)visibleAnnotationTupleForView:(JCAnnotationView *)view;
 
 @end
