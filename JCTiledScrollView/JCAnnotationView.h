@@ -28,15 +28,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class JCAnnotation;
+@protocol JCAnnotation;
 
 @interface JCAnnotationView : UIView
 
-@property (nonatomic, retain) JCAnnotation *annotation;
+@property (nonatomic, retain) id<JCAnnotation> annotation;
 @property (nonatomic, assign) CGPoint position;
 @property (nonatomic, assign) CGPoint centerOffset;
 @property (nonatomic, retain) NSString *reuseIdentifier;
 
-- (id)initWithFrame:(CGRect)frame annotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithFrame:(CGRect)frame annotation:(id<JCAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
