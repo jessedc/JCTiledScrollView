@@ -1,0 +1,330 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88BCDD9015C4E13900E6515A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDD8F15C4E13900E6515A /* Foundation.framework */; };
+		88BCDDAE15C4E28500E6515A /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA615C4E28500E6515A /* CGPDFDocument.m */; };
+		88BCDDAF15C4E28500E6515A /* JCAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA715C4E28500E6515A /* JCAnnotationView.m */; };
+		88BCDDB015C4E28500E6515A /* JCPDFTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA815C4E28500E6515A /* JCPDFTiledView.m */; };
+		88BCDDB115C4E28500E6515A /* JCTiledLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA915C4E28500E6515A /* JCTiledLayer.m */; };
+		88BCDDB215C4E28500E6515A /* JCTiledPDFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAA15C4E28500E6515A /* JCTiledPDFScrollView.m */; };
+		88BCDDB315C4E28500E6515A /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAB15C4E28500E6515A /* JCTiledScrollView.m */; };
+		88BCDDB415C4E28500E6515A /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAC15C4E28500E6515A /* JCTiledView.m */; };
+		88BCDDB515C4E28500E6515A /* JCVisibleAnnotationTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAD15C4E28500E6515A /* JCVisibleAnnotationTuple.m */; };
+		88BCDDB715C4E2A100E6515A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDDB615C4E2A100E6515A /* CoreGraphics.framework */; };
+		88BCDDB915C4E2A700E6515A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDDB815C4E2A700E6515A /* UIKit.framework */; };
+		88BCDDBB15C4E2AE00E6515A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDDBA15C4E2AE00E6515A /* QuartzCore.framework */; };
+		88BCDE0015C4EBA200E6515A /* CGPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0115C4EBA200E6515A /* JCAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9E15C4E26700E6515A /* JCAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0215C4EBA200E6515A /* JCAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0315C4EBA200E6515A /* JCPDFTiledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA015C4E26700E6515A /* JCPDFTiledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0415C4EBA200E6515A /* JCTiledLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA115C4E26700E6515A /* JCTiledLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0515C4EBA200E6515A /* JCTiledPDFScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA215C4E26700E6515A /* JCTiledPDFScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0615C4EBA200E6515A /* JCTiledScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0715C4EBA200E6515A /* JCTiledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA415C4E26700E6515A /* JCTiledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88BCDE0815C4EBA200E6515A /* JCVisibleAnnotationTuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88BCDD8A15C4E13900E6515A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCTIledScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BCDD8F15C4E13900E6515A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledScrollView-Prefix.pch"; sourceTree = "<group>"; };
+		88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
+		88BCDD9E15C4E26700E6515A /* JCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotation.h; sourceTree = "<group>"; };
+		88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotationView.h; sourceTree = "<group>"; };
+		88BCDDA015C4E26700E6515A /* JCPDFTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPDFTiledView.h; sourceTree = "<group>"; };
+		88BCDDA115C4E26700E6515A /* JCTiledLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledLayer.h; sourceTree = "<group>"; };
+		88BCDDA215C4E26700E6515A /* JCTiledPDFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledPDFScrollView.h; sourceTree = "<group>"; };
+		88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollView.h; sourceTree = "<group>"; };
+		88BCDDA415C4E26700E6515A /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
+		88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCVisibleAnnotationTuple.h; sourceTree = "<group>"; };
+		88BCDDA615C4E28500E6515A /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
+		88BCDDA715C4E28500E6515A /* JCAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotationView.m; sourceTree = "<group>"; };
+		88BCDDA815C4E28500E6515A /* JCPDFTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPDFTiledView.m; sourceTree = "<group>"; };
+		88BCDDA915C4E28500E6515A /* JCTiledLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledLayer.m; sourceTree = "<group>"; };
+		88BCDDAA15C4E28500E6515A /* JCTiledPDFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledPDFScrollView.m; sourceTree = "<group>"; };
+		88BCDDAB15C4E28500E6515A /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
+		88BCDDAC15C4E28500E6515A /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
+		88BCDDAD15C4E28500E6515A /* JCVisibleAnnotationTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCVisibleAnnotationTuple.m; sourceTree = "<group>"; };
+		88BCDDB615C4E2A100E6515A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		88BCDDB815C4E2A700E6515A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		88BCDDBA15C4E2AE00E6515A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		88BCDDBD15C4E30700E6515A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		88BCDDBE15C4E31100E6515A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		88BCDDBF15C4E32400E6515A /* JCTiledScrollViewStaticLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = JCTiledScrollViewStaticLib.xcconfig; sourceTree = "<group>"; };
+		88BCDDF415C4E4A800E6515A /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88BCDD8915C4E13900E6515A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BCDDBB15C4E2AE00E6515A /* QuartzCore.framework in Frameworks */,
+				88BCDDB915C4E2A700E6515A /* UIKit.framework in Frameworks */,
+				88BCDDB715C4E2A100E6515A /* CoreGraphics.framework in Frameworks */,
+				88BCDD9015C4E13900E6515A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88BCDD7F15C4E10F00E6515A = {
+			isa = PBXGroup;
+			children = (
+				88BCDD9C15C4E20700E6515A /* Headers */,
+				88BCDD9B15C4E1FC00E6515A /* Source */,
+				88BCDD9215C4E13900E6515A /* Supporting Files */,
+				88BCDD8E15C4E13900E6515A /* Frameworks */,
+				88BCDD8D15C4E13900E6515A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88BCDD8D15C4E13900E6515A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88BCDD8E15C4E13900E6515A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDBA15C4E2AE00E6515A /* QuartzCore.framework */,
+				88BCDDB815C4E2A700E6515A /* UIKit.framework */,
+				88BCDDB615C4E2A100E6515A /* CoreGraphics.framework */,
+				88BCDD8F15C4E13900E6515A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88BCDD9215C4E13900E6515A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDBC15C4E2C600E6515A /* Configuration */,
+				88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = JCTiledScrollViewStaticLib;
+			sourceTree = "<group>";
+		};
+		88BCDD9B15C4E1FC00E6515A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDA615C4E28500E6515A /* CGPDFDocument.m */,
+				88BCDDA715C4E28500E6515A /* JCAnnotationView.m */,
+				88BCDDA815C4E28500E6515A /* JCPDFTiledView.m */,
+				88BCDDA915C4E28500E6515A /* JCTiledLayer.m */,
+				88BCDDAA15C4E28500E6515A /* JCTiledPDFScrollView.m */,
+				88BCDDAB15C4E28500E6515A /* JCTiledScrollView.m */,
+				88BCDDAC15C4E28500E6515A /* JCTiledView.m */,
+				88BCDDAD15C4E28500E6515A /* JCVisibleAnnotationTuple.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		88BCDD9C15C4E20700E6515A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */,
+				88BCDD9E15C4E26700E6515A /* JCAnnotation.h */,
+				88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */,
+				88BCDDA015C4E26700E6515A /* JCPDFTiledView.h */,
+				88BCDDA115C4E26700E6515A /* JCTiledLayer.h */,
+				88BCDDA215C4E26700E6515A /* JCTiledPDFScrollView.h */,
+				88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */,
+				88BCDDA415C4E26700E6515A /* JCTiledView.h */,
+				88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */,
+			);
+			name = Headers;
+			path = ../Headers;
+			sourceTree = "<group>";
+		};
+		88BCDDBC15C4E2C600E6515A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDF315C4E42C00E6515A /* Target */,
+				88BCDDF215C4E42600E6515A /* Project */,
+			);
+			name = Configuration;
+			path = ../Configuration;
+			sourceTree = "<group>";
+		};
+		88BCDDF215C4E42600E6515A /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDF415C4E4A800E6515A /* Common.xcconfig */,
+				88BCDDBD15C4E30700E6515A /* Debug.xcconfig */,
+				88BCDDBE15C4E31100E6515A /* Release.xcconfig */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		88BCDDF315C4E42C00E6515A /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				88BCDDBF15C4E32400E6515A /* JCTiledScrollViewStaticLib.xcconfig */,
+			);
+			name = Target;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		88BCDDFF15C4EB9900E6515A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BCDE0015C4EBA200E6515A /* CGPDFDocument.h in Headers */,
+				88BCDE0115C4EBA200E6515A /* JCAnnotation.h in Headers */,
+				88BCDE0215C4EBA200E6515A /* JCAnnotationView.h in Headers */,
+				88BCDE0315C4EBA200E6515A /* JCPDFTiledView.h in Headers */,
+				88BCDE0415C4EBA200E6515A /* JCTiledLayer.h in Headers */,
+				88BCDE0515C4EBA200E6515A /* JCTiledPDFScrollView.h in Headers */,
+				88BCDE0615C4EBA200E6515A /* JCTiledScrollView.h in Headers */,
+				88BCDE0715C4EBA200E6515A /* JCTiledView.h in Headers */,
+				88BCDE0815C4EBA200E6515A /* JCVisibleAnnotationTuple.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		88BCDD8B15C4E13900E6515A /* JCTiledScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88BCDD9815C4E13900E6515A /* Build configuration list for PBXNativeTarget "JCTiledScrollView" */;
+			buildPhases = (
+				88BCDD8815C4E13900E6515A /* Sources */,
+				88BCDD8915C4E13900E6515A /* Frameworks */,
+				88BCDD8A15C4E13900E6515A /* CopyFiles */,
+				88BCDDFF15C4EB9900E6515A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCTiledScrollView;
+			productName = JCTiledScrollViewStaticLib;
+			productReference = 88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88BCDD8115C4E10F00E6515A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 88BCDD8415C4E10F00E6515A /* Build configuration list for PBXProject "JCTiledScrollView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88BCDD7F15C4E10F00E6515A;
+			productRefGroup = 88BCDD8D15C4E13900E6515A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88BCDD8B15C4E13900E6515A /* JCTiledScrollView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88BCDD8815C4E13900E6515A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BCDDAE15C4E28500E6515A /* CGPDFDocument.m in Sources */,
+				88BCDDAF15C4E28500E6515A /* JCAnnotationView.m in Sources */,
+				88BCDDB015C4E28500E6515A /* JCPDFTiledView.m in Sources */,
+				88BCDDB115C4E28500E6515A /* JCTiledLayer.m in Sources */,
+				88BCDDB215C4E28500E6515A /* JCTiledPDFScrollView.m in Sources */,
+				88BCDDB315C4E28500E6515A /* JCTiledScrollView.m in Sources */,
+				88BCDDB415C4E28500E6515A /* JCTiledView.m in Sources */,
+				88BCDDB515C4E28500E6515A /* JCVisibleAnnotationTuple.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		88BCDD8615C4E10F00E6515A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BCDDBD15C4E30700E6515A /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		88BCDD8715C4E10F00E6515A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BCDDBE15C4E31100E6515A /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		88BCDD9915C4E13900E6515A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BCDDBF15C4E32400E6515A /* JCTiledScrollViewStaticLib.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+			};
+			name = Debug;
+		};
+		88BCDD9A15C4E13900E6515A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BCDDBF15C4E32400E6515A /* JCTiledScrollViewStaticLib.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88BCDD8415C4E10F00E6515A /* Build configuration list for PBXProject "JCTiledScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BCDD8615C4E10F00E6515A /* Debug */,
+				88BCDD8715C4E10F00E6515A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88BCDD9815C4E13900E6515A /* Build configuration list for PBXNativeTarget "JCTiledScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BCDD9915C4E13900E6515A /* Debug */,
+				88BCDD9A15C4E13900E6515A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88BCDD8115C4E10F00E6515A /* Project object */;
+}

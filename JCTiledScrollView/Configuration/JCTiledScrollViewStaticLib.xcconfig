@@ -1,0 +1,13 @@
+
+
+PRODUCT_NAME = JCTIledScrollView
+MACH_O_TYPE = staticlib
+
+SKIP_INSTALL = YES
+DSTROOT = /tmp/$(TARGET_NAME).dst
+
+OTHER_LDFLAGS = $(inherited) -all_load -ObjC
+
+GCC_PREFIX_HEADER = JCTiledScrollViewStaticLib/$(PRODUCT_NAME)-Prefix.pch
+
+PUBLIC_HEADERS_FOLDER_PATH = ../../Headers

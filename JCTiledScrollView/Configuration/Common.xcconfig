@@ -1,0 +1,125 @@
+// SDK & Device/Architecture support
+
+SDKROOT = iphoneos
+IPHONEOS_DEPLOYMENT_TARGET = 4.0
+
+TARGETED_DEVICE_FAMILY = 1,2
+ARCHS[sdk=iphoneos*] = armv6 armv7
+ARCHS[sdk=iphonesimulator*] = i386
+
+// Avoid THUMB code generation bugs (in LLVM)
+GCC_THUMB_SUPPORT = NO
+
+// Compiler settings
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+GCC_C_LANGUAGE_STANDARD = gnu99
+
+// Optimize code by making more aggressive assumptions about whether pointers can point to the same objects as other pointers.
+GCC_STRICT_ALIASING = YES
+
+PRECOMPILE_PREFIX_HEADER = YES
+GCC_PRECOMPILE_PREFIX_HEADER = $(PRECOMPILE_PREFIX_HEADER)
+
+//FIXME:
+CLANG_ENABLE_OBJC_ARC = NO
+
+// Always run the Static Analyzer with each build (increases build times but worth while).
+RUN_CLANG_STATIC_ANALYZER = YES
+
+// Turn on all the analysers
+CLANG_ANALYZER_DEADCODE_DEADSTORES = YES
+CLANG_ANALYZER_GCD = YES
+CLANG_ANALYZER_MALLOC = YES
+CLANG_ANALYZER_OBJC_ATSYNC = YES
+CLANG_ANALYZER_OBJC_CFNUMBER = YES
+CLANG_ANALYZER_OBJC_COLLECTIONS = YES
+CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES
+CLANG_ANALYZER_OBJC_NSCFERROR = YES
+CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES
+CLANG_ANALYZER_OBJC_SELF_INIT = YES
+CLANG_ANALYZER_OBJC_UNUSED_IVARS = YES
+CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES
+CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES
+CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES
+
+
+
+// Increase the strictness of warning.
+GCC_WARN_INHIBIT_ALL_WARNINGS = NO
+GCC_TREAT_WARNINGS_AS_ERRORS = YES
+GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES
+GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES
+
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES
+GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES
+GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES
+GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES
+GCC_WARN_ABOUT_MISSING_NEWLINE = YES
+GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES
+GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES
+GCC_WARN_ABOUT_RETURN_TYPE = YES
+GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES
+GCC_WARN_CHECK_SWITCH_STATEMENTS = YES
+GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES
+GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES
+GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES
+GCC_WARN_MISSING_PARENTHESES = YES
+// This warning is turned off because it warns in situations that seem valid.  I'm dubious of its utility as a warning.
+GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO
+GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES
+
+// Pedantic warnings are just a wee too bit pedantic to turn on.
+GCC_WARN_PEDANTIC = NO
+GCC_WARN_SIGN_COMPARE = YES
+GCC_WARN_SHADOW = YES
+GCC_WARN_STRICT_SELECTOR_MATCH = YES
+GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES
+GCC_WARN_UNDECLARED_SELECTOR = YES
+GCC_WARN_UNINITIALIZED_AUTOS = YES
+GCC_WARN_UNKNOWN_PRAGMAS = YES
+GCC_WARN_UNUSED_FUNCTION = YES
+GCC_WARN_UNUSED_LABEL = YES
+GCC_WARN_UNUSED_PARAMETER = YES
+GCC_WARN_UNUSED_VALUE = YES
+GCC_WARN_UNUSED_VARIABLE = YES
+CLANG_WARN_CXX0X_EXTENSIONS = YES
+CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
+CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES
+CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES
+
+// For when we turn on ARC
+CLANG_WARN_OBJCPP_ARC_ABI = YES
+// We want and love auto synthesis!
+CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO
+CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
+CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
+
+
+// Some of these settings duplicate those above, but -Wall -Wextra add more stuff too (some of which we are disabling below, ARGH!)
+// FIXME: -Wundef should be turned on
+// TODO: -Wunreachable-code might be nice to turn on (but perhaps produces some false positives).
+JC_WARNING_CFLAGS = -Wall -Wextra -Wconversion -Wundef -Wno-semicolon-before-method-body -Wfloat-equal -Wc++-compat -Wstrict-prototypes -Wnested-externs -Wwrite-strings -Wcast-qual -Wcast-align -Wformat=2 -Wmissing-format-attribute -Wsequence-point -Wstrict-aliasing
+
+WARNING_CFLAGS = $(JC_WARNING_CFLAGS)
+
+// Turn off color diagnostics by default (disable this for commandline builds for better looking output - Jenkins can use the color if the ANSI logfile parsing plugin is enabled)
+COLOR_DIAGNOSTICS=no-
+
+JC_DIAGNOSTIC_FLAGS = -fshow-source-location -fcaret-diagnostics -fdiagnostics-show-option -fdiagnostics-print-source-range-info -fdiagnostics-fixit-info -fdiagnostics-parseable-fixits -f$(COLOR_DIAGNOSTICS)color-diagnostics
+
+// Don't try and find 'user' includes
+ALWAYS_SEARCH_USER_PATHS = NO
+
+// Include the build products headers to get at other libs: add /../../Headers
+HEADER_SEARCH_PATHS = $(BUILT_PRODUCTS_DIR)
+
+LIBRARY_SEARCH_PATHS = $(BUILT_PRODUCTS_DIR)
+
+// Put the default Framework locations in the framework search path.
+FRAMEWORK_SEARCH_PATHS = $(SDKROOT)/Developer/Library/Frameworks $(DEVELOPER_LIBRARY_DIR)/Frameworks
