@@ -45,7 +45,8 @@
 {
   CGSize contentSize = CGSizeZero;
   
-  _PDFDocRef = CGPDFDocumentCreateX((__bridge CFURLRef)url, @"");
+  //__bridge required here when ARC comes in
+  _PDFDocRef = CGPDFDocumentCreateX((CFURLRef)url, @"");
   
   if (_PDFDocRef != NULL)
   {
@@ -91,12 +92,12 @@
 
 #pragma mark - JCPDFTiledViewDelegate
 
-- (CGPDFDocumentRef)pdfDocumentForTiledView:(JCPDFTiledView *)tiledView;
+- (CGPDFDocumentRef)pdfDocumentForTiledView:(__unused JCPDFTiledView *)tiledView;
 {
   return _PDFDocRef;
 }
 
-- (CGPDFPageRef)pdfPageForTiledView:(JCPDFTiledView *)tiledView;
+- (CGPDFPageRef)pdfPageForTiledView:(__unused JCPDFTiledView *)tiledView;
 {
   return _PDFPageRef;
 }

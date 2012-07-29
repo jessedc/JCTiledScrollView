@@ -41,6 +41,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 @dynamic tileSize;
 @synthesize delegate = _delegate;
+@synthesize shouldAnnotateRect = _shouldAnnotateRect;
 
 +(Class)layerClass
 {
@@ -55,8 +56,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
     self.tiledLayer.tileSize = scaledTileSize;
     self.tiledLayer.levelsOfDetail = 1;
     self.numberOfZoomLevels = 3;
+    self.shouldAnnotateRect = NO;
   }
-
   return self;
 }
 
@@ -87,17 +88,16 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGContextRef ctx = UIGraphicsGetCurrentContext();
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
 
-  NSInteger col = (CGRectGetMinX(rect) * scale) / self.tileSize.width;
-  NSInteger row = (CGRectGetMinY(rect) * scale) / self.tileSize.height;
+  NSInteger col = (NSInteger)((CGRectGetMinX(rect) * scale) / self.tileSize.width);
+  NSInteger row = (NSInteger)((CGRectGetMinY(rect) * scale) / self.tileSize.height);
 
-  UIImage *tile_image = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:scale];
+  UIImage *tile_image = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:(NSInteger)scale];
   [tile_image drawInRect:rect];
-#ifdef ANNOTATE_TILES  
-  [self annotateRect:rect inContext:ctx];
-#endif
+
+  if (self.shouldAnnotateRect) [self annotateRect:rect inContext:ctx];
 }
 
-#ifdef ANNOTATE_TILES
+// Handy for Debug
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
@@ -111,6 +111,5 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGContextSetLineWidth(ctx, line_width);
   CGContextStrokeRect(ctx, rect);
 }
-#endif
 
 @end

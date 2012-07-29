@@ -33,7 +33,7 @@
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
 
-#define kStandardUIScrollViewAnimationTime 0.10
+#define kStandardUIScrollViewAnimationTime (int64_t)0.10
 
 @interface JCTiledScrollView () <JCTiledBitmapViewDelegate, UIGestureRecognizerDelegate>
 
@@ -147,12 +147,12 @@
 
 #pragma mark - UIScrolViewDelegate
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+- (UIView *)viewForZoomingInScrollView:(__unused UIScrollView *)scrollView
 {
   return self.tiledView;
 }
 
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+- (void)scrollViewDidZoom:(__unused UIScrollView *)scrollView
 {
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewDidZoom:)])
   {
@@ -160,7 +160,7 @@
   }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)scrollViewDidScroll:(__unused UIScrollView *)scrollView
 {
   [self correctScreenPositionOfAnnotations];
 
@@ -363,7 +363,7 @@
 
 #pragma mark - JCTileSource
 
-- (UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
+- (UIImage *)tiledView:(__unused JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }

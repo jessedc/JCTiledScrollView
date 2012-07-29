@@ -43,7 +43,7 @@ static const CGFloat kDefaultTileSize = 256.;
   return CGSizeMake(kDefaultTileSize, kDefaultTileSize);
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(__unused CGRect)rect
 {
   CGContextRef ctx = UIGraphicsGetCurrentContext();
 
@@ -65,9 +65,9 @@ static const CGFloat kDefaultTileSize = 256.;
 	}
   
 	CGPDFPageRelease(drawPDFPageRef);
-#ifdef ANNOTATE_TILES
-  [self annotateRect:rect inContext:ctx];
-#endif
+
+  if (self.shouldAnnotateRect) [self annotateRect:rect inContext:ctx];
+
 }
 
 @end
