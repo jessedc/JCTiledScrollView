@@ -7,12 +7,17 @@
 //
 
 #import "RootViewController.h"
+#import "JCTiledScrollView.h"
 #import "JCTiledPDFScrollView.h"
 #import "DemoAnnotationView.h"
 #import "DemoAnnotation.h"
 #import "math.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
+
+#ifdef ANNOTATE_TILES
+#import "JCTiledView.h"
+#endif
 
 @implementation RootViewController
 
@@ -56,6 +61,10 @@
   self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
 
+#ifdef ANNOTATE_TILES
+  self.scrollView.tiledView.shouldAnnotateRect = YES;
+#endif
+  
   // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
   self.scrollView.levelsOfZoom = 3;
   self.scrollView.levelsOfDetail = 3;
@@ -145,7 +154,7 @@
   self.detailView.textLabel.text = [NSString stringWithFormat:@"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y];
 }
 
-- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(JCAnnotation *)annotation
+- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(id<JCAnnotation>)annotation
 {
   NSString static *reuseIdentifier = @"JCAnnotationReuseIdentifier";
   DemoAnnotationView *view = (id)[scrollView dequeueReusableAnnotationViewWithReuseIdentifier:reuseIdentifier];

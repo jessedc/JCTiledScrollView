@@ -12,26 +12,18 @@
 		8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8809DC5114D8E8560003B4C6 /* QuartzCore.framework */; };
 		88197C101558C251005EF22F /* marker-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 88197C0F1558C251005EF22F /* marker-red.png */; };
 		882BCF7715A431CF00F0FC5E /* DemoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */; };
-		882BCF7A15A4354400F0FC5E /* JCVisibleAnnotationTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 882BCF7915A4354400F0FC5E /* JCVisibleAnnotationTuple.m */; };
 		887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94514D8DC2D00AB0A92 /* UIKit.framework */; };
 		887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94714D8DC2D00AB0A92 /* Foundation.framework */; };
 		887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */; };
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
-		887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */; };
-		887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE98214D8DDDA00AB0A92 /* JCTiledView.m */; };
-		88C19C80150C4D6F007184E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 88C19C7F150C4D6E007184E6 /* README.md */; };
-		88C778AD155A784B005E5DAD /* JCAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778AC155A784B005E5DAD /* JCAnnotationView.m */; };
+		88BCDE1C15C4F9A700E6515A /* libJCTIledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */; };
 		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
-		88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */; };
-		88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */; };
-		88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */; };
 		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
-		88DCC88914F6505300B206F5 /* JCTiledPDFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */; };
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -43,9 +35,7 @@
 		88197C0F1558C251005EF22F /* marker-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-red.png"; sourceTree = "<group>"; };
 		882BCF7515A431CF00F0FC5E /* DemoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotation.h; sourceTree = "<group>"; };
 		882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotation.m; sourceTree = "<group>"; };
-		882BCF7815A4354400F0FC5E /* JCVisibleAnnotationTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCVisibleAnnotationTuple.h; sourceTree = "<group>"; };
-		882BCF7915A4354400F0FC5E /* JCVisibleAnnotationTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCVisibleAnnotationTuple.m; sourceTree = "<group>"; };
-		887EE94114D8DC2D00AB0A92 /* JCTiledView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		887EE94514D8DC2D00AB0A92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		887EE94714D8DC2D00AB0A92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,28 +45,14 @@
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollView.h; sourceTree = "<group>"; };
-		887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledScrollView.m; sourceTree = "<group>"; };
-		887EE98114D8DDDA00AB0A92 /* JCTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledView.h; sourceTree = "<group>"; };
-		887EE98214D8DDDA00AB0A92 /* JCTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledView.m; sourceTree = "<group>"; };
+		88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTIledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTIledScrollView.a"; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		88C778A7155A77D7005E5DAD /* JCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotation.h; sourceTree = "<group>"; };
-		88C778AB155A784B005E5DAD /* JCAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotationView.h; sourceTree = "<group>"; };
-		88C778AC155A784B005E5DAD /* JCAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotationView.m; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
 		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		88DCC87714F3BEAA00B206F5 /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
-		88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
-		88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPDFTiledView.h; sourceTree = "<group>"; };
-		88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPDFTiledView.m; sourceTree = "<group>"; };
-		88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledLayer.h; sourceTree = "<group>"; };
-		88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledLayer.m; sourceTree = "<group>"; };
 		88DCC88214F3BEF800B206F5 /* Map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Map.pdf; path = ../Map.pdf; sourceTree = "<group>"; };
-		88DCC88714F6505300B206F5 /* JCTiledPDFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTiledPDFScrollView.h; sourceTree = "<group>"; };
-		88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTiledPDFScrollView.m; sourceTree = "<group>"; };
 		88E49D3614E2788400D688DF /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		88E49D3714E2788400D688DF /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BCDE1C15C4F9A700E6515A /* libJCTIledScrollView.a in Frameworks */,
 				8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */,
 				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
 				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
@@ -101,7 +78,6 @@
 			children = (
 				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
-				887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
 				887EE94214D8DC2D00AB0A92 /* Products */,
 			);
@@ -110,7 +86,7 @@
 		887EE94214D8DC2D00AB0A92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				887EE94114D8DC2D00AB0A92 /* JCTiledView.app */,
+				887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +94,7 @@
 		887EE94414D8DC2D00AB0A92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */,
 				8809DC5114D8E8560003B4C6 /* QuartzCore.framework */,
 				887EE94514D8DC2D00AB0A92 /* UIKit.framework */,
 				887EE94714D8DC2D00AB0A92 /* Foundation.framework */,
@@ -161,47 +138,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		887EE97E14D8DDDA00AB0A92 /* JCTiledScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				887EE97F14D8DDDA00AB0A92 /* JCTiledScrollView.h */,
-				887EE98014D8DDDA00AB0A92 /* JCTiledScrollView.m */,
-				887EE98114D8DDDA00AB0A92 /* JCTiledView.h */,
-				887EE98214D8DDDA00AB0A92 /* JCTiledView.m */,
-				88DCC87B14F3BEAA00B206F5 /* JCTiledLayer.h */,
-				88DCC87C14F3BEAA00B206F5 /* JCTiledLayer.m */,
-				88C778A7155A77D7005E5DAD /* JCAnnotation.h */,
-				88C778AB155A784B005E5DAD /* JCAnnotationView.h */,
-				88C778AC155A784B005E5DAD /* JCAnnotationView.m */,
-				882BCF7815A4354400F0FC5E /* JCVisibleAnnotationTuple.h */,
-				882BCF7915A4354400F0FC5E /* JCVisibleAnnotationTuple.m */,
-				88DCC88B14F6513700B206F5 /* PDF */,
-				88DCC88114F3BEAF00B206F5 /* Support */,
-			);
-			name = JCTiledScrollView;
-			path = ../JCTiledScrollView;
-			sourceTree = "<group>";
-		};
-		88DCC88114F3BEAF00B206F5 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				88DCC87714F3BEAA00B206F5 /* CGPDFDocument.h */,
-				88DCC87814F3BEAA00B206F5 /* CGPDFDocument.m */,
-			);
-			name = Support;
-			sourceTree = "<group>";
-		};
-		88DCC88B14F6513700B206F5 /* PDF */ = {
-			isa = PBXGroup;
-			children = (
-				88DCC88714F6505300B206F5 /* JCTiledPDFScrollView.h */,
-				88DCC88814F6505300B206F5 /* JCTiledPDFScrollView.m */,
-				88DCC87914F3BEAA00B206F5 /* JCPDFTiledView.h */,
-				88DCC87A14F3BEAA00B206F5 /* JCPDFTiledView.m */,
-			);
-			name = PDF;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,7 +155,7 @@
 			);
 			name = JCTiledViewDemo;
 			productName = JCTiledViewDemo;
-			productReference = 887EE94114D8DC2D00AB0A92 /* JCTiledView.app */;
+			productReference = 887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +195,6 @@
 				88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */,
 				88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */,
 				88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */,
-				88C19C80150C4D6F007184E6 /* README.md in Resources */,
 				88197C101558C251005EF22F /* marker-red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,18 +208,10 @@
 			files = (
 				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
 				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
-				887EE98314D8DDDA00AB0A92 /* JCTiledScrollView.m in Sources */,
-				887EE98414D8DDDA00AB0A92 /* JCTiledView.m in Sources */,
 				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
 				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
-				88DCC87D14F3BEAA00B206F5 /* CGPDFDocument.m in Sources */,
-				88DCC87E14F3BEAA00B206F5 /* JCPDFTiledView.m in Sources */,
-				88DCC87F14F3BEAA00B206F5 /* JCTiledLayer.m in Sources */,
-				88DCC88914F6505300B206F5 /* JCTiledPDFScrollView.m in Sources */,
-				88C778AD155A784B005E5DAD /* JCAnnotationView.m in Sources */,
 				88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */,
 				882BCF7715A431CF00F0FC5E /* DemoAnnotation.m in Sources */,
-				882BCF7A15A4354400F0FC5E /* JCVisibleAnnotationTuple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +238,8 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -321,6 +250,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
@@ -336,10 +266,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -359,7 +292,7 @@
 					ANNOTATE_TILES,
 				);
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
-				PRODUCT_NAME = JCTiledView;
+				PRODUCT_NAME = JCTiledViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -370,7 +303,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
-				PRODUCT_NAME = JCTiledView;
+				PRODUCT_NAME = JCTiledViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

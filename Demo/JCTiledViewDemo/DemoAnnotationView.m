@@ -11,7 +11,7 @@
 @implementation DemoAnnotationView
 @synthesize imageView = _imageView;
 
-- (id)initWithFrame:(CGRect)frame annotation:(JCAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame annotation:(id<JCAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
   if ((self = [super initWithFrame:frame annotation:annotation reuseIdentifier:reuseIdentifier]))
   {
