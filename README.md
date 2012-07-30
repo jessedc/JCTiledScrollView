@@ -32,6 +32,7 @@ JCTiledScrollview can easily be converted to ARC compatible code with Xcode's re
 
 ### July 2012
   * Updated source and demo to be compatible with Xcode's ARC refactor tool
+  * JCTiledScrollView is now provided as a static library
 
 ### May 2012
   * Annotation support
