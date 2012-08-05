@@ -65,6 +65,7 @@
 //internals
 @property (nonatomic, retain) JCTiledView *tiledView;
 @property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) UIView *canvasView;
 
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
