@@ -1,6 +1,6 @@
 
 
-PRODUCT_NAME = JCTIledScrollView
+PRODUCT_NAME = JCTiledScrollView
 MACH_O_TYPE = staticlib
 
 SKIP_INSTALL = YES

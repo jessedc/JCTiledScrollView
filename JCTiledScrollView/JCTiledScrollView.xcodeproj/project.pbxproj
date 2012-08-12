@@ -43,7 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCTIledScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCTiledScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BCDD8F15C4E13900E6515A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledScrollView-Prefix.pch"; sourceTree = "<group>"; };
 		88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		88BCDD8D15C4E13900E6515A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */,
+				88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			);
 			name = JCTiledScrollView;
 			productName = JCTiledScrollViewStaticLib;
-			productReference = 88BCDD8C15C4E13900E6515A /* libJCTIledScrollView.a */;
+			productReference = 88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
