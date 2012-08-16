@@ -31,9 +31,6 @@
 
 CGPDFDocumentRef CGPDFDocumentCreateX(CFURLRef theURL, NSString *password)
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
 
 	CGPDFDocumentRef thePDFDocRef = NULL;
 
@@ -89,9 +86,6 @@ CGPDFDocumentRef CGPDFDocumentCreateX(CFURLRef theURL, NSString *password)
 
 BOOL CGPDFDocumentNeedsPassword(CFURLRef theURL, NSString *password)
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
 
 	BOOL needPassword = NO; // Default flag
 
@@ -137,5 +131,3 @@ BOOL CGPDFDocumentNeedsPassword(CFURLRef theURL, NSString *password)
 
 	return needPassword;
 }
-
-// EOF

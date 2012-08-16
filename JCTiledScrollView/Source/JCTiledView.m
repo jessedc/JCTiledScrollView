@@ -43,7 +43,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 @synthesize delegate = _delegate;
 @synthesize shouldAnnotateRect = _shouldAnnotateRect;
 
-+(Class)layerClass
++ (Class)layerClass
 {
   return [JCTiledLayer class];
 }

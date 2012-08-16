@@ -36,12 +36,12 @@
 
 @implementation JCTiledPDFScrollView
 
-+ (Class)tiledLayerClass;
++ (Class)tiledLayerClass
 {
   return [JCPDFTiledView class];
 }
 
-- (id)initWithFrame:(CGRect)frame URL:(NSURL *)url;
+- (id)initWithFrame:(CGRect)frame URL:(NSURL *)url
 {
   CGSize contentSize = CGSizeZero;
   
@@ -92,12 +92,12 @@
 
 #pragma mark - JCPDFTiledViewDelegate
 
-- (CGPDFDocumentRef)pdfDocumentForTiledView:(__unused JCPDFTiledView *)tiledView;
+- (CGPDFDocumentRef)pdfDocumentForTiledView:(__unused JCPDFTiledView *)tiledView
 {
   return _PDFDocRef;
 }
 
-- (CGPDFPageRef)pdfPageForTiledView:(__unused JCPDFTiledView *)tiledView;
+- (CGPDFPageRef)pdfPageForTiledView:(__unused JCPDFTiledView *)tiledView
 {
   return _PDFPageRef;
 }
