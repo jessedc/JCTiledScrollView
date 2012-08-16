@@ -21,14 +21,17 @@ Feature requests and pull-requests are most welcome.
  * Demo code, example PNG tiles and PDF file included
  * Supports iOS 4.0+
 
-## ARC Compatibility
-
-JCTiledScrollview can easily be converted to ARC compatible code with Xcode's refactor tool. Just boot up the demo project and get Xcode to make the changes.
-
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
+### ARC Compatibility
+
+JCTiledScrollview can easily be converted to be ARC compatible with Xcode's refactor tool. Boot up the demo project and get Xcode to make the changes, although if you're going to do this you might consider doing it to the [static library][16].
+
 ### Latest Updates
+
+### August 2012
+  * Created a [Static library branch][16] with a static library project and workspace.
 
 ### July 2012
   * Updated source and demo to be compatible with Xcode's ARC refactor tool
@@ -92,7 +95,7 @@ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY 
 DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
 (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND 
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
@@ -112,3 +115,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [13]: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"
 [14]: http://imageoptim.com "Image Optim"
 [15]: http://imageoptim.com/tweetbot.html "Image Optim Case study: Tweetbot for iPad"
+[16]: https://github.com/jessedc/JCTiledScrollView/tree/static-lib "JCTiledScrollView static-lib branch"
