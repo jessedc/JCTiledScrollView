@@ -47,6 +47,8 @@
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveSingleTap:(UIGestureRecognizer *)gestureRecognizer;
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer;
+//TODO: JC - replace this callback with a /didBegin / didEnd kind of callback similar to MKMapKit
+- (void)tiledSCrollView:(JCTiledScrollView *)scrollView annotation:(id<JCAnnotation>)annotation didPan:(UIPanGestureRecognizer *)gestureRecognizer;
 
 @end
 
@@ -77,6 +79,7 @@
 @property (nonatomic, assign) BOOL centerSingleTap;
 @property (nonatomic, assign) BOOL zoomsInOnDoubleTap;
 @property (nonatomic, assign) BOOL zoomsOutOnTwoFingerTap;
+@property (nonatomic, assign) BOOL annotationDragging;
 
 + (Class)tiledLayerClass;
 

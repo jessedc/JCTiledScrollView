@@ -32,6 +32,7 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
+#import "JCAnnotationPanGestureRecognizer.h"
 
 #define kStandardUIScrollViewAnimationTime (int64_t)0.10
 
@@ -40,6 +41,8 @@
 @property (nonatomic, retain) UITapGestureRecognizer *singleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
+@property (nonatomic, retain) UIPanGestureRecognizer *annotationPanGestureRecognizer;
+
 @property (nonatomic, assign) BOOL muteAnnotationUpdates;
 @end
 
@@ -59,10 +62,13 @@
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
+@synthesize annotationPanGestureRecognizer = _annotationPanGestureRecognizer;
 
 @synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
 @synthesize centerSingleTap = _centerSingleTap;
+
+@dynamic annotationDragging;
 
 @synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
 
@@ -86,11 +92,16 @@
     _scrollView.bounces = YES;
     _scrollView.minimumZoomScale = 1.0;
 
+    _annotationPanGestureRecognizer = [[JCAnnotationPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureReceived:)];
+    _annotationPanGestureRecognizer.delegate = self;
+    [_scrollView addGestureRecognizer:_annotationPanGestureRecognizer];
+
     self.levelsOfZoom = 2;
 
     self.zoomsInOnDoubleTap = YES;
     self.zoomsOutOnTwoFingerTap = YES;
     self.centerSingleTap = YES;
+    self.annotationDragging = NO;
 
     CGRect canvas_frame = CGRectMake(0.0f, 0.0f, _scrollView.contentSize.width, _scrollView.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
@@ -136,7 +147,8 @@
   [_singleTapGestureRecognizer release];
   [_doubleTapGestureRecognizer release];
   [_twoFingerTapGestureRecognizer release];
-  
+  [_annotationPanGestureRecognizer release];
+
   [_annotations release];
   [_visibleAnnotations release];
   [_recycledAnnotationViews release];
@@ -170,6 +182,16 @@
 }
 
 #pragma mark - 
+
+- (void)setAnnotationDragging:(BOOL)annotationDragging
+{
+  self.annotationPanGestureRecognizer.enabled = annotationDragging;
+}
+
+- (BOOL)annotationDragging
+{
+  return self.annotationPanGestureRecognizer.enabled;
+}
 
 //FIXME: Jesse C - I don't like overloading this here, but the logic is in one place
 - (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
@@ -239,6 +261,20 @@
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];
   }
 }
+
+- (void)panGestureReceived:(UIPanGestureRecognizer *)gestureRecognizer
+{
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+//Ignore our own pan gesture if it doesn't start on an annotation view
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+  return NO;
+}
+
+
+#pragma mark - Annotations
 
 - (CGPoint)screenPositionForAnnotation:(id<JCAnnotation>)annotation
 {
