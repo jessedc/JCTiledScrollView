@@ -264,6 +264,48 @@
 
 - (void)panGestureReceived:(UIPanGestureRecognizer *)gestureRecognizer
 {
+  if ([gestureRecognizer isKindOfClass:[JCAnnotationPanGestureRecognizer class]])
+  {
+    JCAnnotationPanGestureRecognizer *annotationGestureRecognizer = (JCAnnotationPanGestureRecognizer *)gestureRecognizer;
+    if (nil == annotationGestureRecognizer.panningAnnotation) return;
+
+    JCAnnotationView *gestureView = annotationGestureRecognizer.panningAnnotation.view;
+    JCVisibleAnnotationTuple *gestureTuple = annotationGestureRecognizer.panningAnnotation;
+
+    CGPoint translation = [gestureRecognizer translationInView:self.canvasView];
+
+    if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledSCrollView:annotation:didPan:)])
+    {
+      [self.tiledScrollViewDelegate tiledSCrollView:self annotation:gestureTuple.annotation didPan:gestureRecognizer];
+    }
+
+    switch (gestureRecognizer.state)
+    {
+      case UIGestureRecognizerStateChanged:
+      {
+        //if you implemented this in a way that changed the center point at each interval, you'd get KVO callbacks each time
+        //currently you only get them at th end.
+        gestureView.transform = CGAffineTransformMakeTranslation(translation.x, translation.y);
+        break;
+      }
+      case UIGestureRecognizerStateCancelled:
+      case UIGestureRecognizerStateFailed:
+      case UIGestureRecognizerStateEnded:
+      {
+        gestureView.position = CGPointMake(gestureView.position.x + translation.x, gestureView.position.y + translation.y);
+        gestureTuple.annotation.contentPosition = CGPointMake(gestureTuple.annotation.contentPosition.x + (translation.x / self.scrollView.zoomScale), gestureTuple.annotation.contentPosition.y + (translation.y / self.scrollView.zoomScale));
+        gestureView.transform = CGAffineTransformIdentity;
+
+        annotationGestureRecognizer.panningAnnotation = nil;
+        break;
+      }
+      case UIGestureRecognizerStateBegan:
+      case UIGestureRecognizerStatePossible:
+      {
+        break;
+      }
+    }
+  }
 }
 
 #pragma mark - UIGestureRecognizerDelegate
