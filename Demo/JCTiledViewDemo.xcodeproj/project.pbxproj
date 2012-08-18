@@ -18,7 +18,7 @@
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
-		88BCDE1C15C4F9A700E6515A /* libJCTIledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */; };
+		88AFB16A15DF56F5003BD3AB /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */; };
 		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
@@ -45,7 +45,7 @@
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTIledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTIledScrollView.a"; sourceTree = "<group>"; };
+		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
 		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BCDE1C15C4F9A700E6515A /* libJCTIledScrollView.a in Frameworks */,
+				88AFB16A15DF56F5003BD3AB /* libJCTiledScrollView.a in Frameworks */,
 				8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */,
 				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
 				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
@@ -94,7 +94,7 @@
 		887EE94414D8DC2D00AB0A92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88BCDE1B15C4F9A700E6515A /* libJCTIledScrollView.a */,
+				88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */,
 				8809DC5114D8E8560003B4C6 /* QuartzCore.framework */,
 				887EE94514D8DC2D00AB0A92 /* UIKit.framework */,
 				887EE94714D8DC2D00AB0A92 /* Foundation.framework */,
