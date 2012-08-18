@@ -10,6 +10,8 @@
 		884E3C2215D790C50077F06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2115D790C50077F06D /* QuartzCore.framework */; };
 		884E3C2515D790CB0077F06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2415D790CB0077F06D /* UIKit.framework */; };
 		884E3C2715D790D10077F06D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2615D790D10077F06D /* CoreGraphics.framework */; };
+		88AFB1A615DF7E22003BD3AB /* JCAnnotationPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AFB1A415DF7E22003BD3AB /* JCAnnotationPanGestureRecognizer.m */; };
+		88AFB1A915DF7E3D003BD3AB /* JCAnnotationPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88AFB1A815DF7E3D003BD3AB /* JCAnnotationPanGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88BCDD9015C4E13900E6515A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDD8F15C4E13900E6515A /* Foundation.framework */; };
 		88BCDDAE15C4E28500E6515A /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA615C4E28500E6515A /* CGPDFDocument.m */; };
 		88BCDDAF15C4E28500E6515A /* JCAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA715C4E28500E6515A /* JCAnnotationView.m */; };
@@ -46,6 +48,8 @@
 		884E3C2115D790C50077F06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		884E3C2415D790CB0077F06D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		884E3C2615D790D10077F06D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88AFB1A415DF7E22003BD3AB /* JCAnnotationPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotationPanGestureRecognizer.m; sourceTree = "<group>"; };
+		88AFB1A815DF7E3D003BD3AB /* JCAnnotationPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotationPanGestureRecognizer.h; sourceTree = "<group>"; };
 		88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCTiledScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BCDD8F15C4E13900E6515A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledScrollView-Prefix.pch"; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				88BCDDAB15C4E28500E6515A /* JCTiledScrollView.m */,
 				88BCDDAC15C4E28500E6515A /* JCTiledView.m */,
 				88BCDDAD15C4E28500E6515A /* JCVisibleAnnotationTuple.m */,
+				88AFB1A415DF7E22003BD3AB /* JCAnnotationPanGestureRecognizer.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		88BCDD9C15C4E20700E6515A /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				88AFB1A815DF7E3D003BD3AB /* JCAnnotationPanGestureRecognizer.h */,
 				88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */,
 				88BCDD9E15C4E26700E6515A /* JCAnnotation.h */,
 				88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */,
@@ -203,6 +209,7 @@
 				88BCDE0615C4EBA200E6515A /* JCTiledScrollView.h in Headers */,
 				88BCDE0715C4EBA200E6515A /* JCTiledView.h in Headers */,
 				88BCDE0815C4EBA200E6515A /* JCVisibleAnnotationTuple.h in Headers */,
+				88AFB1A915DF7E3D003BD3AB /* JCAnnotationPanGestureRecognizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 				88BCDDB315C4E28500E6515A /* JCTiledScrollView.m in Sources */,
 				88BCDDB415C4E28500E6515A /* JCTiledView.m in Sources */,
 				88BCDDB515C4E28500E6515A /* JCVisibleAnnotationTuple.m in Sources */,
+				88AFB1A615DF7E22003BD3AB /* JCAnnotationPanGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
