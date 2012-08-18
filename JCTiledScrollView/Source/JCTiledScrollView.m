@@ -339,6 +339,14 @@
   return position;
 }
 
+- (JCAnnotationView *)prepareAnnotationViewForAnnotation:(id<JCAnnotation>)annotation
+{
+  CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
+  JCAnnotationView *view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
+  view.position = screenPosition;
+  return view;
+}
+
 - (void)correctScreenPositionOfAnnotations
 {
   [CATransaction begin];
@@ -357,16 +365,19 @@
     {
       [CATransaction begin];
       
-      CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
       JCVisibleAnnotationTuple *t = [_visibleAnnotations visibleAnnotationTupleForAnnotation:annotation];
 
+      CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
       if ([self point:screenPosition isWithinBounds:self.bounds])
       {
-        if (nil == t)
+        if (t)
         {
-          JCAnnotationView *view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
-          if (nil == view) continue;
-          view.position = screenPosition;
+           t.view.position = screenPosition;
+        }
+        else
+        {
+          JCAnnotationView *view = [self prepareAnnotationViewForAnnotation:annotation];
+          if (!view) continue;
 
           t = [JCVisibleAnnotationTuple instanceWithAnnotation:annotation view:view];
           [_visibleAnnotations addObject:t];
@@ -382,14 +393,10 @@
           [t.view.layer addAnimation:theAnimation forKey:@"animateOpacity"];
           [CATransaction commit];
         }
-        else
-        {
-          t.view.position = screenPosition;
-        }
       }
       else
       {
-        if (nil != t)
+        if (t)
         {
           [t.view removeFromSuperview];
           [_recycledAnnotationViews addObject:t.view];
@@ -502,12 +509,11 @@
 
   if ([self point:screenPosition isWithinBounds:self.bounds])
   {
-    JCAnnotationView *view = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:annotation];
-    view.position = screenPosition;
+    JCAnnotationView *view = [self prepareAnnotationViewForAnnotation:annotation];
+    if (!view) return;
 
     JCVisibleAnnotationTuple *t = [JCVisibleAnnotationTuple instanceWithAnnotation:annotation view:view];
     [_visibleAnnotations addObject:t];
-
     [_canvasView addSubview:view];
   }
 }
