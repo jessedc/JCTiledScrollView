@@ -2,16 +2,16 @@
 //  RootViewController.m
 //  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 1/02/12.
+//  Created by Jesse Collis
 //  Copyright (c) 2012 JC Multimedia Design. All rights reserved.
 //
 
 #import "RootViewController.h"
-#import "JCTiledScrollView.h"
 #import "JCTiledPDFScrollView.h"
 #import "DemoAnnotationView.h"
 #import "DemoAnnotation.h"
 #import "math.h"
+#import "DetailView.h"
 
 #define SkippingGirlImageSize CGSizeMake(432., 648.)
 
@@ -21,32 +21,22 @@
 
 @implementation RootViewController
 
-@synthesize scrollView = _scrollView;
-@synthesize detailView = _detailView;
-
-- (void)dealloc
-{
-  [_scrollView release];
-  [_detailView release];
-
-  [super dealloc];
-}
 
 #pragma mark - View lifecycle
 
 - (void)loadView
 {
-  UIView *view = [[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f)] autorelease];
-  view.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f)];
+  view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   self.view = view;
 }
 
 - (void)viewDidLoad
 {
-  self.detailView = [[[DetailView alloc] initWithFrame:CGRectZero] autorelease];
+  self.detailView = [[DetailView alloc] initWithFrame:CGRectZero];
   self.detailView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   CGSize size_for_detail = [self.detailView sizeThatFits:self.view.bounds.size];
-  [self.detailView setFrame:CGRectMake(0,0,size_for_detail.width, size_for_detail.height)];
+  [self.detailView setFrame:CGRectMake(0.f,0.f,size_for_detail.width,size_for_detail.height)];
   [self.view addSubview:self.detailView];
 
   CGRect scrollView_frame = CGRectOffset(CGRectInset(self.view.bounds,0.,size_for_detail.height/2.0f),0.,size_for_detail.height/2.0f);
@@ -55,9 +45,8 @@
   //_scrollView = [[JCTiledPDFScrollView alloc] initWithFrame:scrollView_frame URL:[[NSBundle mainBundle] URLForResource:@"Map" withExtension:@"pdf"]];
 
   //Bitmap
-  _scrollView = [[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize];
+  self.scrollView = [[JCTiledScrollView alloc] initWithFrame:scrollView_frame contentSize:SkippingGirlImageSize];
   self.scrollView.dataSource = self;
-
   self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
 
@@ -84,8 +73,8 @@
 
 - (void)viewDidUnload
 {
-  [_scrollView release];
-  [_detailView release];
+  _scrollView = nil;
+  _detailView = nil;
 
   [super viewDidUnload];
 }
@@ -117,7 +106,7 @@
 {
   if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake)
   {
-    [_scrollView removeAllAnnotations];
+    [self.scrollView removeAllAnnotations];
   }
 }
 
@@ -133,7 +122,7 @@
   CGSize size = SkippingGirlImageSize;  
   for (int i = 0; i < 5; i++)
   {
-    id<JCAnnotation> a = [[[DemoAnnotation alloc] init] autorelease];
+    id<JCAnnotation> a = [[DemoAnnotation alloc] init];
     a.contentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
     [self.scrollView addAnnotation:a];
   }
@@ -157,11 +146,11 @@
 - (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(id<JCAnnotation>)annotation
 {
   NSString static *reuseIdentifier = @"JCAnnotationReuseIdentifier";
-  DemoAnnotationView *view = (id)[scrollView dequeueReusableAnnotationViewWithReuseIdentifier:reuseIdentifier];
+  DemoAnnotationView *view = (DemoAnnotationView *)[scrollView dequeueReusableAnnotationViewWithReuseIdentifier:reuseIdentifier];
 
-  if (nil == view)
+  if (!view)
   {
-    view = [[[DemoAnnotationView alloc] initWithFrame:CGRectZero annotation:annotation reuseIdentifier:@"Identifier"] autorelease];
+    view = [[DemoAnnotationView alloc] initWithFrame:CGRectZero annotation:annotation reuseIdentifier:@"Identifier"];
     view.imageView.image = [UIImage imageNamed:@"marker-red.png"];
     [view sizeToFit];
   }

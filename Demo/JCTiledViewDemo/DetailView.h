@@ -2,12 +2,10 @@
 //  DetailView.h
 //  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 8/02/12.
+//  Created by Jesse Collis
 //  Copyright 2012 JC Multimedia Design. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface DetailView : UIView
-@property (nonatomic, retain) UILabel *textLabel;
+@property (strong, nonatomic) UILabel *textLabel;
 @end

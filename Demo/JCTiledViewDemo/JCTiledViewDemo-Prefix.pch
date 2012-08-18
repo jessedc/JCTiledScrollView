@@ -1,30 +1,11 @@
-//
-// Prefix header for all source files of the 'JCTiledViewDemo' target in the 'JCTiledViewDemo' project
-//
 
 #import <Availability.h>
 
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
 #ifdef __OBJC__
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
-
-
-#define SWAP_INSTANCE_RETAIN(DESTINATION__, SOURCE__) \
-{                                                   \
-id old_value__ = DESTINATION__;                   \
-DESTINATION__ = [SOURCE__ retain];                \
-[old_value__ release];                            \
-}
-
-#define SWAP_INSTANCE_COPY(DESTINATION__, SOURCE__) \
-{                                                 \
-id old_value__ = DESTINATION__;                 \
-DESTINATION__ = [SOURCE__ copy];                \
-[old_value__ release];                          \
-}
-
 #endif

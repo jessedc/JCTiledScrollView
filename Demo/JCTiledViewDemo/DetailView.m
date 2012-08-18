@@ -10,10 +10,6 @@
 
 @implementation DetailView
 
-#pragma mark - Properties
-
-@synthesize textLabel = _textLabel;
-
 - (id)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame]))
@@ -31,22 +27,14 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [_textLabel release];
-  [super dealloc];
-}
-
-#pragma mark - UIView
-
 - (CGSize)sizeThatFits:(CGSize)size
 {
-  return CGSizeMake(size.width, 20.0f);
+  return CGSizeMake(size.width, 20.f);
 }
 
 - (void)layoutSubviews
 {
-  self.textLabel.frame = CGRectInset(self.bounds, 2.0f, 2.0f);
+  self.textLabel.frame = CGRectInset(self.bounds, 2.f, 2.f);
 }
 
 @end

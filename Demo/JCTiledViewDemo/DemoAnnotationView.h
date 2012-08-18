@@ -2,7 +2,7 @@
 //  DemoAnnotationView.h
 //  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 10/05/12.
+//  Created by Jesse Collis
 //  Copyright (c) 2012 JC Multimedia Design. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 @interface DemoAnnotationView : JCAnnotationView
 
-@property (nonatomic, retain) UIImageView *imageView;
+@property (strong, nonatomic) UIImageView *imageView;
 
 @end

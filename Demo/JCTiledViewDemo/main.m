@@ -2,7 +2,7 @@
 //  main.m
 //  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 1/02/12.
+//  Created by Jesse Collis
 //  Copyright (c) 2012 JC Multimedia Design. All rights reserved.
 //
 

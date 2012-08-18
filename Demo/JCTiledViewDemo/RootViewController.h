@@ -2,17 +2,17 @@
 //  RootViewController.h
 //  JCTiledViewDemo
 //
-//  Created by Jesse Collis on 1/02/12.
+//  Created by Jesse Collis
 //  Copyright (c) 2012 JC Multimedia Design. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "JCTiledScrollView.h"
-#import "DetailView.h"
+
+@class DetailView, JCTiledScrollView;
 
 @interface RootViewController : UIViewController <JCTileSource, JCTiledScrollViewDelegate>
 
-@property (nonatomic, retain) JCTiledScrollView *scrollView;
-@property (nonatomic, retain) DetailView *detailView;
+@property (strong, nonatomic) JCTiledScrollView *scrollView;
+@property (strong, nonatomic) DetailView *detailView;
 
 @end
