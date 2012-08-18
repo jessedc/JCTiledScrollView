@@ -28,10 +28,11 @@ Feature requests and pull-requests are most welcome.
 
 The JCTiledScrollView static library / classes are non-arc at the moment but can be converted to ARC with Xcode's refactor tool quite easily.
 
-### Latest Updates
+## Latest Updates
 
 ### August 2012
-  * Created a [Static library branch][16] with a static library project and workspace.
+  * You can drag annotations around over at the [drag-annotations branch][16]. This will come into master very soon
+  * JCTiledSCrollView is now packaged as a Static library within a workspace
 
 ### July 2012
   * Updated source and demo to be compatible with Xcode's ARC refactor tool
@@ -115,4 +116,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [13]: https://github.com/chrismiles/SliceTool "Chris Miles' SliceTool on github"
 [14]: http://imageoptim.com "Image Optim"
 [15]: http://imageoptim.com/tweetbot.html "Image Optim Case study: Tweetbot for iPad"
-[16]: https://github.com/jessedc/JCTiledScrollView/tree/static-lib "JCTiledScrollView static-lib branch"
+[16]: https://github.com/jessedc/JCTiledScrollView/tree/drag-annotations "JCTiledScrollView drag-annotations branch"
