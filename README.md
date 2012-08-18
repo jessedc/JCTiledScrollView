@@ -7,7 +7,7 @@ by Jesse Collis
 
 ## About JCTiledScrollView
 
-JCTiledScrollView is a set of classes that wraps UIScrollView and CATiledLayer. It aims to simplify displaying large images and PDFs at multiple zoom scales. As the project evolves it's moving towards becoming a fully featured custom map view replacement with gestures and annotation support.
+JCTiledScrollView is a set of classes that wrap UIScrollView and CATiledLayer. The project to simplify displaying large images and PDFs at multiple zoom scales. As the project evolves it's moving towards becoming a fully featured custom map view replacement with gestures and annotations.
 
 Feature requests and pull-requests are most welcome.
 
@@ -26,7 +26,7 @@ Feature requests and pull-requests are most welcome.
 
 ### ARC Compatibility
 
-JCTiledScrollview can easily be converted to be ARC compatible with Xcode's refactor tool. Boot up the demo project and get Xcode to make the changes, although if you're going to do this you might consider doing it to the [static library][16].
+The JCTiledScrollView static library / classes are non-arc at the moment but can be converted to ARC with Xcode's refactor tool quite easily.
 
 ### Latest Updates
 
