@@ -270,6 +270,19 @@
 //Ignore our own pan gesture if it doesn't start on an annotation view
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
+  CGPoint location = [gestureRecognizer locationInView:self.canvasView];
+
+  for (JCVisibleAnnotationTuple *t in _visibleAnnotations)
+  {
+    if (CGRectContainsPoint(t.view.frame, location))
+    {
+      if ([gestureRecognizer isKindOfClass:[JCAnnotationPanGestureRecognizer class]])
+      {
+        [(JCAnnotationPanGestureRecognizer *)gestureRecognizer setPanningAnnotation:t];
+      }
+      return YES;
+    }
+  }
   return NO;
 }
 
