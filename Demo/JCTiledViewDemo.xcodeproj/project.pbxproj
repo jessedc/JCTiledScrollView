@@ -18,7 +18,7 @@
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
-		88AFB16A15DF56F5003BD3AB /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */; };
+		88AFB1A215DF7602003BD3AB /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */; };
 		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
@@ -26,6 +26,23 @@
 		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88BCDD8C15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
+		88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88BCDD8B15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8809DC4C14D8E44A0003B4C6 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tiles; path = ../tiles; sourceTree = "<group>"; };
@@ -46,6 +63,7 @@
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
 		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
+		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
 		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
@@ -62,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88AFB16A15DF56F5003BD3AB /* libJCTiledScrollView.a in Frameworks */,
+				88AFB1A215DF7602003BD3AB /* libJCTiledScrollView.a in Frameworks */,
 				8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */,
 				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
 				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
@@ -78,6 +96,7 @@
 			children = (
 				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
+				88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
 				887EE94214D8DC2D00AB0A92 /* Products */,
 			);
@@ -138,6 +157,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		88AFB19B15DF75F2003BD3AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +179,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */,
 			);
 			name = JCTiledViewDemo;
 			productName = JCTiledViewDemo;
@@ -177,12 +205,28 @@
 			mainGroup = 887EE93614D8DC2D00AB0A92;
 			productRefGroup = 887EE94214D8DC2D00AB0A92 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 88AFB19B15DF75F2003BD3AB /* Products */;
+					ProjectRef = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				887EE94014D8DC2D00AB0A92 /* JCTiledViewDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJCTiledScrollView.a;
+			remoteRef = 88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		887EE93F14D8DC2D00AB0A92 /* Resources */ = {
@@ -216,6 +260,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JCTiledScrollView;
+			targetProxy = 88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */ = {
