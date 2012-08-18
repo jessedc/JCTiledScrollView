@@ -31,6 +31,7 @@ JCTiledScrollview can easily be converted to be ARC compatible with Xcode's refa
 ### Latest Updates
 
 ### August 2012
+  * Support for dragging annotations
   * Created a [Static library branch][16] with a static library project and workspace.
 
 ### July 2012
@@ -48,8 +49,7 @@ JCTiledScrollview can easily be converted to be ARC compatible with Xcode's refa
 
  * Zooming in both directions
  * Annotation selection
- * Advanced UIGestureRecognizers (dragging overlays etc)
- * Provide as a static library
+ * Expand the JCTiledScrolViewDelegate protocol to provide more MKMapView-esque callbacks.
  
 
 ### Handy Links
