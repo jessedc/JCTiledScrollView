@@ -293,7 +293,7 @@
       case UIGestureRecognizerStateEnded:
       {
         gestureView.position = CGPointMake(gestureView.position.x + translation.x, gestureView.position.y + translation.y);
-        gestureTuple.annotation.contentPosition = CGPointMake(gestureTuple.annotation.contentPosition.x + (translation.x / self.scrollView.zoomScale), gestureTuple.annotation.contentPosition.y + (translation.y / self.scrollView.zoomScale));
+        gestureTuple.annotation.contentPosition = CGPointMake(floorf(gestureTuple.annotation.contentPosition.x + (translation.x / self.scrollView.zoomScale)), floorf(gestureTuple.annotation.contentPosition.y + (translation.y / self.scrollView.zoomScale)));
         gestureView.transform = CGAffineTransformIdentity;
 
         annotationGestureRecognizer.panningAnnotation = nil;
