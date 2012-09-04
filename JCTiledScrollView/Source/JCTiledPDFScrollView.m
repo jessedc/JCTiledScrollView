@@ -75,7 +75,7 @@
     NSAssert(NO, @"CGPDFDocumentRef == NULL");
   }
   
-  if (self = [super initWithFrame:frame contentSize:contentSize])
+  if ((self = [super initWithFrame:frame contentSize:contentSize]))
   {
   }
 

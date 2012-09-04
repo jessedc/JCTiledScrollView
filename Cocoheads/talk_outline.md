@@ -1,6 +1,10 @@
 #CATiledLayer
 ###Jesse Collis, Melbourne Cocoaheads, February 2012
 
+###Video of this presentation
+
+Video of this presentation has been posted on Vimeo [here](https://vimeo.com/45293931)
+
 ### 1. Introduction to CATiled Layer
  * Who's used it before?
  * It draws large images at multiple zoom levels, and gives you asynchronous call backs as it needs a new tile at a new level
