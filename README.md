@@ -4,6 +4,7 @@ by Jesse Collis
 
   * [Visit JCMultimedia.com.au][2]
   * [Follow @sirjec on Twitter][3]
+  * Checkout the presentation I did on CATiledLayer [Here][17]
 
 ## About JCTiledScrollView
 
@@ -66,6 +67,7 @@ The JCTiledScrollView static library / classes are non-arc at the moment but can
   * Apple's [View Programming Guide for iOS][10]
   * WWDC 2010 Session 104 - Designing Apps with ScrollViews
   * WWDC 2011 Session 104 - Advanced Scroll View Techniques
+  * [My presentation][17] on CATiledLayer and JCTiledScrollView at Melbourne Cocoaheads
 
 ### Project Background
 
@@ -117,3 +119,4 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [14]: http://imageoptim.com "Image Optim"
 [15]: http://imageoptim.com/tweetbot.html "Image Optim Case study: Tweetbot for iPad"
 [16]: https://github.com/jessedc/JCTiledScrollView/tree/drag-annotations "JCTiledScrollView drag-annotations branch"
+[17]: https://github.com/jessedc/JCTiledScrollView/blob/master/Cocoheads/talk_outline.md "JCTiledScrollView introduced at Melbourne Cocoaheads February 2012"
