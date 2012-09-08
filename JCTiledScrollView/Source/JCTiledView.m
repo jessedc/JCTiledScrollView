@@ -31,7 +31,7 @@
 #import "JCTiledLayer.h"
 #import "math.h"
 
-static const CGFloat kDefaultTileSize = 256.0f;
+#define kDefaultTileSize 256.f
 
 @interface JCTiledView ()
 - (JCTiledLayer *)tiledLayer;
@@ -50,7 +50,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 - (id)initWithFrame:(CGRect)frame
 {
-  if (self = [super initWithFrame:frame])
+  if ((self = [super initWithFrame:frame]))
   {
     CGSize scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
     self.tiledLayer.tileSize = scaledTileSize;
