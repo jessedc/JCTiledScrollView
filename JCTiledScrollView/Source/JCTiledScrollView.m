@@ -41,6 +41,7 @@
 @property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 @property (nonatomic, assign) BOOL muteAnnotationUpdates;
+@property (nonatomic, retain) UIImageView *backgroundImageView;
 @end
 
 @implementation JCTiledScrollView
@@ -65,6 +66,7 @@
 @synthesize centerSingleTap = _centerSingleTap;
 
 @synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
+@synthesize backgroundImageView = _backgroundImageView;
 
 + (Class)tiledLayerClass
 {
@@ -99,8 +101,14 @@
     _tiledView = [[[[self class] tiledLayerClass] alloc] initWithFrame:canvas_frame];
     _tiledView.delegate = self;
 
+    _backgroundImageView = [[[UIImageView alloc] initWithFrame:canvas_frame] autorelease];
+    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    _backgroundImageView.contentMode = UIViewContentModeTopLeft;
+    _backgroundImageView.backgroundColor = [UIColor redColor];
+
     [_scrollView addSubview:self.tiledView];
 
+    [self addSubview:self.backgroundImageView];
     [self addSubview:_scrollView];
     [self addSubview:_canvasView];
 
@@ -124,12 +132,39 @@
     _recycledAnnotationViews = [[NSMutableSet alloc] init];
 
     _muteAnnotationUpdates = NO;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillResignActive:)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+
 	}
 	return self;
 }
 
+- (void)applicationWillResignActive:(__unused NSNotification *)notification
+{
+  if ([notification.name isEqualToString:UIApplicationWillResignActiveNotification])
+  {
+    //    self.backgroundImageView.frame = (CGRect){self.scrollView.contentOffset, self.bounds.size};
+
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(432., 648.), YES, self.contentScaleFactor);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//    CGContextScaleCTM(ctx, 2, 2);
+    //CGContextTranslateCTM(ctx, self.scrollView.contentOffset.x, self.scrollView.contentOffset.y);
+    [self.layer.presentationLayer renderInContext:ctx];
+    self.backgroundImageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"%@",[NSValue valueWithCGSize:self.backgroundImageView.image.size]);
+    //[self.tiledView removeFromSuperview];
+    [self bringSubviewToFront:self.backgroundImageView];
+  }
+}
+
 - (void)dealloc
-{	
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+
   [_scrollView release];
   [_tiledView release];
   [_canvasView release];
