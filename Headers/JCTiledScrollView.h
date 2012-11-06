@@ -29,7 +29,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class JCTiledScrollView, JCTiledView, JCAnnotationView;
+@class JCTiledScrollView, JCTiledView, JCAnnotationView, JCVisibleAnnotationTuple;
 @protocol JCAnnotation;
 
 @protocol JCTileSource <NSObject>
@@ -44,6 +44,14 @@
 - (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView;
 - (void)tiledScrollViewDidScroll:(JCTiledScrollView *)scrollView;
 
+@optional
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView annotationWillDisappear:(id<JCAnnotation>)annotation;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView annotationDidDisappear:(id<JCAnnotation>)annotation;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView annotationWillAppear:(id<JCAnnotation>)annotation;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView annotationDidAppear:(id<JCAnnotation>)annotation;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didSelectAnnotationView:(JCAnnotationView *)view;
+- (void)tiledScrollView:(JCTiledScrollView *)scrollView didDeselectAnnotationView:(JCAnnotationView *)view;
+
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveSingleTap:(UIGestureRecognizer *)gestureRecognizer;
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer;
@@ -56,6 +64,8 @@
   NSMutableSet *_recycledAnnotationViews;
   NSMutableSet *_annotations;
   NSMutableSet *_visibleAnnotations;
+  JCVisibleAnnotationTuple *_previousSelectedAnnotationTuple;
+  JCVisibleAnnotationTuple *_currentSelectedAnnotationTuple;
 }
 
 //Delegates

@@ -62,7 +62,7 @@
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
+		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
 		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
