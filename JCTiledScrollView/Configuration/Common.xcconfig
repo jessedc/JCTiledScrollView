@@ -115,6 +115,9 @@ JC_DIAGNOSTIC_FLAGS = -fshow-source-location -fcaret-diagnostics -fdiagnostics-s
 // Don't try and find 'user' includes
 ALWAYS_SEARCH_USER_PATHS = NO
 
+JC_SYSTEM_FRAMEWORKS = -framework Foundation -framework UIKit -framework CoreGraphics -framework QuartzCore
+OTHER_LDFLAGS = $(inherited) -ObjC $(JC_SYSTEM_FRAMEWORKS)
+
 // Include the build products headers to get at other libs: add /../../Headers
 HEADER_SEARCH_PATHS = $(BUILT_PRODUCTS_DIR)
 

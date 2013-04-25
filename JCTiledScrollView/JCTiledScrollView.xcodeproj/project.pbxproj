@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		884E3C2215D790C50077F06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2115D790C50077F06D /* QuartzCore.framework */; };
-		884E3C2515D790CB0077F06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2415D790CB0077F06D /* UIKit.framework */; };
-		884E3C2715D790D10077F06D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2615D790D10077F06D /* CoreGraphics.framework */; };
-		88BCDD9015C4E13900E6515A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCDD8F15C4E13900E6515A /* Foundation.framework */; };
 		88BCDDAE15C4E28500E6515A /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA615C4E28500E6515A /* CGPDFDocument.m */; };
 		88BCDDAF15C4E28500E6515A /* JCAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA715C4E28500E6515A /* JCAnnotationView.m */; };
 		88BCDDB015C4E28500E6515A /* JCPDFTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDA815C4E28500E6515A /* JCPDFTiledView.m */; };
@@ -43,11 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		884E3C2115D790C50077F06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		884E3C2415D790CB0077F06D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		884E3C2615D790D10077F06D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCTiledScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		88BCDD8F15C4E13900E6515A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledScrollView-Prefix.pch"; sourceTree = "<group>"; };
 		88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
 		88BCDD9E15C4E26700E6515A /* JCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotation.h; sourceTree = "<group>"; };
@@ -77,10 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				884E3C2715D790D10077F06D /* CoreGraphics.framework in Frameworks */,
-				884E3C2515D790CB0077F06D /* UIKit.framework in Frameworks */,
-				884E3C2215D790C50077F06D /* QuartzCore.framework in Frameworks */,
-				88BCDD9015C4E13900E6515A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +81,6 @@
 				88BCDD9C15C4E20700E6515A /* Headers */,
 				88BCDD9B15C4E1FC00E6515A /* Source */,
 				88BCDD9215C4E13900E6515A /* Supporting Files */,
-				88BCDD8E15C4E13900E6515A /* Frameworks */,
 				88BCDD8D15C4E13900E6515A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,17 +91,6 @@
 				88BCDD8C15C4E13900E6515A /* libJCTiledScrollView.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		88BCDD8E15C4E13900E6515A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				884E3C2615D790D10077F06D /* CoreGraphics.framework */,
-				884E3C2415D790CB0077F06D /* UIKit.framework */,
-				884E3C2115D790C50077F06D /* QuartzCore.framework */,
-				88BCDD8F15C4E13900E6515A /* Foundation.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		88BCDD9215C4E13900E6515A /* Supporting Files */ = {
