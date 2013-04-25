@@ -25,11 +25,10 @@ Feature requests and pull-requests are most welcome.
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
-### ARC Compatibility
-
-The JCTiledScrollView static library / classes are non-arc at the moment but can be converted to ARC with Xcode's refactor tool quite easily.
-
 ## Latest Updates
+
+### April 2013
+  * Moved to ARC
 
 ### August 2012
   * You can drag annotations around over at the [drag-annotations branch][16]. This will come into master very soon
