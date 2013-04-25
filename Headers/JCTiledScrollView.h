@@ -59,13 +59,13 @@
 }
 
 //Delegates
-@property (nonatomic, assign) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
-@property (nonatomic, assign) id <JCTileSource> dataSource;
+@property (nonatomic, weak) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
+@property (nonatomic, weak) id <JCTileSource> dataSource;
 
 //internals
-@property (nonatomic, retain) JCTiledView *tiledView;
-@property (nonatomic, retain) UIScrollView *scrollView;
-@property (nonatomic, retain) UIView *canvasView;
+@property (nonatomic, strong) JCTiledView *tiledView;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIView *canvasView;
 
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;

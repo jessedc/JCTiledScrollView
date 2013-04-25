@@ -33,10 +33,10 @@
 
 @interface JCAnnotationView : UIView
 
-@property (nonatomic, retain) id<JCAnnotation> annotation;
+@property (nonatomic, strong) id<JCAnnotation> annotation;
 @property (nonatomic, assign) CGPoint position;
 @property (nonatomic, assign) CGPoint centerOffset;
-@property (nonatomic, retain) NSString *reuseIdentifier;
+@property (nonatomic, strong) NSString *reuseIdentifier;
 
 - (id)initWithFrame:(CGRect)frame annotation:(id<JCAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier;
 

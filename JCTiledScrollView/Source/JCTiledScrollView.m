@@ -37,9 +37,9 @@
 
 @interface JCTiledScrollView () <JCTiledBitmapViewDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, retain) UITapGestureRecognizer *singleTapGestureRecognizer;
-@property (nonatomic, retain) UITapGestureRecognizer *doubleTapGestureRecognizer;
-@property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *singleTapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 @property (nonatomic, assign) BOOL muteAnnotationUpdates;
 @end
 
@@ -128,21 +128,6 @@
 	return self;
 }
 
-- (void)dealloc
-{	
-  [_scrollView release];
-  [_tiledView release];
-  [_canvasView release];
-  [_singleTapGestureRecognizer release];
-  [_doubleTapGestureRecognizer release];
-  [_twoFingerTapGestureRecognizer release];
-  
-  [_annotations release];
-  [_visibleAnnotations release];
-  [_recycledAnnotationViews release];
-
-	[super dealloc];
-}
 
 #pragma mark - UIScrolViewDelegate
 
@@ -384,9 +369,8 @@
   
   if (nil != view)
   {
-    [view retain];
     [_recycledAnnotationViews removeObject:view];
-    return [view autorelease];
+    return view;
   }
   return nil;
 }

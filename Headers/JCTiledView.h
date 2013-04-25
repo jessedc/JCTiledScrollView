@@ -41,7 +41,7 @@
 
 @interface JCTiledView : UIView
 
-@property (nonatomic, assign) id<JCTiledViewDelegate> delegate;
+@property (nonatomic, weak) id<JCTiledViewDelegate> delegate;
 @property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
 @property (nonatomic, assign) BOOL shouldAnnotateRect;

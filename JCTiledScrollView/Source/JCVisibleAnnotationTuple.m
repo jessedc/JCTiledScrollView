@@ -33,7 +33,7 @@
 
 + (JCVisibleAnnotationTuple *)instanceWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view
 {
-  return [[[self alloc] initWithAnnotation:annotation view:view] autorelease];
+  return [[self alloc] initWithAnnotation:annotation view:view];
 }
 
 - (id)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view
@@ -46,13 +46,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  _annotation = nil;
-  _view = nil;
-
-  [super dealloc];
-}
 
 @end
 

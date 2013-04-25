@@ -45,8 +45,7 @@
 {
   CGSize contentSize = CGSizeZero;
   
-  //__bridge required here when ARC comes in
-  _PDFDocRef = CGPDFDocumentCreateX((CFURLRef)url, @"");
+  _PDFDocRef = CGPDFDocumentCreateX((__bridge CFURLRef)url, @"");
   
   if (_PDFDocRef != NULL)
   {
@@ -87,7 +86,6 @@
   CGPDFPageRelease(_PDFPageRef);
   CGPDFDocumentRelease(_PDFDocRef);
 
-  [super dealloc];
 }
 
 #pragma mark - JCPDFTiledViewDelegate

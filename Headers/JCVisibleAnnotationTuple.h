@@ -32,8 +32,8 @@
 @protocol JCAnnotation;
 
 @interface JCVisibleAnnotationTuple : NSObject
-@property (nonatomic, retain) id<JCAnnotation> annotation;
-@property (nonatomic, retain) JCAnnotationView *view;
+@property (nonatomic, strong) id<JCAnnotation> annotation;
+@property (nonatomic, strong) JCAnnotationView *view;
 
 + (JCVisibleAnnotationTuple *)instanceWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
 - (id)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;

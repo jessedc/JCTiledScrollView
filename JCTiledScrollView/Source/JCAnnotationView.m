@@ -42,19 +42,12 @@
   {
     _centerOffset = CGPointZero;
     _position = CGPointZero;
-    _annotation = [annotation retain];
-    _reuseIdentifier = [reuseIdentifier retain];
+    _annotation = annotation;
+    _reuseIdentifier = reuseIdentifier;
   }
   return self;
 }
 
-- (void)dealloc
-{
-  [_annotation release];
-  [_reuseIdentifier release];
-
-  [super dealloc];
-}
 
 - (void)setPosition:(CGPoint)position
 {
