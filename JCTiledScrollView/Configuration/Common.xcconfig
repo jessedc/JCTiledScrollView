@@ -4,7 +4,7 @@ SDKROOT = iphoneos
 IPHONEOS_DEPLOYMENT_TARGET = 4.0
 
 TARGETED_DEVICE_FAMILY = 1,2
-ARCHS[sdk=iphoneos*] = armv6 armv7
+ARCHS[sdk=iphoneos*] = $(ARCHS_STANDARD_32_BIT)
 ARCHS[sdk=iphonesimulator*] = i386
 
 // Avoid THUMB code generation bugs (in LLVM)

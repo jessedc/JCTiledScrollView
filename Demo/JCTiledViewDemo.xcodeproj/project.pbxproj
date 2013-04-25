@@ -12,13 +12,14 @@
 		8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8809DC5114D8E8560003B4C6 /* QuartzCore.framework */; };
 		88197C101558C251005EF22F /* marker-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 88197C0F1558C251005EF22F /* marker-red.png */; };
 		882BCF7715A431CF00F0FC5E /* DemoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */; };
+		8847303317294A4600FE980B /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */; };
 		887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94514D8DC2D00AB0A92 /* UIKit.framework */; };
 		887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94714D8DC2D00AB0A92 /* Foundation.framework */; };
 		887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */; };
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
 		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
 		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
-		88AFB1A215DF7602003BD3AB /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */; };
+		888630DE172938C600F8E5D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 888630DD172938C600F8E5D4 /* Default-568h@2x.png */; };
 		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
@@ -26,23 +27,6 @@
 		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 88BCDD8C15C4E13900E6515A;
-			remoteInfo = JCTiledScrollView;
-		};
-		88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 88BCDD8B15C4E13900E6515A;
-			remoteInfo = JCTiledScrollView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8809DC4C14D8E44A0003B4C6 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tiles; path = ../tiles; sourceTree = "<group>"; };
@@ -62,8 +46,8 @@
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
-		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
+		888630DD172938C600F8E5D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
 		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
@@ -80,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88AFB1A215DF7602003BD3AB /* libJCTiledScrollView.a in Frameworks */,
+				8847303317294A4600FE980B /* libJCTiledScrollView.a in Frameworks */,
 				8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */,
 				887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */,
 				887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */,
@@ -96,7 +80,6 @@
 			children = (
 				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
-				88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
 				887EE94214D8DC2D00AB0A92 /* Products */,
 			);
@@ -143,6 +126,7 @@
 		887EE94C14D8DC2D00AB0A92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				888630DD172938C600F8E5D4 /* Default-568h@2x.png */,
 				88DCC88214F3BEF800B206F5 /* Map.pdf */,
 				88197C0F1558C251005EF22F /* marker-red.png */,
 				8809DC4C14D8E44A0003B4C6 /* tiles */,
@@ -155,14 +139,6 @@
 				887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		88AFB19B15DF75F2003BD3AB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +155,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */,
 			);
 			name = JCTiledViewDemo;
 			productName = JCTiledViewDemo;
@@ -192,7 +167,7 @@
 		887EE93814D8DC2D00AB0A92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "JC Multimedia Design";
 			};
 			buildConfigurationList = 887EE93B14D8DC2D00AB0A92 /* Build configuration list for PBXProject "JCTiledViewDemo" */;
@@ -205,28 +180,12 @@
 			mainGroup = 887EE93614D8DC2D00AB0A92;
 			productRefGroup = 887EE94214D8DC2D00AB0A92 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 88AFB19B15DF75F2003BD3AB /* Products */;
-					ProjectRef = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				887EE94014D8DC2D00AB0A92 /* JCTiledViewDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJCTiledScrollView.a;
-			remoteRef = 88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		887EE93F14D8DC2D00AB0A92 /* Resources */ = {
@@ -240,6 +199,7 @@
 				88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */,
 				88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */,
 				88197C101558C251005EF22F /* marker-red.png in Resources */,
+				888630DE172938C600F8E5D4 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,14 +221,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JCTiledScrollView;
-			targetProxy = 88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -285,9 +237,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -299,10 +253,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
@@ -316,17 +270,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
@@ -348,6 +305,7 @@
 					ANNOTATE_TILES,
 				);
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = JCTiledViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -359,6 +317,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = JCTiledViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
