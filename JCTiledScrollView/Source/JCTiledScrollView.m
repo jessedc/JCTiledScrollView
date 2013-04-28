@@ -32,6 +32,7 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
+#import "JCAnnotationPanGestureRecognizer.h"
 
 #define kStandardUIScrollViewAnimationTime (int64_t)0.10
 
@@ -40,6 +41,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *annotationPanGestureRecognizer;
 @property (nonatomic, assign) BOOL muteAnnotationUpdates;
 @end
 
@@ -59,10 +61,13 @@
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize twoFingerTapGestureRecognizer = _twoFingerTapGestureRecognizer;
+@synthesize annotationPanGestureRecognizer = _annotationPanGestureRecognizer;
 
 @synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
 @synthesize centerSingleTap = _centerSingleTap;
+
+@dynamic annotationDragging;
 
 @synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
 
@@ -86,11 +91,16 @@
     _scrollView.bounces = YES;
     _scrollView.minimumZoomScale = 1.0;
 
+    _annotationPanGestureRecognizer = [[JCAnnotationPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureReceived:)];
+    _annotationPanGestureRecognizer.delegate = self;
+    [_scrollView addGestureRecognizer:_annotationPanGestureRecognizer];
+
     self.levelsOfZoom = 2;
 
     self.zoomsInOnDoubleTap = YES;
     self.zoomsOutOnTwoFingerTap = YES;
     self.centerSingleTap = YES;
+    self.annotationDragging = NO;
 
     CGRect canvas_frame = CGRectMake(0.0f, 0.0f, _scrollView.contentSize.width, _scrollView.contentSize.height);
     _canvasView = [[UIView alloc] initWithFrame:canvas_frame];
@@ -128,6 +138,19 @@
 	return self;
 }
 
+- (void)dealloc
+{	
+  [_scrollView release];
+  [_tiledView release];
+  [_canvasView release];
+  [_singleTapGestureRecognizer release];
+  [_doubleTapGestureRecognizer release];
+  [_twoFingerTapGestureRecognizer release];
+  [_annotationPanGestureRecognizer release];
+
+  [_annotations release];
+  [_visibleAnnotations release];
+  [_recycledAnnotationViews release];
 
 #pragma mark - UIScrolViewDelegate
 
@@ -155,6 +178,16 @@
 }
 
 #pragma mark - 
+
+- (void)setAnnotationDragging:(BOOL)annotationDragging
+{
+  self.annotationPanGestureRecognizer.enabled = annotationDragging;
+}
+
+- (BOOL)annotationDragging
+{
+  return self.annotationPanGestureRecognizer.enabled;
+}
 
 //FIXME: Jesse C - I don't like overloading this here, but the logic is in one place
 - (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
@@ -224,6 +257,75 @@
     [self.tiledScrollViewDelegate tiledScrollView:self didReceiveTwoFingerTap:gestureRecognizer];
   }
 }
+
+- (void)panGestureReceived:(UIPanGestureRecognizer *)gestureRecognizer
+{
+  if ([gestureRecognizer isKindOfClass:[JCAnnotationPanGestureRecognizer class]])
+  {
+    JCAnnotationPanGestureRecognizer *annotationGestureRecognizer = (JCAnnotationPanGestureRecognizer *)gestureRecognizer;
+    if (nil == annotationGestureRecognizer.panningAnnotation) return;
+
+    JCAnnotationView *gestureView = annotationGestureRecognizer.panningAnnotation.view;
+    JCVisibleAnnotationTuple *gestureTuple = annotationGestureRecognizer.panningAnnotation;
+
+    CGPoint translation = [gestureRecognizer translationInView:self.canvasView];
+
+    if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledSCrollView:annotation:didPan:)])
+    {
+      [self.tiledScrollViewDelegate tiledSCrollView:self annotation:gestureTuple.annotation didPan:gestureRecognizer];
+    }
+
+    switch (gestureRecognizer.state)
+    {
+      case UIGestureRecognizerStateChanged:
+      {
+        //if you implemented this in a way that changed the center point at each interval, you'd get KVO callbacks each time
+        //currently you only get them at th end.
+        gestureView.transform = CGAffineTransformMakeTranslation(translation.x, translation.y);
+        break;
+      }
+      case UIGestureRecognizerStateCancelled:
+      case UIGestureRecognizerStateFailed:
+      case UIGestureRecognizerStateEnded:
+      {
+        gestureView.position = CGPointMake(gestureView.position.x + translation.x, gestureView.position.y + translation.y);
+        gestureTuple.annotation.contentPosition = CGPointMake(floorf(gestureTuple.annotation.contentPosition.x + (translation.x / self.scrollView.zoomScale)), floorf(gestureTuple.annotation.contentPosition.y + (translation.y / self.scrollView.zoomScale)));
+        gestureView.transform = CGAffineTransformIdentity;
+
+        annotationGestureRecognizer.panningAnnotation = nil;
+        break;
+      }
+      case UIGestureRecognizerStateBegan:
+      case UIGestureRecognizerStatePossible:
+      {
+        break;
+      }
+    }
+  }
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+//Ignore our own pan gesture if it doesn't start on an annotation view
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+  CGPoint location = [gestureRecognizer locationInView:self.canvasView];
+
+  for (JCVisibleAnnotationTuple *t in _visibleAnnotations)
+  {
+    if (CGRectContainsPoint(t.view.frame, location))
+    {
+      if ([gestureRecognizer isKindOfClass:[JCAnnotationPanGestureRecognizer class]])
+      {
+        [(JCAnnotationPanGestureRecognizer *)gestureRecognizer setPanningAnnotation:t];
+      }
+      return YES;
+    }
+  }
+  return NO;
+}
+
+
+#pragma mark - Annotations
 
 - (CGPoint)screenPositionForAnnotation:(id<JCAnnotation>)annotation
 {

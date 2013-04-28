@@ -16,6 +16,7 @@
   {
     _imageView = [[UIImageView alloc] init];
     [self addSubview:_imageView];
+    self.centerOffset = CGPointMake(-1, 12.);
   }
   return self;
 }

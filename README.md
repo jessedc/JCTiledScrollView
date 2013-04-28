@@ -31,8 +31,8 @@ Feature requests and pull-requests are most welcome.
   * Moved to ARC
 
 ### August 2012
-  * You can drag annotations around over at the [drag-annotations branch][16]. This will come into master very soon
-  * JCTiledSCrollView is now packaged as a Static library within a workspace
+  * Support for dragging annotations
+  * Created a [Static library branch][16] with a static library project and workspace.
 
 ### July 2012
   * Updated source and demo to be compatible with Xcode's ARC refactor tool
@@ -49,8 +49,7 @@ Feature requests and pull-requests are most welcome.
 
  * Zooming in both directions
  * Annotation selection
- * Advanced UIGestureRecognizers (dragging overlays etc)
- * Provide as a static library
+ * Expand the JCTiledScrolViewDelegate protocol to provide more MKMapView-esque callbacks.
  
 
 ### Handy Links

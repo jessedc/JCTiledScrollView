@@ -50,6 +50,8 @@
   self.scrollView.dataSource = self;
   self.scrollView.tiledScrollViewDelegate = self;
   self.scrollView.zoomScale = 1.0f;
+  //TODO: add a switch to the demo UI so this feature can be shown on and off.
+  self.scrollView.annotationDragging = YES;
 
 #ifdef ANNOTATE_TILES
   self.scrollView.tiledView.shouldAnnotateRect = YES;
