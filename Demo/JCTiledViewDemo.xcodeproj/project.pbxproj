@@ -28,6 +28,23 @@
 		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88BCDD8C15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
+		88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88BCDD8B15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		8809DC4C14D8E44A0003B4C6 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tiles; path = ../tiles; sourceTree = "<group>"; };
 		8809DC4E14D8E4C40003B4C6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -48,6 +65,7 @@
 		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
 		888630DD172938C600F8E5D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
+		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
 		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
@@ -80,6 +98,7 @@
 			children = (
 				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
+				88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
 				887EE94214D8DC2D00AB0A92 /* Products */,
 			);
@@ -141,6 +160,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		88AFB19B15DF75F2003BD3AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +182,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */,
 			);
 			name = JCTiledViewDemo;
 			productName = JCTiledViewDemo;
@@ -180,12 +208,28 @@
 			mainGroup = 887EE93614D8DC2D00AB0A92;
 			productRefGroup = 887EE94214D8DC2D00AB0A92 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 88AFB19B15DF75F2003BD3AB /* Products */;
+					ProjectRef = 88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				887EE94014D8DC2D00AB0A92 /* JCTiledViewDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		88AFB19F15DF75F3003BD3AB /* libJCTiledScrollView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJCTiledScrollView.a;
+			remoteRef = 88AFB19E15DF75F3003BD3AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		887EE93F14D8DC2D00AB0A92 /* Resources */ = {
@@ -221,6 +265,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		88AFB1A115DF75FD003BD3AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JCTiledScrollView;
+			targetProxy = 88AFB1A015DF75FD003BD3AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -237,6 +289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -253,6 +306,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -270,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
