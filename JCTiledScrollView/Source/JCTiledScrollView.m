@@ -32,6 +32,7 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
+#import "ADAnnotationTapGestureRecognizer.h"
 
 #define kStandardUIScrollViewAnimationTime (int64_t)0.10
 
@@ -104,8 +105,9 @@
     [self addSubview:_scrollView];
     [self addSubview:_canvasView];
 
-    _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
+    _singleTapGestureRecognizer = [[ADAnnotationTapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
+    _singleTapGestureRecognizer.delegate = self;
     [_tiledView addGestureRecognizer:_singleTapGestureRecognizer];
 
     _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapReceived:)];
@@ -122,6 +124,8 @@
     _annotations = [[NSMutableSet alloc] init];
     _visibleAnnotations = [[NSMutableSet alloc] init];
     _recycledAnnotationViews = [[NSMutableSet alloc] init];
+    _previousSelectedAnnotationTuple = nil;
+      _currentSelectedAnnotationTuple = nil;
 
     _muteAnnotationUpdates = NO;
 	}
@@ -168,18 +172,65 @@
   }
 }
 
-#pragma mark - Gesture Suport
+#pragma mark - Gesture Support
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
-  if (self.centerSingleTap)
+  if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
   {
-    [self setContentCenter:[gestureRecognizer locationInView:self.tiledView] animated:YES];
-  }
+    ADAnnotationTapGestureRecognizer *annotationGestureRecognizer = (ADAnnotationTapGestureRecognizer *) gestureRecognizer;
 
-  if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveSingleTap:)])
-  {
-    [self.tiledScrollViewDelegate tiledScrollView:self didReceiveSingleTap:gestureRecognizer];
+    _previousSelectedAnnotationTuple = _currentSelectedAnnotationTuple;
+    _currentSelectedAnnotationTuple = annotationGestureRecognizer.tapAnnotation;
+
+    if (nil == annotationGestureRecognizer.tapAnnotation)
+    {
+      if (_previousSelectedAnnotationTuple != nil)
+      {
+        if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didDeselectAnnotationView:)])
+        {
+          [self.tiledScrollViewDelegate tiledScrollView:self didDeselectAnnotationView:_previousSelectedAnnotationTuple.view];
+        }
+      }
+      else if (self.centerSingleTap)
+      {
+        [self setContentCenter:[gestureRecognizer locationInView:self.tiledView] animated:YES];
+      }
+
+      if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveSingleTap:)])
+      {
+        [self.tiledScrollViewDelegate tiledScrollView:self didReceiveSingleTap:gestureRecognizer];
+      }
+    }
+    else
+    {
+      if (_previousSelectedAnnotationTuple == _currentSelectedAnnotationTuple) return;
+
+      if (_previousSelectedAnnotationTuple != nil)
+      {
+
+        JCAnnotationView *oldSelectedAnnotationView = _previousSelectedAnnotationTuple.view;
+
+        if (oldSelectedAnnotationView == nil)
+        {
+          oldSelectedAnnotationView = [_tiledScrollViewDelegate tiledScrollView:self viewForAnnotation:_previousSelectedAnnotationTuple.annotation];
+        }
+        if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didDeselectAnnotationView:)])
+        {
+          [self.tiledScrollViewDelegate tiledScrollView:self didDeselectAnnotationView:oldSelectedAnnotationView];
+        }
+      }
+
+      if (_currentSelectedAnnotationTuple != nil)
+      {
+        JCAnnotationView *currentSelectedAnnotationView = annotationGestureRecognizer.tapAnnotation.view;
+        if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didSelectAnnotationView:)])
+        {
+          [self.tiledScrollViewDelegate tiledScrollView:self didSelectAnnotationView:currentSelectedAnnotationView];
+
+        }
+      }
+    }
   }
 }
 
@@ -247,10 +298,10 @@
   }
   else
   {
-    for (id<JCAnnotation> annotation in _annotations)
+    for (id <JCAnnotation> annotation in _annotations)
     {
       [CATransaction begin];
-      
+
       CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
       JCVisibleAnnotationTuple *t = [_visibleAnnotations visibleAnnotationTupleForAnnotation:annotation];
 
@@ -263,11 +314,16 @@
           view.position = screenPosition;
 
           t = [JCVisibleAnnotationTuple instanceWithAnnotation:annotation view:view];
+          if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:annotationWillAppear:)])
+          {
+            [self.tiledScrollViewDelegate tiledScrollView:self annotationWillAppear:t.annotation];
+          }
+
           [_visibleAnnotations addObject:t];
           [_canvasView addSubview:t.view];
 
           [CATransaction begin];
-          [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+          [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
           CABasicAnimation *theAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
           theAnimation.duration = 0.3;
           theAnimation.repeatCount = 1;
@@ -275,9 +331,17 @@
           theAnimation.toValue = [NSNumber numberWithFloat:1.0];
           [t.view.layer addAnimation:theAnimation forKey:@"animateOpacity"];
           [CATransaction commit];
+          if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:annotationDidAppear:)])
+          {
+            [self.tiledScrollViewDelegate tiledScrollView:self annotationDidAppear:t.annotation];
+          }
         }
         else
         {
+          if (t == _currentSelectedAnnotationTuple)
+          {
+            [_canvasView addSubview:t.view];
+          }
           t.view.position = screenPosition;
         }
       }
@@ -285,9 +349,27 @@
       {
         if (nil != t)
         {
-          [t.view removeFromSuperview];
-          [_recycledAnnotationViews addObject:t.view];
-          [_visibleAnnotations removeObject:t];
+          if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:annotationWillDisappear:)])
+          {
+            [self.tiledScrollViewDelegate tiledScrollView:self annotationWillAppear:t.annotation];
+          }
+
+          if (t != _currentSelectedAnnotationTuple)
+          {
+            [t.view removeFromSuperview];
+            [_recycledAnnotationViews addObject:t.view];
+            [_visibleAnnotations removeObject:t];
+          }
+          else
+          {
+          //FIXME: Anthony D - I don't like let the view in visible annotations array, but the logic is in one place
+            [t.view removeFromSuperview];
+          }
+
+          if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:annotationDidDisappear:)])
+          {
+            [self.tiledScrollViewDelegate tiledScrollView:self annotationDidDisappear:t.annotation];
+          }
         }
       }
       [CATransaction commit];
@@ -295,6 +377,36 @@
   }
   [CATransaction commit];
 }
+
+
+#pragma mark - UIGestureRecognizerDelegate
+//Catch our own tap gesture if it is on an annotation view to set annotation
+//Return NO to only recognize single tap on annotation
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+  CGPoint location = [gestureRecognizer locationInView:self.canvasView];
+
+  if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
+  {
+    [(ADAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:nil];
+  }
+
+  for (JCVisibleAnnotationTuple *t in _visibleAnnotations)
+  {
+    if (CGRectContainsPoint(t.view.frame, location))
+    {
+      if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
+      {
+        [(ADAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:t];
+      }
+      return YES;
+    }
+  }
+
+  //Deal with all tap gesture
+  return YES;
+}
+
 
 #pragma mark - JCTiledScrollView
 
