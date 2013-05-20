@@ -11,5 +11,5 @@
 @class JCVisibleAnnotationTuple;
 
 @interface ADAnnotationTapGestureRecognizer : UITapGestureRecognizer
-@property (nonatomic, retain) JCVisibleAnnotationTuple *tapAnnotation;
+@property (nonatomic, strong) JCVisibleAnnotationTuple *tapAnnotation;
 @end
