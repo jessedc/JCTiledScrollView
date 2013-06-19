@@ -86,6 +86,7 @@
 //Default gesture behvaiour
 @property (nonatomic, assign) BOOL centerSingleTap;
 @property (nonatomic, assign) BOOL zoomsInOnDoubleTap;
+@property (nonatomic, assign) BOOL zoomsToTouchLocation;
 @property (nonatomic, assign) BOOL zoomsOutOnTwoFingerTap;
 
 + (Class)tiledLayerClass;
