@@ -63,6 +63,7 @@
 
 @synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
+@synthesize zoomsToTouchLocation = _zoomsToTouchLocation;
 @synthesize centerSingleTap = _centerSingleTap;
 
 @synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
@@ -246,7 +247,17 @@
       [self setMuteAnnotationUpdates:NO];
     });
 
-    [_scrollView setZoomScale:newZoom animated:YES];
+    if (self.zoomsToTouchLocation)
+    {
+      CGRect bounds = _scrollView.bounds;
+      CGPoint pointInView = CGPointApplyAffineTransform([gestureRecognizer locationInView:_scrollView], CGAffineTransformMakeScale(1/_scrollView.zoomScale, 1/_scrollView.zoomScale));
+      CGSize newSize = CGSizeApplyAffineTransform(bounds.size, CGAffineTransformMakeScale(1 / newZoom, 1 / newZoom));
+      [_scrollView zoomToRect:(CGRect){{pointInView.x - (newSize.width / 2), pointInView.y - (newSize.height / 2)}, newSize} animated:YES];
+    }
+    else
+    {
+      [_scrollView setZoomScale:newZoom animated:YES];
+    }
   }
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveDoubleTap:)])
