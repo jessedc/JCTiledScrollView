@@ -1,29 +1,29 @@
 //
 //  JCTiledScrollView.m
-//
+//  
 //  Created by Jesse Collis on 1/2/2012.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>
 //  All rights reserved.
 //
-//  * Redistribution and use in source and binary forms, with or without
+//  * Redistribution and use in source and binary forms, with or without 
 //   modification, are permitted provided that the following conditions are met:
 //
-//  * Redistributions of source code must retain the above copyright
+//  * Redistributions of source code must retain the above copyright 
 //   notice, this list of conditions and the following disclaimer.
 //
-//  * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer in the
+//  * Redistributions in binary form must reproduce the above copyright 
+//   notice, this list of conditions and the following disclaimer in the 
 //   documentation and/or other materials provided with the distribution.
 //
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-//  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-//  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
-//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+//  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+//  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY 
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND 
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 //
 
@@ -63,7 +63,6 @@
 
 @synthesize zoomsOutOnTwoFingerTap = _zoomsOutOnTwoFingerTap;
 @synthesize zoomsInOnDoubleTap = _zoomsInOnDoubleTap;
-@synthesize zoomsToTouchLocation = _zoomsToTouchLocation;
 @synthesize centerSingleTap = _centerSingleTap;
 
 @synthesize muteAnnotationUpdates = _muteAnnotationUpdates;
@@ -121,12 +120,12 @@
     _twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
     _twoFingerTapGestureRecognizer.numberOfTapsRequired = 1;
     [_tiledView addGestureRecognizer:_twoFingerTapGestureRecognizer];
-
+    
     _annotations = [[NSMutableSet alloc] init];
     _visibleAnnotations = [[NSMutableSet alloc] init];
     _recycledAnnotationViews = [[NSMutableSet alloc] init];
     _previousSelectedAnnotationTuple = nil;
-    _currentSelectedAnnotationTuple = nil;
+      _currentSelectedAnnotationTuple = nil;
 
     _muteAnnotationUpdates = NO;
 	}
@@ -159,7 +158,7 @@
   }
 }
 
-#pragma mark -
+#pragma mark - 
 
 //FIXME: Jesse C - I don't like overloading this here, but the logic is in one place
 - (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
@@ -247,17 +246,7 @@
       [self setMuteAnnotationUpdates:NO];
     });
 
-    if (self.zoomsToTouchLocation)
-    {
-      CGRect bounds = _scrollView.bounds;
-      CGPoint pointInView = CGPointApplyAffineTransform([gestureRecognizer locationInView:_scrollView], CGAffineTransformMakeScale(1/_scrollView.zoomScale, 1/_scrollView.zoomScale));
-      CGSize newSize = CGSizeApplyAffineTransform(bounds.size, CGAffineTransformMakeScale(1 / newZoom, 1 / newZoom));
-      [_scrollView zoomToRect:(CGRect){{pointInView.x - (newSize.width / 2), pointInView.y - (newSize.height / 2)}, newSize} animated:YES];
-    }
-    else
-    {
-      [_scrollView setZoomScale:newZoom animated:YES];
-    }
+    [_scrollView setZoomScale:newZoom animated:YES];
   }
 
   if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:didReceiveDoubleTap:)])
@@ -373,7 +362,7 @@
           }
           else
           {
-            //FIXME: Anthony D - I don't like let the view in visible annotations array, but the logic is in one place
+          //FIXME: Anthony D - I don't like let the view in visible annotations array, but the logic is in one place
             [t.view removeFromSuperview];
           }
 
@@ -453,7 +442,7 @@
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated
 {
   CGPoint new_contentOffset = _scrollView.contentOffset;
-
+  
   if (_scrollView.contentSize.width > _scrollView.bounds.size.width)
   {
     new_contentOffset.x = MAX(0.0f, (center.x * _scrollView.zoomScale) - (_scrollView.bounds.size.width / 2.0f));
@@ -489,7 +478,7 @@
       break;
     }
   }
-
+  
   if (nil != view)
   {
     [_recycledAnnotationViews removeObject:view];
