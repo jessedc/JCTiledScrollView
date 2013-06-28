@@ -205,7 +205,6 @@
     }
     else
     {
-      if (_previousSelectedAnnotationTuple == _currentSelectedAnnotationTuple) return;
 
       if (_previousSelectedAnnotationTuple != nil)
       {
