@@ -27,6 +27,9 @@ Feature requests and pull-requests are most welcome.
 
 ## Latest Updates
 
+### December 2014
+  * Added a demo project written in Swift
+
 ### April 2013
   * Moved to ARC
 
