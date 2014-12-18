@@ -1,7 +1,7 @@
 //
-//  JCTiledPDFScrollView.m
+//  JCTiledScrollView.m
 //
-//  Created by Jesse Collis on 23/02/12.
+//  Created by Jesse Collis on 1/2/2012.
 //  Copyright (c) 2012, Jesse Collis JC Multimedia Design.
 //  <jesse@jcmultimedia.com.au>
 //  All rights reserved.
@@ -322,14 +322,8 @@
 }
 
 - (void)correctScreenPositionOfAnnotations {
-  BOOL switch1 = YES;
-  BOOL switch2 = NO;
-  BOOL switch3 = NO;
-
-  if (switch1) {
-    [CATransaction begin];
-    [CATransaction setAnimationDuration:0.0];
-  }
+  [CATransaction begin];
+  [CATransaction setAnimationDuration:0.0];
 
   if ((_scrollView.isZoomBouncing || _muteAnnotationUpdates) &&
       !_scrollView.isZooming) {
@@ -338,9 +332,6 @@
     }
   } else {
     for (id<JCAnnotation> annotation in _annotations) {
-      if (switch3) {
-        [CATransaction begin];
-      }
 
       CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
       JCVisibleAnnotationTuple *t =
@@ -369,9 +360,6 @@
             [_canvasView addSubview:t.view];
           }
 
-          if (switch2) {
-            [CATransaction begin];
-          }
           [CATransaction setValue:(id)kCFBooleanTrue
                            forKey:kCATransactionDisableActions];
           CABasicAnimation *theAnimation =
@@ -381,10 +369,6 @@
           theAnimation.fromValue = [NSNumber numberWithFloat:0.0];
           theAnimation.toValue = [NSNumber numberWithFloat:1.0];
           [t.view.layer addAnimation:theAnimation forKey:@"animateOpacity"];
-
-          if (switch2) {
-            [CATransaction commit];
-          }
 
           if ([self.tiledScrollViewDelegate
                   respondsToSelector:@selector(tiledScrollView:
@@ -427,15 +411,9 @@
           }
         }
       }
-      if (switch3) {
-        [CATransaction commit];
-      }
     }
   }
-
-  if (switch1) {
-    [CATransaction commit];
-  }
+  [CATransaction commit];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
