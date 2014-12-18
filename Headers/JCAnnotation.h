@@ -27,6 +27,8 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 //
 
+#import <UIKit/UIKit.h>
+
 @protocol JCAnnotation <NSObject>
 
 @property (nonatomic, assign) CGPoint contentPosition;
