@@ -310,7 +310,6 @@
   {
     for (id <JCAnnotation> annotation in _annotations)
     {
-      [CATransaction begin];
 
       CGPoint screenPosition = [self screenPositionForAnnotation:annotation];
       JCVisibleAnnotationTuple *t = [_visibleAnnotations visibleAnnotationTupleForAnnotation:annotation];
@@ -329,10 +328,11 @@
             [self.tiledScrollViewDelegate tiledScrollView:self annotationWillAppear:t.annotation];
           }
 
-          [_visibleAnnotations addObject:t];
-          [_canvasView addSubview:t.view];
+			if (t){
+				[_visibleAnnotations addObject:t];
+				[_canvasView addSubview:t.view];
+			}
 
-          [CATransaction begin];
           [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
           CABasicAnimation *theAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
           theAnimation.duration = 0.3;
@@ -340,7 +340,7 @@
           theAnimation.fromValue = [NSNumber numberWithFloat:0.0];
           theAnimation.toValue = [NSNumber numberWithFloat:1.0];
           [t.view.layer addAnimation:theAnimation forKey:@"animateOpacity"];
-          [CATransaction commit];
+			
           if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollView:annotationDidAppear:)])
           {
             [self.tiledScrollViewDelegate tiledScrollView:self annotationDidAppear:t.annotation];
@@ -366,9 +366,11 @@
 
           if (t != _currentSelectedAnnotationTuple)
           {
-            [t.view removeFromSuperview];
-            [_recycledAnnotationViews addObject:t.view];
-            [_visibleAnnotations removeObject:t];
+			  [t.view removeFromSuperview];
+			  if (t.view) {
+				  [_recycledAnnotationViews addObject:t.view];
+			  }
+			  [_visibleAnnotations removeObject:t];
           }
           else
           {
@@ -382,7 +384,7 @@
           }
         }
       }
-      [CATransaction commit];
+		
     }
   }
   [CATransaction commit];
