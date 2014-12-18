@@ -45,25 +45,35 @@ static const CGFloat kDefaultTileSize = 256.;
 
 - (void)drawRect:(__unused CGRect)rect
 {
-  CGContextRef ctx = UIGraphicsGetCurrentContext();
+	CGContextRef ctx = UIGraphicsGetCurrentContext();
 
 	CGPDFPageRef drawPDFPageRef = NULL;
 
-  drawPDFPageRef = CGPDFPageRetain([(id<JCPDFTiledViewDelegate>)self.delegate pdfPageForTiledView:self]);
+	drawPDFPageRef = CGPDFPageRetain([(id<JCPDFTiledViewDelegate>)self.delegate pdfPageForTiledView:self]);
 
 	CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
 	CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
 
 	if (drawPDFPageRef != NULL)
 	{
-    CGContextTranslateCTM(ctx, 0.0f, self.bounds.size.height);
-    CGContextScaleCTM(ctx, 1.0f, -1.0f);
+		CGContextTranslateCTM(ctx, 0.0f, self.bounds.size.height);
+		CGContextScaleCTM(ctx, 1.0f, -1.0f);
 		CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(drawPDFPageRef, kCGPDFCropBox, self.bounds, 0, true));
 
 		CGContextSetRenderingIntent(ctx, kCGRenderingIntentDefault);
-    CGContextSetInterpolationQuality(ctx, kCGInterpolationDefault);
+		CGContextSetInterpolationQuality(ctx, kCGInterpolationDefault);
 
-		CGContextDrawPDFPage(ctx, drawPDFPageRef);
+		@try {
+			// When setting breakpoints for 'All Exceptions'
+			// This line of code causes a halt
+			CGContextDrawPDFPage(ctx, drawPDFPageRef);
+		}
+		@catch (NSException *exception) {
+			NSLog(@"CGContextDrawPDFPage %@", exception);
+		}
+		@finally {
+			
+		}
 	}
 
 	CGPDFPageRelease(drawPDFPageRef);
