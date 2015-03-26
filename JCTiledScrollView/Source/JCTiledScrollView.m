@@ -42,6 +42,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 @property (nonatomic, assign) BOOL muteAnnotationUpdates;
+@property (nonatomic, strong) NSMutableArray *pathLayers;
 @end
 
 @implementation JCTiledScrollView
@@ -133,6 +134,10 @@
 	return self;
 }
 
+-(void)didMoveToSuperview{
+    [super didMoveToSuperview];
+    [self addPath];
+}
 
 #pragma mark - UIScrolViewDelegate
 
@@ -507,6 +512,7 @@
 - (void)refreshAnnotations
 {
   [self correctScreenPositionOfAnnotations];
+    [self addPath];
 }
 
 - (void)addAnnotation:(id<JCAnnotation>)annotation
@@ -561,6 +567,47 @@
 - (void)removeAllAnnotations
 {
   [self removeAnnotations:[_annotations allObjects]];
+}
+
+#pragma mark - PATH
+- (void)addPath {
+    if([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewGetBezierPath:)]){
+        UIBezierPath *path = [self.tiledScrollViewDelegate tiledScrollViewGetBezierPath:self];
+        [self addPath:path andColor:[self.tiledScrollViewDelegate tiledScrollViewGetPathColor:self]];
+    }
+    else if ([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewGetNumberOfPath:)]) {
+        for (CALayer *layer in [_tiledView.layer sublayers]) {
+            [layer removeFromSuperlayer];
+        }
+        int number = (int)[self.tiledScrollViewDelegate tiledScrollViewGetNumberOfPath:self];
+        for (int i = 0; i < number; i++) {
+            UIColor *color = [UIColor blackColor];
+            UIBezierPath *path = nil;
+            if([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewGetBezierPath:atIndex:)]){
+                path = [self.tiledScrollViewDelegate tiledScrollViewGetBezierPath:self atIndex:i];
+            }
+            if([self.tiledScrollViewDelegate respondsToSelector:@selector(tiledScrollViewGetPathColor:atIndex:)]){
+                color = [self.tiledScrollViewDelegate tiledScrollViewGetPathColor:self atIndex:i];
+            }
+            [self addPath:path andColor:color];
+        }
+    }
+}
+
+- (void)addPath:(UIBezierPath *)path andColor:(UIColor *)color {
+    if (!self.pathLayers) self.pathLayers = [NSMutableArray array];
+    if (path) {
+        CAShapeLayer *pathLayr = [CAShapeLayer layer];
+        pathLayr.anchorPoint = CGPointMake(0.5, 0.5);
+        pathLayr.frame = self.tiledView.frame;
+        pathLayr.path = path.CGPath;
+        pathLayr.strokeColor = (color?color:[UIColor blackColor]).CGColor;
+        pathLayr.fillColor = [UIColor clearColor].CGColor;
+        pathLayr.lineWidth = path.lineWidth;
+        pathLayr.lineJoin = kCALineJoinBevel;
+        [_tiledView.layer addSublayer:pathLayr];
+        [self.pathLayers addObject:pathLayr];
+    }
 }
 
 @end

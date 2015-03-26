@@ -19,6 +19,11 @@
 #import "JCTiledView.h"
 #endif
 
+@interface RootViewController ()
+
+@property (nonatomic, strong) NSArray *bezierPaths;
+@end
+
 @implementation RootViewController
 
 
@@ -67,9 +72,10 @@
   addButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
   [addButton addTarget:self action:@selector(addRandomAnnotations) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:addButton];
-
+    
   [self tiledScrollViewDidZoom:self.scrollView]; //force the detailView to update the frist time
   [self addRandomAnnotations];
+
 }
 
 - (void)viewDidUnload
@@ -115,18 +121,40 @@
 
 - (void)addRandomAnnotations
 {
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    srand(42);
-  });
-
-  CGSize size = SkippingGirlImageSize;  
-  for (int i = 0; i < 5; i++)
-  {
-    id<JCAnnotation> a = [[DemoAnnotation alloc] init];
-    a.contentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
-    [self.scrollView addAnnotation:a];
-  }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        srand(42);
+    });
+    
+    CGSize size           = SkippingGirlImageSize;
+    
+    NSMutableArray *paths = [NSMutableArray array];
+    
+    for (int i            = 0; i < 5; i++)
+    {
+      
+    }
+    for (int i = 0; i < 6/2; i++) {
+        
+        id<JCAnnotation> firstAnnot    = [[DemoAnnotation alloc] init];
+        CGPoint firstContentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
+        firstAnnot.contentPosition     = firstContentPosition;
+        id<JCAnnotation> secondAnnot    = [[DemoAnnotation alloc] init];
+        CGPoint secondContentPosition = CGPointMake((float)(rand() % (int)size.width), (float)(rand() % (int)size.height));
+        secondAnnot.contentPosition     = secondContentPosition;
+        [self.scrollView addAnnotation:firstAnnot];
+        [self.scrollView addAnnotation:secondAnnot];
+        
+        
+        UIBezierPath *path    = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(firstContentPosition.x, firstContentPosition.y + 30.f)]; // 30.f is max height of the annotation image
+        [path addLineToPoint:CGPointMake(secondContentPosition.x, secondContentPosition.y + 30.f)]; // 30.f is max height of the annotation image
+        path.lineWidth = 3.f;
+        [paths addObject:path];
+    }
+    
+    self.bezierPaths = [NSArray arrayWithArray:paths];
+    
 }
 
 #pragma mark - JCTiledScrollViewDelegate
@@ -166,6 +194,21 @@
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
  return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%dx_%d_%d.png", SkippingGirlImageName, scale, row, column]]; 
+}
+
+
+-(UIBezierPath *)tiledScrollViewGetBezierPath:(JCTiledScrollView *)scrollView atIndex:(NSInteger)index{
+    return [self.bezierPaths objectAtIndex:index];
+}
+
+- (UIColor *)tiledScrollViewGetPathColor:(JCTiledScrollView *)scrollView atIndex:(NSInteger)index {
+    //UIColor *color = [UIColor colorWithRed:38.f/255.f green:166.f/255.f blue:91.f/255.f alpha:1.f];
+    UIColor *color = [UIColor whiteColor];
+    return color;
+}
+
+- (NSInteger)tiledScrollViewGetNumberOfPath:(JCTiledScrollView *)scrollView {
+    return [self.bezierPaths count];
 }
 
 
