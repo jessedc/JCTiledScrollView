@@ -130,10 +130,6 @@
     
     NSMutableArray *paths = [NSMutableArray array];
     
-    for (int i            = 0; i < 5; i++)
-    {
-      
-    }
     for (int i = 0; i < 6/2; i++) {
         
         id<JCAnnotation> firstAnnot    = [[DemoAnnotation alloc] init];
