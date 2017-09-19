@@ -29,7 +29,7 @@
 
 #import "JCTiledView.h"
 #import "JCTiledLayer.h"
-#import "math.h"
+#include <tgmath.h>
 
 static const CGFloat kDefaultTileSize = 256.0f;
 
@@ -105,7 +105,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGFloat font_size = 16.0f / scale;
 
   [[UIColor whiteColor] set];
-  [[NSString stringWithFormat:@" %0.0f", log2f(scale)] drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withFont:[UIFont boldSystemFontOfSize:font_size]];
+  
+  [[NSString stringWithFormat:@" %@", @(log2(scale))] drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withFont:[UIFont boldSystemFontOfSize:font_size]];
 
   [[UIColor redColor] set];
   CGContextSetLineWidth(ctx, line_width);

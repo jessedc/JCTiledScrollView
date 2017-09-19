@@ -4,8 +4,7 @@ SDKROOT = iphoneos
 IPHONEOS_DEPLOYMENT_TARGET = 5.1
 
 TARGETED_DEVICE_FAMILY = 1,2
-ARCHS[sdk=iphoneos*] = $(ARCHS_STANDARD_32_BIT)
-ARCHS[sdk=iphonesimulator*] = i386
+ARCHS = $(ARCHS_STANDARD)
 
 // Avoid THUMB code generation bugs (in LLVM)
 GCC_THUMB_SUPPORT = NO
@@ -105,7 +104,7 @@ CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
 // TODO: -Wunreachable-code might be nice to turn on (but perhaps produces some false positives).
 JC_WARNING_CFLAGS = -Wall -Wextra -Wconversion -Wundef -Wno-semicolon-before-method-body -Wfloat-equal -Wc++-compat -Wstrict-prototypes -Wnested-externs -Wwrite-strings -Wcast-qual -Wcast-align -Wformat=2 -Wmissing-format-attribute -Wsequence-point -Wstrict-aliasing
 
-WARNING_CFLAGS = $(JC_WARNING_CFLAGS)
+WARNING_CFLAGS = $(JC_WARNING_CFLAGS) -Wno-cast-qual
 
 // Turn off color diagnostics by default (disable this for commandline builds for better looking output - Jenkins can use the color if the ANSI logfile parsing plugin is enabled)
 COLOR_DIAGNOSTICS=no-

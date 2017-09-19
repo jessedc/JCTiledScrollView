@@ -33,6 +33,8 @@
 
 - (void)viewDidLoad
 {
+  [super viewDidLoad];
+
   self.detailView = [[DetailView alloc] initWithFrame:CGRectZero];
   self.detailView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   CGSize size_for_detail = [self.detailView sizeThatFits:self.view.bounds.size];
@@ -165,7 +167,7 @@
 
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
- return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%dx_%d_%d.png", SkippingGirlImageName, scale, row, column]]; 
+ return [UIImage imageNamed:[NSString stringWithFormat:@"tiles/%@_%ldx_%ld_%ld.png", SkippingGirlImageName, scale, row, column]];
 }
 
 

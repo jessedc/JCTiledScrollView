@@ -33,6 +33,7 @@
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
 #import "ADAnnotationTapGestureRecognizer.h"
+#include <tgmath.h>
 
 #define kStandardUIScrollViewAnimationTime (int64_t)0.10
 
@@ -238,7 +239,7 @@
 {
   if (self.zoomsInOnDoubleTap)
   {
-    float newZoom = MIN(powf(2, (log2f(_scrollView.zoomScale) + 1.0f)), _scrollView.maximumZoomScale); //zoom in one level of detail
+    CGFloat newZoom = MIN(pow(2, (log2(_scrollView.zoomScale) + 1.0)), _scrollView.maximumZoomScale); //zoom in one level of detail
 
     self.muteAnnotationUpdates = YES;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
@@ -269,7 +270,7 @@
 {
   if (self.zoomsOutOnTwoFingerTap)
   {
-    float newZoom = MAX(powf(2, (log2f(_scrollView.zoomScale) - 1.0f)), _scrollView.minimumZoomScale); //zoom out one level of detail
+    CGFloat newZoom = MAX(pow(2, (log2(_scrollView.zoomScale) - 1.0)), _scrollView.minimumZoomScale); //zoom out one level of detail
 
     self.muteAnnotationUpdates = YES;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
@@ -420,17 +421,17 @@
 
 #pragma mark - JCTiledScrollView
 
-- (float)zoomScale
+- (CGFloat)zoomScale
 {
   return _scrollView.zoomScale;
 }
 
-- (void)setZoomScale:(float)zoomScale
+- (void)setZoomScale:(CGFloat)zoomScale
 {
   [self setZoomScale:zoomScale animated:NO];
 }
 
-- (void)setZoomScale:(float)zoomScale animated:(BOOL)animated
+- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated
 {
   [_scrollView setZoomScale:zoomScale animated:animated];
 }
