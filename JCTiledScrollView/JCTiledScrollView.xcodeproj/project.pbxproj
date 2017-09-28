@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		845EE1D71649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */; };
+		154B30EB1F7CCB0000DDD98D /* CGPDFDocument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */; };
+		154B30EC1F7CCB0000DDD98D /* JCAnnotation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDD9E15C4E26700E6515A /* JCAnnotation.h */; };
+		154B30ED1F7CCB0000DDD98D /* JCAnnotationView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */; };
+		154B30EE1F7CCB0000DDD98D /* JCPDFTiledView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA015C4E26700E6515A /* JCPDFTiledView.h */; };
+		154B30EF1F7CCB0000DDD98D /* JCTiledLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA115C4E26700E6515A /* JCTiledLayer.h */; };
+		154B30F01F7CCB0000DDD98D /* JCTiledPDFScrollView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA215C4E26700E6515A /* JCTiledPDFScrollView.h */; };
+		154B30F11F7CCB0000DDD98D /* JCTiledScrollView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */; };
+		154B30F21F7CCB0000DDD98D /* JCTiledView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA415C4E26700E6515A /* JCTiledView.h */; };
+		154B30F31F7CCB0000DDD98D /* JCVisibleAnnotationTuple.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */; };
+		154B30F51F7CCDBC00DDD98D /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = 154B30F41F7CCD9D00DDD98D /* module.modulemap */; };
+		154B30F91F7CD0EC00DDD98D /* JCTiledScrollViewModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 154B30F61F7CCE2600DDD98D /* JCTiledScrollViewModule.h */; };
+		154B30FA1F7CD26600DDD98D /* ADAnnotationTapGestureRecognizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */; };
 		845EE1DA164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 845EE1D9164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m */; };
 		884E3C2215D790C50077F06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2115D790C50077F06D /* QuartzCore.framework */; };
 		884E3C2515D790CB0077F06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2415D790CB0077F06D /* UIKit.framework */; };
@@ -21,30 +32,35 @@
 		88BCDDB315C4E28500E6515A /* JCTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAB15C4E28500E6515A /* JCTiledScrollView.m */; };
 		88BCDDB415C4E28500E6515A /* JCTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAC15C4E28500E6515A /* JCTiledView.m */; };
 		88BCDDB515C4E28500E6515A /* JCVisibleAnnotationTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCDDAD15C4E28500E6515A /* JCVisibleAnnotationTuple.m */; };
-		88BCDE0015C4EBA200E6515A /* CGPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0115C4EBA200E6515A /* JCAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9E15C4E26700E6515A /* JCAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0215C4EBA200E6515A /* JCAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0315C4EBA200E6515A /* JCPDFTiledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA015C4E26700E6515A /* JCPDFTiledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0415C4EBA200E6515A /* JCTiledLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA115C4E26700E6515A /* JCTiledLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0515C4EBA200E6515A /* JCTiledPDFScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA215C4E26700E6515A /* JCTiledPDFScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0615C4EBA200E6515A /* JCTiledScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0715C4EBA200E6515A /* JCTiledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA415C4E26700E6515A /* JCTiledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88BCDE0815C4EBA200E6515A /* JCVisibleAnnotationTuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		88BCDD8A15C4E13900E6515A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				154B30FA1F7CD26600DDD98D /* ADAnnotationTapGestureRecognizer.h in CopyFiles */,
+				154B30F91F7CD0EC00DDD98D /* JCTiledScrollViewModule.h in CopyFiles */,
+				154B30F51F7CCDBC00DDD98D /* module.modulemap in CopyFiles */,
+				154B30EB1F7CCB0000DDD98D /* CGPDFDocument.h in CopyFiles */,
+				154B30EC1F7CCB0000DDD98D /* JCAnnotation.h in CopyFiles */,
+				154B30ED1F7CCB0000DDD98D /* JCAnnotationView.h in CopyFiles */,
+				154B30EE1F7CCB0000DDD98D /* JCPDFTiledView.h in CopyFiles */,
+				154B30EF1F7CCB0000DDD98D /* JCTiledLayer.h in CopyFiles */,
+				154B30F01F7CCB0000DDD98D /* JCTiledPDFScrollView.h in CopyFiles */,
+				154B30F11F7CCB0000DDD98D /* JCTiledScrollView.h in CopyFiles */,
+				154B30F21F7CCB0000DDD98D /* JCTiledView.h in CopyFiles */,
+				154B30F31F7CCB0000DDD98D /* JCVisibleAnnotationTuple.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		154B30F41F7CCD9D00DDD98D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		154B30F61F7CCE2600DDD98D /* JCTiledScrollViewModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollViewModule.h; sourceTree = "<group>"; };
 		845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAnnotationTapGestureRecognizer.h; sourceTree = "<group>"; };
 		845EE1D9164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADAnnotationTapGestureRecognizer.m; sourceTree = "<group>"; };
 		884E3C2115D790C50077F06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -126,6 +142,7 @@
 			children = (
 				88BCDDBC15C4E2C600E6515A /* Configuration */,
 				88BCDD9315C4E13900E6515A /* JCTiledScrollView-Prefix.pch */,
+				154B30F41F7CCD9D00DDD98D /* module.modulemap */,
 			);
 			name = "Supporting Files";
 			path = JCTiledScrollViewStaticLib;
@@ -160,6 +177,7 @@
 				88BCDDA315C4E26700E6515A /* JCTiledScrollView.h */,
 				88BCDDA415C4E26700E6515A /* JCTiledView.h */,
 				88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */,
+				154B30F61F7CCE2600DDD98D /* JCTiledScrollViewModule.h */,
 			);
 			name = Headers;
 			path = ../Headers;
@@ -195,26 +213,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		88BCDDFF15C4EB9900E6515A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				88BCDE0015C4EBA200E6515A /* CGPDFDocument.h in Headers */,
-				88BCDE0115C4EBA200E6515A /* JCAnnotation.h in Headers */,
-				88BCDE0215C4EBA200E6515A /* JCAnnotationView.h in Headers */,
-				88BCDE0315C4EBA200E6515A /* JCPDFTiledView.h in Headers */,
-				88BCDE0415C4EBA200E6515A /* JCTiledLayer.h in Headers */,
-				88BCDE0515C4EBA200E6515A /* JCTiledPDFScrollView.h in Headers */,
-				88BCDE0615C4EBA200E6515A /* JCTiledScrollView.h in Headers */,
-				88BCDE0715C4EBA200E6515A /* JCTiledView.h in Headers */,
-				88BCDE0815C4EBA200E6515A /* JCVisibleAnnotationTuple.h in Headers */,
-				845EE1D71649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		88BCDD8B15C4E13900E6515A /* JCTiledScrollView */ = {
 			isa = PBXNativeTarget;
@@ -223,7 +221,6 @@
 				88BCDD8815C4E13900E6515A /* Sources */,
 				88BCDD8915C4E13900E6515A /* Frameworks */,
 				88BCDD8A15C4E13900E6515A /* CopyFiles */,
-				88BCDDFF15C4EB9900E6515A /* Headers */,
 			);
 			buildRules = (
 			);

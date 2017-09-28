@@ -6,6 +6,7 @@ IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 
 TARGETED_DEVICE_FAMILY = 1,2
 ARCHS = $(ARCHS_STANDARD)
+MODULEMAP_FILE = $(SRCROOT)/JCTiledScrollViewStaticLib/module.modulemap
 
 // Avoid THUMB code generation bugs (in LLVM)
 GCC_THUMB_SUPPORT = NO

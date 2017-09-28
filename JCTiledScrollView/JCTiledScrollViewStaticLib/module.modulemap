@@ -1,0 +1,4 @@
+module JCTiledScrollView {
+  umbrella header "JCTiledScrollViewModule.h"
+  export *
+}
