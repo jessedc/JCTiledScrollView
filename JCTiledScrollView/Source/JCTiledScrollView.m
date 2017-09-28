@@ -74,7 +74,7 @@
   return [JCTiledView class];
 }
 
-- (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
+- (instancetype)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize
 {
 	if ((self = [super initWithFrame:frame]))
   {

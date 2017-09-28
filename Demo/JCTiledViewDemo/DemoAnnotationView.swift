@@ -11,7 +11,7 @@ import JCTiledScrollView
 class DemoAnnotationView: JCAnnotationView {
   var imageView: UIImageView?
   
-  override init!(frame: CGRect, annotation: JCAnnotation!, reuseIdentifier: String!) {
+  override init(frame: CGRect, annotation: JCAnnotation, reuseIdentifier: String) {
     super.init(frame: frame, annotation: annotation, reuseIdentifier: reuseIdentifier)
     
     setupImageView()

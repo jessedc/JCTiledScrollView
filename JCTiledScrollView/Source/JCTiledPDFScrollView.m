@@ -41,7 +41,7 @@
   return [JCPDFTiledView class];
 }
 
-- (id)initWithFrame:(CGRect)frame URL:(NSURL *)url
+- (instancetype)initWithFrame:(CGRect)frame URL:(NSURL *)url
 {
   CGSize contentSize = CGSizeZero;
   
@@ -85,7 +85,6 @@
 {
   CGPDFPageRelease(_PDFPageRef);
   CGPDFDocumentRelease(_PDFDocRef);
-
 }
 
 #pragma mark - JCPDFTiledViewDelegate

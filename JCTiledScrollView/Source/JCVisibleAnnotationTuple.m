@@ -36,7 +36,7 @@
   return [[self alloc] initWithAnnotation:annotation view:view];
 }
 
-- (id)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view
+- (instancetype)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view
 {
   if ((self = [super init]))
   {

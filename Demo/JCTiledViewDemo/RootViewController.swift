@@ -24,7 +24,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let scrollView = JCTiledScrollView(frame: self.view.frame, contentSize: skippingGirlImageSize)!
+    let scrollView = JCTiledScrollView(frame: self.view.frame, contentSize: skippingGirlImageSize)
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     self.scrollView = scrollView
     self.view.insertSubview(scrollView, belowSubview: self.detailView!)
@@ -91,29 +91,29 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
 
   //MARK TileSource
   
-  func tiledScrollView(_ scrollView: JCTiledScrollView!, imageForRow row: Int, column: Int, scale: Int) -> UIImage! {
-    return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")
+  func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage {
+    return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")!
   }
   
   //MARK: Annotations
   
-  func tiledScrollViewDidZoom(_ scrollView: JCTiledScrollView!) {
+  func tiledScrollViewDidZoom(_ scrollView: JCTiledScrollView) {
     self.detailView.textLabel?.text = String(format:"zoomScale: %0.2f", scrollView.zoomScale)
   }
   
-  func tiledScrollView(_ scrollView: JCTiledScrollView!, didReceiveSingleTap gestureRecognizer: UIGestureRecognizer!) {
+  func tiledScrollView(_ scrollView: JCTiledScrollView, didReceiveSingleTap gestureRecognizer: UIGestureRecognizer) {
     let tapPoint = gestureRecognizer.location(in: scrollView.tiledView)
     
     //tap point on the tiledView does not inlcude the zoomScale applied by the scrollView
     self.detailView.textLabel?.text = String(format:"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y)
   }
   
-  func tiledScrollView(_ scrollView: JCTiledScrollView!, viewFor annotation: JCAnnotation!) -> JCAnnotationView! {
+  func tiledScrollView(_ scrollView: JCTiledScrollView, viewFor annotation: JCAnnotation) -> JCAnnotationView {
     if let annotationView = scrollView.dequeueReusableAnnotationView(withReuseIdentifier: "ReuseIdentifier") {
       return annotationView
     }
     
-    let annotationView = DemoAnnotationView(frame:.zero, annotation:annotation, reuseIdentifier: "ReuseIdentifier")!
+    let annotationView = DemoAnnotationView(frame:.zero, annotation:annotation, reuseIdentifier: "ReuseIdentifier")
     annotationView.imageView?.image = UIImage(named:"marker-red.png")
     annotationView.sizeToFit()
     

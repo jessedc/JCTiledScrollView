@@ -32,6 +32,7 @@
 @class JCTiledScrollView, JCTiledView, JCAnnotationView, JCVisibleAnnotationTuple;
 @protocol JCAnnotation;
 
+NS_ASSUME_NONNULL_BEGIN
 @protocol JCTileSource <NSObject>
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
@@ -57,6 +58,7 @@
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer;
 
 @end
+NS_ASSUME_NONNULL_END
 
 @interface JCTiledScrollView : UIView <UIScrollViewDelegate>
 {
@@ -68,42 +70,40 @@
   JCVisibleAnnotationTuple *_currentSelectedAnnotationTuple;
 }
 
-//Delegates
-@property (nonatomic, weak) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
-@property (nonatomic, weak) id <JCTileSource> dataSource;
+// Delegates
+@property (nonatomic, weak, nullable) id <JCTiledScrollViewDelegate> tiledScrollViewDelegate;
+@property (nonatomic, weak, nullable) id <JCTileSource> dataSource;
 
-//internals
-@property (nonatomic, strong) JCTiledView *tiledView;
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *canvasView;
+// Internals
+@property (nonatomic, strong, nonnull) JCTiledView *tiledView;
+@property (nonatomic, strong, nonnull) UIScrollView *scrollView;
+@property (nonatomic, strong, nonnull) UIView *canvasView;
 
 @property (nonatomic, assign) size_t levelsOfZoom;
 @property (nonatomic, assign) size_t levelsOfDetail;
-
 @property (nonatomic, assign) CGFloat zoomScale;
-- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated;
 
-//Default gesture behvaiour
+// Default gesture behvaiour
 @property (nonatomic, assign) BOOL centerSingleTap;
 @property (nonatomic, assign) BOOL zoomsInOnDoubleTap;
 @property (nonatomic, assign) BOOL zoomsToTouchLocation;
 @property (nonatomic, assign) BOOL zoomsOutOnTwoFingerTap;
 
-+ (Class)tiledLayerClass;
++ (nonnull Class)tiledLayerClass;
 
-- (id)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
+- (nonnull instancetype)initWithFrame:(CGRect)frame contentSize:(CGSize)contentSize;
 
 - (void)setContentCenter:(CGPoint)center animated:(BOOL)animated;
+- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated;
 
-
-//Annotations
-- (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier;
+// Annotations
+- (nullable JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(nonnull NSString *)reuseIdentifier;
 - (void)refreshAnnotations;
 
-- (void)addAnnotation:(id<JCAnnotation>)annotation;
-- (void)addAnnotations:(NSArray *)annotations;
-- (void)removeAnnotation:(id<JCAnnotation>)annotation;
-- (void)removeAnnotations:(NSArray *)annotations;
+- (void)addAnnotation:(nonnull id<JCAnnotation>)annotation;
+- (void)addAnnotations:(nonnull NSArray *)annotations;
+- (void)removeAnnotation:(nonnull id<JCAnnotation>)annotation;
+- (void)removeAnnotations:(nonnull NSArray *)annotations;
 - (void)removeAllAnnotations;
 
 @end

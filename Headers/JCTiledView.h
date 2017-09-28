@@ -35,13 +35,15 @@
 @protocol JCTiledViewDelegate
 @end
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol JCTiledBitmapViewDelegate <JCTiledViewDelegate>
--(UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+- (UIImage *)tiledView:(JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 
 @interface JCTiledView : UIView
 
-@property (nonatomic, weak) id<JCTiledViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id<JCTiledViewDelegate> delegate;
 @property (nonatomic, readonly) CGSize tileSize;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
 @property (nonatomic, assign) BOOL shouldAnnotateRect;
@@ -49,3 +51,5 @@
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx;
 
 @end
+
+NS_ASSUME_NONNULL_END

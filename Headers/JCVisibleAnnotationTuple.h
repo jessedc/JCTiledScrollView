@@ -33,18 +33,22 @@
 @class JCAnnotationView;
 @protocol JCAnnotation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JCVisibleAnnotationTuple : NSObject
 @property (nonatomic, strong) id<JCAnnotation> annotation;
 @property (nonatomic, strong) JCAnnotationView *view;
 
 + (JCVisibleAnnotationTuple *)instanceWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
-- (id)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
+- (instancetype)initWithAnnotation:(id<JCAnnotation>)annotation view:(JCAnnotationView *)view;
 
 @end
 
 @interface NSSet (JCVisibleAnnotationTupleHelpers)
 
-- (id)visibleAnnotationTupleForAnnotation:(id<JCAnnotation>)annotation;
-- (id)visibleAnnotationTupleForView:(JCAnnotationView *)view;
+- (nullable id)visibleAnnotationTupleForAnnotation:(id<JCAnnotation>)annotation;
+- (nullable id)visibleAnnotationTupleForView:(JCAnnotationView *)view;
 
 @end
+
+NS_ASSUME_NONNULL_END

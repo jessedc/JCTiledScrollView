@@ -35,6 +35,6 @@
 	CGPDFPageRef _PDFPageRef;
 }
 
-- (id)initWithFrame:(CGRect)frame URL:(NSURL *)url;
+- (instancetype)initWithFrame:(CGRect)frame URL:(NSURL *)url;
 
 @end
