@@ -1,10 +1,8 @@
 # JCTiledScrollView
 
-by Jesse Collis
+by Jesse Collis [@sirjec][3]
 
-  * [Visit JCMultimedia.com.au][2]
-  * [Follow @sirjec on Twitter][3]
-  * Checkout the presentation I did on CATiledLayer [Here][17]
+  * CATiledLayer presentation at Melbourne CocoaHeads 2012. [Video](https://vimeo.com/45293931), [Slides](https://github.com/jessedc/CATiledLayer-2012)
 
 ## About JCTiledScrollView
 
@@ -26,6 +24,10 @@ Feature requests and pull-requests are most welcome.
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
 
 ## Latest Updates
+
+### September 2017
+
+  * Minor updates for Xcode 9 GM
 
 ### December 2014
   * Added a demo project written in Swift
@@ -100,4 +102,3 @@ The JCTiledScrollView code is copyright (c) 2012, Jesse Collis <jesse@jcmultimed
 [14]: http://imageoptim.com "Image Optim"
 [15]: http://imageoptim.com/tweetbot.html "Image Optim Case study: Tweetbot for iPad"
 [16]: https://github.com/jessedc/JCTiledScrollView/tree/drag-annotations "JCTiledScrollView drag-annotations branch"
-[17]: https://github.com/jessedc/JCTiledScrollView/blob/master/Cocoheads/talk_outline.md "JCTiledScrollView introduced at Melbourne Cocoaheads February 2012"
