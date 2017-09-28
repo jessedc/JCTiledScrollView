@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xoh-kp-KBV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="H4k-ak-5y9">
+            <objects>
+                <viewController id="Xoh-kp-KBV" customClass="RootViewController" customModule="JCTiledViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dkA-D3-Hfx"/>
+                        <viewControllerLayoutGuide type="bottom" id="BN8-PT-TbY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X3q-d0-8hz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-q1-hGj" customClass="DetailView" customModule="JCTiledViewDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" placeholder="YES" id="hAD-O4-XfU"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LI-v4-F8f">
+                                <rect key="frame" x="225" y="40" width="114" height="30"/>
+                                <state key="normal" title="Add Annotations"/>
+                                <connections>
+                                    <action selector="addRandomAnnotations:" destination="Xoh-kp-KBV" eventType="touchUpInside" id="eAy-pf-oxb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XtL-q1-hGj" firstAttribute="top" secondItem="dkA-D3-Hfx" secondAttribute="bottom" id="Oxm-K6-qeU"/>
+                            <constraint firstAttribute="trailing" secondItem="XtL-q1-hGj" secondAttribute="trailing" id="UlE-Sd-MEl"/>
+                            <constraint firstItem="7LI-v4-F8f" firstAttribute="top" secondItem="XtL-q1-hGj" secondAttribute="bottom" id="WRC-ve-iBe"/>
+                            <constraint firstItem="XtL-q1-hGj" firstAttribute="leading" secondItem="X3q-d0-8hz" secondAttribute="leading" id="t4L-sQ-Tbt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7LI-v4-F8f" secondAttribute="trailing" constant="20" id="wGX-gm-FhG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailView" destination="XtL-q1-hGj" id="S36-MO-uf6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z37-IO-9sh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="103"/>
+        </scene>
+    </scenes>
+</document>

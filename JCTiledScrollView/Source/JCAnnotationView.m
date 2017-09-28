@@ -48,7 +48,6 @@
   return self;
 }
 
-
 - (void)setPosition:(CGPoint)position
 {
   if (!CGPointEqualToPoint(_position, position))

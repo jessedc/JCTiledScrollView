@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154B30E81F7CBC1500DDD98D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30E71F7CBC1500DDD98D /* DetailView.swift */; };
+		154B30EA1F7CC6B800DDD98D /* DemoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */; };
+		154B30FC1F7CD4E200DDD98D /* DemoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */; };
+		154B30FE1F7CD5B700DDD98D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */; };
+		154B31051F7CD84F00DDD98D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B31041F7CD84F00DDD98D /* AppDelegate.swift */; };
+		154B31071F7CD88300DDD98D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154B31061F7CD88300DDD98D /* LaunchScreen.storyboard */; };
+		154B31091F7CDBC000DDD98D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154B31081F7CDBC000DDD98D /* Main.storyboard */; };
+		154B310B1F7CF0B500DDD98D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B310A1F7CF0B500DDD98D /* RootViewController.swift */; };
 		8809DC4D14D8E44A0003B4C6 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = 8809DC4C14D8E44A0003B4C6 /* tiles */; };
-		8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8809DC4F14D8E4C40003B4C6 /* RootViewController.m */; };
 		8809DC5214D8E8560003B4C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8809DC5114D8E8560003B4C6 /* QuartzCore.framework */; };
 		88197C101558C251005EF22F /* marker-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 88197C0F1558C251005EF22F /* marker-red.png */; };
-		882BCF7715A431CF00F0FC5E /* DemoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */; };
 		8847303317294A4600FE980B /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */; };
 		887EE94614D8DC2D00AB0A92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94514D8DC2D00AB0A92 /* UIKit.framework */; };
 		887EE94814D8DC2D00AB0A92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94714D8DC2D00AB0A92 /* Foundation.framework */; };
 		887EE94A14D8DC2D00AB0A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */; };
 		887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */; };
-		887EE95214D8DC2D00AB0A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95114D8DC2D00AB0A92 /* main.m */; };
-		887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */; };
 		888630DE172938C600F8E5D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 888630DD172938C600F8E5D4 /* Default-568h@2x.png */; };
-		88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */; };
 		88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3714E2007F00B54AF0 /* Icon-72.png */; };
 		88CD1A3B14E2007F00B54AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3814E2007F00B54AF0 /* Icon.png */; };
 		88CD1A3C14E2007F00B54AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD1A3914E2007F00B54AF0 /* Icon@2x.png */; };
 		88DCC88314F3BEF800B206F5 /* Map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC88214F3BEF800B206F5 /* Map.pdf */; };
-		88E49D3814E2788400D688DF /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E49D3714E2788400D688DF /* DetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,35 +48,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		154B30E71F7CBC1500DDD98D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAnnotation.swift; sourceTree = "<group>"; };
+		154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAnnotationView.swift; sourceTree = "<group>"; };
+		154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		154B31041F7CD84F00DDD98D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		154B31061F7CD88300DDD98D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		154B31081F7CDBC000DDD98D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		154B310A1F7CF0B500DDD98D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8809DC4C14D8E44A0003B4C6 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tiles; path = ../tiles; sourceTree = "<group>"; };
-		8809DC4E14D8E4C40003B4C6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		8809DC4F14D8E4C40003B4C6 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8809DC5114D8E8560003B4C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88197C0F1558C251005EF22F /* marker-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-red.png"; sourceTree = "<group>"; };
-		882BCF7515A431CF00F0FC5E /* DemoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotation.h; sourceTree = "<group>"; };
-		882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotation.m; sourceTree = "<group>"; };
 		887EE94114D8DC2D00AB0A92 /* JCTiledViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCTiledViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		887EE94514D8DC2D00AB0A92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		887EE94714D8DC2D00AB0A92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JCTiledViewDemo-Info.plist"; sourceTree = "<group>"; };
 		887EE94F14D8DC2D00AB0A92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		887EE95114D8DC2D00AB0A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
-		887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
-		887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
 		888630DD172938C600F8E5D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
 		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAnnotationView.h; sourceTree = "<group>"; };
-		88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAnnotationView.m; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		88DCC88214F3BEF800B206F5 /* Map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Map.pdf; path = ../Map.pdf; sourceTree = "<group>"; };
-		88E49D3614E2788400D688DF /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
-		88E49D3714E2788400D688DF /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,16 +126,12 @@
 		887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				887EE95414D8DC2D00AB0A92 /* JCAppDelegate.h */,
-				887EE95514D8DC2D00AB0A92 /* JCAppDelegate.m */,
-				8809DC4E14D8E4C40003B4C6 /* RootViewController.h */,
-				8809DC4F14D8E4C40003B4C6 /* RootViewController.m */,
-				88E49D3614E2788400D688DF /* DetailView.h */,
-				88E49D3714E2788400D688DF /* DetailView.m */,
-				88C778B7155B1F6D005E5DAD /* DemoAnnotationView.h */,
-				88C778B8155B1F6D005E5DAD /* DemoAnnotationView.m */,
-				882BCF7515A431CF00F0FC5E /* DemoAnnotation.h */,
-				882BCF7615A431CF00F0FC5E /* DemoAnnotation.m */,
+				154B31081F7CDBC000DDD98D /* Main.storyboard */,
+				154B310A1F7CF0B500DDD98D /* RootViewController.swift */,
+				154B30E71F7CBC1500DDD98D /* DetailView.swift */,
+				154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */,
+				154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */,
+				154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */,
 				887EE94C14D8DC2D00AB0A92 /* Supporting Files */,
 			);
 			path = JCTiledViewDemo;
@@ -145,6 +140,8 @@
 		887EE94C14D8DC2D00AB0A92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				154B31041F7CD84F00DDD98D /* AppDelegate.swift */,
+				154B31061F7CD88300DDD98D /* LaunchScreen.storyboard */,
 				888630DD172938C600F8E5D4 /* Default-568h@2x.png */,
 				88DCC88214F3BEF800B206F5 /* Map.pdf */,
 				88197C0F1558C251005EF22F /* marker-red.png */,
@@ -154,7 +151,6 @@
 				88CD1A3914E2007F00B54AF0 /* Icon@2x.png */,
 				887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */,
 				887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */,
-				887EE95114D8DC2D00AB0A92 /* main.m */,
 				887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -197,6 +193,11 @@
 			attributes = {
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "JC Multimedia Design";
+				TargetAttributes = {
+					887EE94014D8DC2D00AB0A92 = {
+						LastSwiftMigration = 0900;
+					};
+				};
 			};
 			buildConfigurationList = 887EE93B14D8DC2D00AB0A92 /* Build configuration list for PBXProject "JCTiledViewDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -236,6 +237,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154B31071F7CD88300DDD98D /* LaunchScreen.storyboard in Resources */,
+				154B31091F7CDBC000DDD98D /* Main.storyboard in Resources */,
 				887EE95014D8DC2D00AB0A92 /* InfoPlist.strings in Resources */,
 				8809DC4D14D8E44A0003B4C6 /* tiles in Resources */,
 				88CD1A3A14E2007F00B54AF0 /* Icon-72.png in Resources */,
@@ -254,12 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				887EE95214D8DC2D00AB0A92 /* main.m in Sources */,
-				887EE95614D8DC2D00AB0A92 /* JCAppDelegate.m in Sources */,
-				8809DC5014D8E4C40003B4C6 /* RootViewController.m in Sources */,
-				88E49D3814E2788400D688DF /* DetailView.m in Sources */,
-				88C778B9155B1F6D005E5DAD /* DemoAnnotationView.m in Sources */,
-				882BCF7715A431CF00F0FC5E /* DemoAnnotation.m in Sources */,
+				154B310B1F7CF0B500DDD98D /* RootViewController.swift in Sources */,
+				154B31051F7CD84F00DDD98D /* AppDelegate.swift in Sources */,
+				154B30FC1F7CD4E200DDD98D /* DemoAnnotationView.swift in Sources */,
+				154B30EA1F7CC6B800DDD98D /* DemoAnnotation.swift in Sources */,
+				154B30E81F7CBC1500DDD98D /* DetailView.swift in Sources */,
+				154B30FE1F7CD5B700DDD98D /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +330,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -370,7 +372,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -383,6 +384,7 @@
 		887EE95A14D8DC2D00AB0A92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -390,9 +392,16 @@
 					ANNOTATE_TILES,
 				);
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/include",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jcmultimedia.jctiledview-demo";
 				PRODUCT_NAME = JCTiledViewDemo;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -400,12 +409,19 @@
 		887EE95B14D8DC2D00AB0A92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/include",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jcmultimedia.jctiledview-demo";
 				PRODUCT_NAME = JCTiledViewDemo;
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

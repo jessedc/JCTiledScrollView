@@ -1,8 +1,5 @@
 #include "Common.xcconfig"
 
-CODE_SIGN_IDENTITY = iPhone Developer
-CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
-
 COPY_PHASE_STRIP = NO
 STRIP_INSTALLED_PRODUCT = NO
 VALIDATE_PRODUCT = NO
@@ -17,6 +14,6 @@ ONLY_ACTIVE_ARCH = YES
 
 OTHER_CFLAGS = $(JC_DIAGNOSTIC_FLAGS)
 
-// Code coverage
-GCC_GENERATE_TEST_COVERAGE_FILES = YES
-GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES
+// Code coverage - you 'll need -fprofile-arcs -ftest-coverage in any target including this
+GCC_GENERATE_TEST_COVERAGE_FILES = NO
+GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO
