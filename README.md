@@ -18,7 +18,7 @@ Feature requests and pull-requests are most welcome.
  * A handy set of default UIGestureRecognizer actions and delegate callbacks
  * Annotation support with an interface similar to MKMapView
  * Demo code, example PNG tiles and PDF file included
- * Supports iOS 4.0+
+ * Supports iOS 8.0+
 
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo.png" alt="Skipping Girl JCTiledScrollView Demo" width="206" style="width:206px;"/>
 <img src="https://github.com/jessedc/JCTiledScrollView/raw/master/Demo/JCTiledViewDemo2.png" alt="PDF Rendering in JCTiledScrollView Demo" width="206" style="width:206px;"/>
@@ -27,7 +27,9 @@ Feature requests and pull-requests are most welcome.
 
 ### September 2017
 
-  * Minor updates for Xcode 9 GM
+  * Demo project updated to Swift 4, project files and settings updated for Xcode 9
+  * Framework deployment target set to iOS 8+
+  * [Objective C module support](https://samsymons.com/blog/understanding-objective-c-modules/), library interfaces audited for [nullability](https://developer.apple.com/swift/blog/?id=25)
 
 ### December 2014
   * Added a demo project written in Swift
