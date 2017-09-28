@@ -19,7 +19,6 @@
     _textLabel = [[UILabel alloc] initWithFrame:[self bounds]];
     self.textLabel.font = [UIFont systemFontOfSize:17.0f];
     self.textLabel.textColor = [UIColor whiteColor];
-    self.textLabel.textAlignment = UITextAlignmentLeft;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
     [self addSubview:self.textLabel];

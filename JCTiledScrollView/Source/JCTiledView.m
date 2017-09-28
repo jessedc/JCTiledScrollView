@@ -106,7 +106,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
   [[UIColor whiteColor] set];
   
-  [[NSString stringWithFormat:@" %@", @(log2(scale))] drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withFont:[UIFont boldSystemFontOfSize:font_size]];
+  NSString *pointString = [NSString stringWithFormat:@" %@", @(log2(scale))];
+  [pointString drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:font_size]}];
 
   [[UIColor redColor] set];
   CGContextSetLineWidth(ctx, line_width);
