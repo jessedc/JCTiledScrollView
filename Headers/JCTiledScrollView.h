@@ -56,6 +56,10 @@
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
 - (void)tiledScrollView:(JCTiledScrollView *)scrollView didReceiveTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer;
 
+- (UIBezierPath *)tiledScrollViewGetBezierPath:(JCTiledScrollView *)scrollView atIndex:(NSInteger)index;
+- (UIColor *)tiledScrollViewGetPathColor:(JCTiledScrollView *)scrollView atIndex:(NSInteger)index;
+- (NSInteger)tiledScrollViewGetNumberOfPath:(JCTiledScrollView *)scrollView;
+
 @end
 
 @interface JCTiledScrollView : UIView <UIScrollViewDelegate>
