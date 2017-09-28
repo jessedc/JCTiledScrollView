@@ -86,6 +86,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef ctx = UIGraphicsGetCurrentContext();
+  //FIXME: we get warnings because we're accessing self.layer from background threads here
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
 
   NSInteger col = (NSInteger)((CGRectGetMinX(rect) * scale) / self.tileSize.width);
