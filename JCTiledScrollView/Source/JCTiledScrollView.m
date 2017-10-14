@@ -239,8 +239,11 @@
 {
   if (self.zoomsInOnDoubleTap)
   {
-    CGFloat newZoom = MIN(pow(2, (log2(_scrollView.zoomScale) + 1.0)), _scrollView.maximumZoomScale); //zoom in one level of detail
-
+    CGFloat newZoom = (CGFloat) pow(2, (CGFloat) (log2(_scrollView.zoomScale) + (CGFloat) 1.0)); //zoom in one level of detail
+    if (newZoom > _scrollView.maximumZoomScale) {
+      newZoom = _scrollView.maximumZoomScale;
+    }
+    
     self.muteAnnotationUpdates = YES;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -270,8 +273,11 @@
 {
   if (self.zoomsOutOnTwoFingerTap)
   {
-    CGFloat newZoom = MAX(pow(2, (log2(_scrollView.zoomScale) - 1.0)), _scrollView.minimumZoomScale); //zoom out one level of detail
-
+    CGFloat newZoom = (CGFloat) pow(2, (CGFloat) (log2(_scrollView.zoomScale) - (CGFloat) 1.0)); //zoom out one level of detail
+    if (newZoom < _scrollView.minimumZoomScale) {
+      newZoom = _scrollView.minimumZoomScale;
+    }
+    
     self.muteAnnotationUpdates = YES;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kStandardUIScrollViewAnimationTime * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
