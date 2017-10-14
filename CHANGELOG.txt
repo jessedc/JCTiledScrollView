@@ -1,0 +1,34 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+## [Unreleased] September/October 2017
+### Added 
+- [Objective C module support](https://samsymons.com/blog/understanding-objective-c-modules/)
+- Library interfaces audited for [nullability](https://developer.apple.com/swift/blog/?id=25)
+
+### Changed
+- Updated licence to MIT
+- Demo project updated to Swift 4
+- Project files and settings updated for Xcode 9
+- Framework deployment target set to iOS 8+
+
+## [December 2014]
+- Added a demo project written in Swift
+
+## [April 2013]
+- Updated to Automatic Reference Counting (ARC)
+
+## [August 2012]
+- Added dragable annotations in a branch [drag-annotations branch](https://github.com/jessedc/JCTiledScrollView/tree/drag-annotations).
+- Packaged as a Static library within a workspace
+
+## [July 2012]
+- Updated source and demo to be compatible with Xcode's ARC refactor tool
+- Library provided as a static library
+
+## [May 2012]
+- Annotation support
+
+## [March 2012]
+- Merged experimental PDF rendering classes into the main project. Welcome JCTiledPDFScrollView.
+- Added an initial set of UIGestureRecognizers with some optional default behaviour, similar to MKMapView
