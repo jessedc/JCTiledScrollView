@@ -29,11 +29,13 @@
 @class JCTiledScrollView, JCTiledView, JCAnnotationView, JCVisibleAnnotationTuple;
 @protocol JCAnnotation;
 
-NS_ASSUME_NONNULL_BEGIN
+
 @protocol JCTileSource <NSObject>
-- (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
+// The scale value is the pixel scale of the tile required, not the scale of the scroll view. On retina devices the tile scale will start at 2 etc.
+- (UIImage * _Nullable)tiledScrollView:(JCTiledScrollView * _Nonnull)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale;
 @end
 
+NS_ASSUME_NONNULL_BEGIN
 @protocol JCTiledScrollViewDelegate <NSObject>
 
 - (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(id<JCAnnotation>)annotation;

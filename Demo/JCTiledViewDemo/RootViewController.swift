@@ -108,8 +108,8 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
 
   //MARK: TileSource
   
-  func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage {
-    return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")!
+  func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage? {
+    return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")
   }
   
   //MARK: Annotations
