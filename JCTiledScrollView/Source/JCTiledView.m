@@ -29,6 +29,9 @@
 static const CGFloat kDefaultTileSize = 256.0f;
 
 @interface JCTiledView ()
+
+@property (nonatomic, assign) CGFloat contentsScale;
+
 - (JCTiledLayer *)tiledLayer;
 @end
 
@@ -37,6 +40,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 @dynamic tileSize;
 @synthesize delegate = _delegate;
 @synthesize shouldAnnotateRect = _shouldAnnotateRect;
+@synthesize contentsScale = _contentsScale;
 
 + (Class)layerClass
 {
@@ -52,6 +56,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
     self.tiledLayer.levelsOfDetail = 1;
     self.numberOfZoomLevels = 3;
     self.shouldAnnotateRect = NO;
+    self.contentsScale = self.tiledLayer.contentsScale;
   }
   return self;
 }
@@ -81,8 +86,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef ctx = UIGraphicsGetCurrentContext();
-  //FIXME: we get warnings because we're accessing self.layer from background threads here
-  CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
+  CGFloat scale = CGContextGetCTM(ctx).a / self.contentsScale;
 
   NSInteger col = (NSInteger)((CGRectGetMinX(rect) * scale) / self.tileSize.width);
   NSInteger row = (NSInteger)((CGRectGetMinY(rect) * scale) / self.tileSize.height);
@@ -97,7 +101,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
-  CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;
+  CGFloat scale = CGContextGetCTM(ctx).a / self.contentsScale;
   CGFloat line_width = 2.0f / scale;
   CGFloat font_size = 16.0f / scale;
 
