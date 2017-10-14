@@ -29,9 +29,6 @@
 static const CGFloat kDefaultTileSize = 256.0f;
 
 @interface JCTiledView ()
-
-@property (nonatomic, assign) CGFloat contentsScale;
-
 - (JCTiledLayer *)tiledLayer;
 @end
 
@@ -40,7 +37,6 @@ static const CGFloat kDefaultTileSize = 256.0f;
 @dynamic tileSize;
 @synthesize delegate = _delegate;
 @synthesize shouldAnnotateRect = _shouldAnnotateRect;
-@synthesize contentsScale = _contentsScale;
 
 + (Class)layerClass
 {
@@ -51,12 +47,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
 {
   if (self = [super initWithFrame:frame])
   {
-    CGSize scaledTileSize = CGSizeApplyAffineTransform(self.tileSize, CGAffineTransformMakeScale(self.contentScaleFactor, self.contentScaleFactor));
-    self.tiledLayer.tileSize = scaledTileSize;
-    self.tiledLayer.levelsOfDetail = 1;
     self.numberOfZoomLevels = 3;
     self.shouldAnnotateRect = NO;
-    self.contentsScale = self.tiledLayer.contentsScale;
   }
   return self;
 }
@@ -86,30 +78,44 @@ static const CGFloat kDefaultTileSize = 256.0f;
 - (void)drawRect:(CGRect)rect
 {
   CGContextRef ctx = UIGraphicsGetCurrentContext();
-  CGFloat scale = CGContextGetCTM(ctx).a / self.contentsScale;
+  NSInteger tileScale = (NSInteger) CGContextGetCTM(ctx).a;
+  
+  CGRect scaleRect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(tileScale, tileScale));
 
-  NSInteger col = (NSInteger)((CGRectGetMinX(rect) * scale) / self.tileSize.width);
-  NSInteger row = (NSInteger)((CGRectGetMinY(rect) * scale) / self.tileSize.height);
+  NSInteger col = (NSInteger) round((CGRectGetMinX(scaleRect) / self.tileSize.width));
+  NSInteger row = (NSInteger) round((CGRectGetMinY(scaleRect) / self.tileSize.height));
+  
+  UIImage *tileImage = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:tileScale];
+  if (tileImage != nil)
+  {
+    [tileImage drawInRect:rect];
+  }
 
-  UIImage *tile_image = [(id<JCTiledBitmapViewDelegate>)self.delegate tiledView:self imageForRow:row column:col scale:(NSInteger)scale];
-  [tile_image drawInRect:rect];
-
-  if (self.shouldAnnotateRect) [self annotateRect:rect inContext:ctx];
+  if (self.shouldAnnotateRect)
+  {
+    [self annotateRect:rect inContext:ctx];
+  }
 }
 
 // MARK: Debug
 
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
-  CGFloat scale = CGContextGetCTM(ctx).a / self.contentsScale;
-  CGFloat line_width = 2.0f / scale;
-  CGFloat font_size = 16.0f / scale;
-
-  [[UIColor whiteColor] set];
+  CGFloat tileScale = CGContextGetCTM(ctx).a;
   
-  NSString *pointString = [NSString stringWithFormat:@" %@", @(log2(scale))];
-  [pointString drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:font_size]}];
+  CGRect scaleRect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(tileScale, tileScale));
+  
+  CGFloat col = (NSInteger) round((CGRectGetMinX(scaleRect) / self.tileSize.width));
+  CGFloat row = (NSInteger) round((CGRectGetMinY(scaleRect) / self.tileSize.height));
+  
+  CGFloat line_width = 2.0f / tileScale;
+  CGFloat font_size = 12.0f / tileScale;
 
+  NSString *pointString = [NSString stringWithFormat:@"(%@x%@@%@)", @(col), @(row), @(CGContextGetCTM(ctx).a)];
+  [pointString drawAtPoint:CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect)) withAttributes:@{
+                                                                                                  NSFontAttributeName: [UIFont boldSystemFontOfSize:font_size],
+                                                                                                  NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                                                                  }];
   [[UIColor redColor] set];
   CGContextSetLineWidth(ctx, line_width);
   CGContextStrokeRect(ctx, rect);

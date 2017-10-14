@@ -109,7 +109,14 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   //MARK: TileSource
   
   func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage? {
-    return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")
+    //FIXME: JC - improve this poor @3x support.
+    //Ideally we have @3/6/12/24 tiles, but if not we need to change the original image size
+    var tileScale = scale
+    if (scale % 3 == 0) {
+      tileScale = (scale * 10) / 15
+    }
+    
+    return UIImage(named: "tiles/SkippingGirl_\(tileScale)x_\(row)_\(column).png")
   }
   
   //MARK: Annotations
