@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Makefile">
+      location = "group:Demo/../README.md">
    </FileRef>
    <FileRef
       location = "group:JCTiledScrollView/JCTiledScrollView.xcodeproj">

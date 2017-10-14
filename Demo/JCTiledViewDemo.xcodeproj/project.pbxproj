@@ -63,11 +63,9 @@
 		887EE94914D8DC2D00AB0A92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JCTiledViewDemo-Info.plist"; sourceTree = "<group>"; };
 		887EE94F14D8DC2D00AB0A92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCTiledViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		888630DD172938C600F8E5D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		88AFB16915DF56F5003BD3AB /* libJCTiledScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJCTiledScrollView.a; path = "../JCTiledScrollView/build/Release-iphoneos/libJCTiledScrollView.a"; sourceTree = "<group>"; };
 		88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = ../JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
-		88C19C7F150C4D6E007184E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		88CD1A3714E2007F00B54AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		88CD1A3814E2007F00B54AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		88CD1A3914E2007F00B54AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 		887EE93614D8DC2D00AB0A92 = {
 			isa = PBXGroup;
 			children = (
-				88C19C7F150C4D6E007184E6 /* README.md */,
 				887EE94B14D8DC2D00AB0A92 /* JCTiledViewDemo */,
 				88AFB19A15DF75F2003BD3AB /* JCTiledScrollView.xcodeproj */,
 				887EE94414D8DC2D00AB0A92 /* Frameworks */,
@@ -148,7 +145,6 @@
 				88CD1A3914E2007F00B54AF0 /* Icon@2x.png */,
 				887EE94D14D8DC2D00AB0A92 /* JCTiledViewDemo-Info.plist */,
 				887EE94E14D8DC2D00AB0A92 /* InfoPlist.strings */,
-				887EE95314D8DC2D00AB0A92 /* JCTiledViewDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -382,7 +378,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					ANNOTATE_TILES,
@@ -407,7 +402,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JCTiledViewDemo/JCTiledViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "JCTiledViewDemo/JCTiledViewDemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
