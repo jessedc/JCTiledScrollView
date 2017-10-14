@@ -39,7 +39,7 @@ TODO
 
 The "Skipping Girl" image is copyright (c) 2012, Jesse Collis and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License][1].
 
-The JCTiledScrollView code is copyright (c) 2012, Jesse Collis <jesse@jcmultimedia.com.au> and licenced under [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/)
+JCTiledScrollView is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 
 [1]: http://creativecommons.org/licenses/by-nc-sa/3.0/ "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License"

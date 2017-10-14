@@ -18,8 +18,8 @@
 		154B30F31F7CCB0000DDD98D /* JCVisibleAnnotationTuple.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88BCDDA515C4E26700E6515A /* JCVisibleAnnotationTuple.h */; };
 		154B30F51F7CCDBC00DDD98D /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = 154B30F41F7CCD9D00DDD98D /* module.modulemap */; };
 		154B30F91F7CD0EC00DDD98D /* JCTiledScrollViewModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 154B30F61F7CCE2600DDD98D /* JCTiledScrollViewModule.h */; };
-		154B30FA1F7CD26600DDD98D /* ADAnnotationTapGestureRecognizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */; };
-		845EE1DA164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 845EE1D9164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m */; };
+		154B30FA1F7CD26600DDD98D /* JCAnnotationTapGestureRecognizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 845EE1D61649209D007E19A0 /* JCAnnotationTapGestureRecognizer.h */; };
+		845EE1DA164920A6007E19A0 /* JCAnnotationTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 845EE1D9164920A6007E19A0 /* JCAnnotationTapGestureRecognizer.m */; };
 		884E3C2215D790C50077F06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2115D790C50077F06D /* QuartzCore.framework */; };
 		884E3C2515D790CB0077F06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2415D790CB0077F06D /* UIKit.framework */; };
 		884E3C2715D790D10077F06D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884E3C2615D790D10077F06D /* CoreGraphics.framework */; };
@@ -41,7 +41,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				154B30FA1F7CD26600DDD98D /* ADAnnotationTapGestureRecognizer.h in CopyFiles */,
+				154B30FA1F7CD26600DDD98D /* JCAnnotationTapGestureRecognizer.h in CopyFiles */,
 				154B30F91F7CD0EC00DDD98D /* JCTiledScrollViewModule.h in CopyFiles */,
 				154B30F51F7CCDBC00DDD98D /* module.modulemap in CopyFiles */,
 				154B30EB1F7CCB0000DDD98D /* CGPDFDocument.h in CopyFiles */,
@@ -61,8 +61,8 @@
 /* Begin PBXFileReference section */
 		154B30F41F7CCD9D00DDD98D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		154B30F61F7CCE2600DDD98D /* JCTiledScrollViewModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCTiledScrollViewModule.h; sourceTree = "<group>"; };
-		845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAnnotationTapGestureRecognizer.h; sourceTree = "<group>"; };
-		845EE1D9164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADAnnotationTapGestureRecognizer.m; sourceTree = "<group>"; };
+		845EE1D61649209D007E19A0 /* JCAnnotationTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnnotationTapGestureRecognizer.h; sourceTree = "<group>"; };
+		845EE1D9164920A6007E19A0 /* JCAnnotationTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnnotationTapGestureRecognizer.m; sourceTree = "<group>"; };
 		884E3C2115D790C50077F06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		884E3C2415D790CB0077F06D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		884E3C2615D790D10077F06D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,7 +151,7 @@
 		88BCDD9B15C4E1FC00E6515A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				845EE1D9164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m */,
+				845EE1D9164920A6007E19A0 /* JCAnnotationTapGestureRecognizer.m */,
 				88BCDDA615C4E28500E6515A /* CGPDFDocument.m */,
 				88BCDDA715C4E28500E6515A /* JCAnnotationView.m */,
 				88BCDDA815C4E28500E6515A /* JCPDFTiledView.m */,
@@ -167,7 +167,7 @@
 		88BCDD9C15C4E20700E6515A /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				845EE1D61649209D007E19A0 /* ADAnnotationTapGestureRecognizer.h */,
+				845EE1D61649209D007E19A0 /* JCAnnotationTapGestureRecognizer.h */,
 				88BCDD9D15C4E26700E6515A /* CGPDFDocument.h */,
 				88BCDD9E15C4E26700E6515A /* JCAnnotation.h */,
 				88BCDD9F15C4E26700E6515A /* JCAnnotationView.h */,
@@ -269,7 +269,7 @@
 				88BCDDB315C4E28500E6515A /* JCTiledScrollView.m in Sources */,
 				88BCDDB415C4E28500E6515A /* JCTiledView.m in Sources */,
 				88BCDDB515C4E28500E6515A /* JCVisibleAnnotationTuple.m in Sources */,
-				845EE1DA164920A6007E19A0 /* ADAnnotationTapGestureRecognizer.m in Sources */,
+				845EE1DA164920A6007E19A0 /* JCAnnotationTapGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

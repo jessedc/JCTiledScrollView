@@ -1,5 +1,5 @@
 //
-//  JCAnnotation.h
+//  JCAnnotationTapGestureRecognizer.h
 //
 //  Copyright (c) 2012-2017 Jesse Collis <jesse@jcmultimedia.com.au>
 //
@@ -22,8 +22,10 @@
 //  SOFTWARE.
 //
 
-@protocol JCAnnotation <NSObject>
+#import <UIKit/UIKit.h>
 
-@property (nonatomic, assign) CGPoint contentPosition;
+@class JCVisibleAnnotationTuple;
 
+@interface JCAnnotationTapGestureRecognizer : UITapGestureRecognizer
+@property (nonatomic, strong) JCVisibleAnnotationTuple *tapAnnotation;
 @end

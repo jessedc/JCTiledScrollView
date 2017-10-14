@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Orange Business Services IT&Labs. All rights reserved.
 //
 
-#import "ADAnnotationTapGestureRecognizer.h"
+#import "JCAnnotationTapGestureRecognizer.h"
 
-@implementation ADAnnotationTapGestureRecognizer
+@implementation JCAnnotationTapGestureRecognizer
 @synthesize tapAnnotation = _tapAnnotation;
 @end

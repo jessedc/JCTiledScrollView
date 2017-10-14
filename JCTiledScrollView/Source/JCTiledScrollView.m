@@ -1,30 +1,25 @@
 //
 //  JCTiledScrollView.m
-//  
-//  Created by Jesse Collis on 1/2/2012.
-//  Copyright (c) 2012, Jesse Collis JC Multimedia Design. <jesse@jcmultimedia.com.au>
-//  All rights reserved.
 //
-//  * Redistribution and use in source and binary forms, with or without 
-//   modification, are permitted provided that the following conditions are met:
+//  Copyright (c) 2012-2017 Jesse Collis <jesse@jcmultimedia.com.au>
 //
-//  * Redistributions of source code must retain the above copyright 
-//   notice, this list of conditions and the following disclaimer.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
-//  * Redistributions in binary form must reproduce the above copyright 
-//   notice, this list of conditions and the following disclaimer in the 
-//   documentation and/or other materials provided with the distribution.
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
 //
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-//  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
-//  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY 
-//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
-//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND 
-//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 //
 
 #import "JCTiledScrollView.h"
@@ -32,7 +27,7 @@
 #import "JCAnnotation.h"
 #import "JCAnnotationView.h"
 #import "JCVisibleAnnotationTuple.h"
-#import "ADAnnotationTapGestureRecognizer.h"
+#import "JCAnnotationTapGestureRecognizer.h"
 #include <tgmath.h>
 
 #define kStandardUIScrollViewAnimationTime (int64_t)0.10
@@ -107,7 +102,7 @@
     [self addSubview:_scrollView];
     [self addSubview:_canvasView];
 
-    _singleTapGestureRecognizer = [[ADAnnotationTapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
+    _singleTapGestureRecognizer = [[JCAnnotationTapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapReceived:)];
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
     _singleTapGestureRecognizer.delegate = self;
     [_tiledView addGestureRecognizer:_singleTapGestureRecognizer];
@@ -178,9 +173,9 @@
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
-  if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
+  if ([gestureRecognizer isKindOfClass:[JCAnnotationTapGestureRecognizer class]])
   {
-    ADAnnotationTapGestureRecognizer *annotationGestureRecognizer = (ADAnnotationTapGestureRecognizer *) gestureRecognizer;
+    JCAnnotationTapGestureRecognizer *annotationGestureRecognizer = (JCAnnotationTapGestureRecognizer *) gestureRecognizer;
 
     _previousSelectedAnnotationTuple = _currentSelectedAnnotationTuple;
     _currentSelectedAnnotationTuple = annotationGestureRecognizer.tapAnnotation;
@@ -275,7 +270,7 @@
   {
     CGFloat newZoom = (CGFloat) pow(2, (CGFloat) (log2(_scrollView.zoomScale) - (CGFloat) 1.0)); //zoom out one level of detail
     if (newZoom < _scrollView.minimumZoomScale) {
-      newZoom = _scrollView.minimumZoomScale;
+      newZoom = _scrollView.minimumZoomScale; 
     }
     
     self.muteAnnotationUpdates = YES;
@@ -403,18 +398,18 @@
 {
   CGPoint location = [gestureRecognizer locationInView:self.canvasView];
 
-  if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
+  if ([gestureRecognizer isKindOfClass:[JCAnnotationTapGestureRecognizer class]])
   {
-    [(ADAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:nil];
+    [(JCAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:nil];
   }
 
   for (JCVisibleAnnotationTuple *t in _visibleAnnotations)
   {
     if (CGRectContainsPoint(t.view.frame, location))
     {
-      if ([gestureRecognizer isKindOfClass:[ADAnnotationTapGestureRecognizer class]])
+      if ([gestureRecognizer isKindOfClass:[JCAnnotationTapGestureRecognizer class]])
       {
-        [(ADAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:t];
+        [(JCAnnotationTapGestureRecognizer *) gestureRecognizer setTapAnnotation:t];
       }
       return YES;
     }
