@@ -82,7 +82,7 @@
   CGPDFDocumentRelease(_PDFDocRef);
 }
 
-#pragma mark - JCPDFTiledViewDelegate
+//MARK: JCPDFTiledViewDelegate
 
 - (CGPDFDocumentRef)pdfDocumentForTiledView:(__unused JCPDFTiledView *)tiledView
 {

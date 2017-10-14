@@ -61,7 +61,7 @@
   }
 }
 
-#pragma mark - Private
+//MARK: Private
 
 - (void)adjustCenter
 {

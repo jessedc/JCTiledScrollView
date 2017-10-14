@@ -101,7 +101,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
     guard let event = event else { return }
     
-    if (event.type == .motion && event.subtype == .motionShake) {
+    if event.type == .motion && event.subtype == .motionShake {
       scrollView.removeAllAnnotations()
     }
   }

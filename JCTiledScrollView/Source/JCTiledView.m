@@ -56,7 +56,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   return self;
 }
 
-#pragma mark - Properties
+//MARK: Properties
 
 - (JCTiledLayer *)tiledLayer
 {
@@ -93,7 +93,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
   if (self.shouldAnnotateRect) [self annotateRect:rect inContext:ctx];
 }
 
-// Handy for Debug
+// MARK: Debug
+
 - (void)annotateRect:(CGRect)rect inContext:(CGContextRef)ctx
 {
   CGFloat scale = CGContextGetCTM(ctx).a / self.tiledLayer.contentsScale;

@@ -130,7 +130,7 @@
 }
 
 
-#pragma mark - UIScrolViewDelegate
+//MARK: UIScrolViewDelegate
 
 - (UIView *)viewForZoomingInScrollView:(__unused UIScrollView *)scrollView
 {
@@ -155,7 +155,7 @@
   }
 }
 
-#pragma mark - 
+//MARK: 
 
 //FIXME: Jesse C - I don't like overloading this here, but the logic is in one place
 - (void)setMuteAnnotationUpdates:(BOOL)muteAnnotationUpdates
@@ -169,7 +169,7 @@
   }
 }
 
-#pragma mark - Gesture Support
+//MARK: Gesture Support
 
 - (void)singleTapReceived:(UITapGestureRecognizer *)gestureRecognizer
 {
@@ -391,7 +391,7 @@
 }
 
 
-#pragma mark - UIGestureRecognizerDelegate
+//MARK: UIGestureRecognizerDelegate
 //Catch our own tap gesture if it is on an annotation view to set annotation
 //Return NO to only recognize single tap on annotation
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -420,7 +420,7 @@
 }
 
 
-#pragma mark - JCTiledScrollView
+//MARK: JCTiledScrollView
 
 - (CGFloat)zoomScale
 {
@@ -469,14 +469,14 @@
   [_scrollView setContentOffset:new_contentOffset animated:animated];
 }
 
-#pragma mark - JCTileSource
+//MARK: JCTileSource
 
 - (UIImage *)tiledView:(__unused JCTiledView *)tiledView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale
 {
   return [self.dataSource tiledScrollView:self imageForRow:row column:column scale:scale];
 }
 
-#pragma mark - Annotation Recycling
+//MARK: Annotation Recycling
 
 - (JCAnnotationView *)dequeueReusableAnnotationViewWithReuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -499,7 +499,7 @@
   return nil;
 }
 
-#pragma mark - Annotations
+//MARK: Annotations
 
 - (BOOL)point:(CGPoint)point isWithinBounds:(CGRect)bounds
 {
