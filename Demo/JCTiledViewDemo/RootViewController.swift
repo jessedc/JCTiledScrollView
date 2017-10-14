@@ -32,7 +32,15 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   @IBOutlet var statusLabel: UILabel!
   @IBOutlet var detailView: UIView!
   
-  let skippingGirlImageSize = CGSize(width:432, height:648)
+  var skippingGirlImageSize:CGSize {
+    if UIScreen.main.scale.truncatingRemainder(dividingBy: 2) == 0 {
+      return CGSize(width:432, height:648)
+    }
+
+    // We don't have tiles at scale 3/6/12 for @3x devices so scale the image by 1.5 so we don't
+    // ask for tiles we don't have
+    return CGSize(width:288, height:432)
+  }
   
   override var canBecomeFirstResponder: Bool {
     return true
@@ -61,7 +69,6 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     scrollView.zoomScale = 1
     
     scrollView.tiledView.shouldAnnotateRect = true
-    //  // totals 4 sets of tiles across all devices, retina devices will miss out on the first 1x set
     scrollView.levelsOfZoom = 3
     scrollView.levelsOfDetail = 3
     
@@ -109,8 +116,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   //MARK: TileSource
   
   func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage? {
-    //FIXME: JC - improve this poor @3x support.
-    //Ideally we have @3/6/12/24 tiles, but if not we need to change the original image size
+    // Ideally we have @3/6/12/24 tiles, but if not we need to change the original image size. See skippingGirlImageSize
     var tileScale = scale
     if (scale % 3 == 0) {
       tileScale = (scale * 10) / 15
@@ -128,7 +134,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   func tiledScrollView(_ scrollView: JCTiledScrollView, didReceiveSingleTap gestureRecognizer: UIGestureRecognizer) {
     let tapPoint = gestureRecognizer.location(in: scrollView.tiledView)
     
-    //tap point on the tiledView does not inlcude the zoomScale applied by the scrollView
+    // Tap point on the tiledView does not inlcude the zoomScale applied by the scrollView
     self.statusLabel.text = String(format:"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y)
   }
   
