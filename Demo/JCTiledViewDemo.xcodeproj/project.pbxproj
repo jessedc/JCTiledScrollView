@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		154B30E81F7CBC1500DDD98D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30E71F7CBC1500DDD98D /* DetailView.swift */; };
 		154B30EA1F7CC6B800DDD98D /* DemoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */; };
 		154B30FC1F7CD4E200DDD98D /* DemoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */; };
 		154B30FE1F7CD5B700DDD98D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */; };
@@ -48,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		154B30E71F7CBC1500DDD98D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAnnotation.swift; sourceTree = "<group>"; };
 		154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAnnotationView.swift; sourceTree = "<group>"; };
 		154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			children = (
 				154B31081F7CDBC000DDD98D /* Main.storyboard */,
 				154B310A1F7CF0B500DDD98D /* RootViewController.swift */,
-				154B30E71F7CBC1500DDD98D /* DetailView.swift */,
 				154B30FB1F7CD4E200DDD98D /* DemoAnnotationView.swift */,
 				154B30E91F7CC6B800DDD98D /* DemoAnnotation.swift */,
 				154B30FD1F7CD5B700DDD98D /* UIView+Extensions.swift */,
@@ -261,7 +258,6 @@
 				154B31051F7CD84F00DDD98D /* AppDelegate.swift in Sources */,
 				154B30FC1F7CD4E200DDD98D /* DemoAnnotationView.swift in Sources */,
 				154B30EA1F7CC6B800DDD98D /* DemoAnnotation.swift in Sources */,
-				154B30E81F7CBC1500DDD98D /* DetailView.swift in Sources */,
 				154B30FE1F7CD5B700DDD98D /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

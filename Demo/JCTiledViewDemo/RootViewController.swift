@@ -13,7 +13,8 @@ import JCTiledScrollView
 class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDelegate {
 
   var scrollView: JCTiledScrollView!
-  @IBOutlet var detailView: DetailView!
+  @IBOutlet var statusLabel: UILabel!
+  @IBOutlet var detailView: UIView!
   
   let skippingGirlImageSize = CGSize(width:432, height:648)
   
@@ -27,7 +28,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     let scrollView = JCTiledScrollView(frame: self.view.frame, contentSize: skippingGirlImageSize)
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     self.scrollView = scrollView
-    self.view.insertSubview(scrollView, belowSubview: self.detailView!)
+    self.view.insertSubview(scrollView, belowSubview: self.detailView)
     
     let views: [String: UIView] = ["label": self.detailView, "scrollView": scrollView]
     
@@ -48,7 +49,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     scrollView.levelsOfZoom = 3
     scrollView.levelsOfDetail = 3
     
-    //  tiledScrollViewDidZoom(self.scrollView) //force the detailView to update the frist time
+    updateStatusLabel()
     addRandomAnnotations()
   }
   
@@ -89,7 +90,7 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     }
   }
 
-  //MARK TileSource
+  //MARK: TileSource
   
   func tiledScrollView(_ scrollView: JCTiledScrollView, imageForRow row: Int, column: Int, scale: Int) -> UIImage {
     return UIImage(named: "tiles/SkippingGirl_\(scale)x_\(row)_\(column).png")!
@@ -98,14 +99,14 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
   //MARK: Annotations
   
   func tiledScrollViewDidZoom(_ scrollView: JCTiledScrollView) {
-    self.detailView.textLabel?.text = String(format:"zoomScale: %0.2f", scrollView.zoomScale)
+    updateStatusLabel()
   }
   
   func tiledScrollView(_ scrollView: JCTiledScrollView, didReceiveSingleTap gestureRecognizer: UIGestureRecognizer) {
     let tapPoint = gestureRecognizer.location(in: scrollView.tiledView)
     
     //tap point on the tiledView does not inlcude the zoomScale applied by the scrollView
-    self.detailView.textLabel?.text = String(format:"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y)
+    self.statusLabel.text = String(format:"zoomScale: %0.2f, x: %0.0f y: %0.0f", scrollView.zoomScale, tapPoint.x, tapPoint.y)
   }
   
   func tiledScrollView(_ scrollView: JCTiledScrollView, viewFor annotation: JCAnnotation) -> JCAnnotationView {
@@ -118,5 +119,9 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     annotationView.sizeToFit()
     
     return annotationView
+  }
+  
+  func updateStatusLabel() {
+    self.statusLabel.text = String(format:"zoomScale: %0.2f", self.scrollView.zoomScale)
   }
 }
