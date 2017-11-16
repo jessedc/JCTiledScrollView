@@ -1,6 +1,6 @@
-#import "ADAnnotationTapGestureRecognizer.h"
 #import "CGPDFDocument.h"
 #import "JCAnnotation.h"
+#import "JCAnnotationTapGestureRecognizer.h"
 #import "JCAnnotationView.h"
 #import "JCPDFTiledView.h"
 #import "JCTiledLayer.h"
