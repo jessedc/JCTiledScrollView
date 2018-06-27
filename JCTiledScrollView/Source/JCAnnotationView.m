@@ -35,7 +35,7 @@
 {
   if ((self = [super initWithFrame:frame]))
   {
-    _centerOffset = CGPointZero;
+    _centerOffset = CGPointMake(0,-30);
     _position = CGPointZero;
     _annotation = annotation;
     _reuseIdentifier = reuseIdentifier;
