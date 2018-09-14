@@ -34,7 +34,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 @implementation JCTiledView
 
-@synthesize tileSize = _tileSize;
+@dynamic tileSize;
 @synthesize delegate = _delegate;
 @synthesize shouldAnnotateRect = _shouldAnnotateRect;
 
@@ -49,7 +49,6 @@ static const CGFloat kDefaultTileSize = 256.0f;
   {
     self.numberOfZoomLevels = 3;
     self.shouldAnnotateRect = NO;
-    self.tileSize = CGSizeMake(256.0f, 256.0f);
   }
   return self;
 }
@@ -58,9 +57,12 @@ static const CGFloat kDefaultTileSize = 256.0f;
 
 - (JCTiledLayer *)tiledLayer
 {
-  JCTiledLayer * modifiedLayer = (JCTiledLayer *) self.layer;
-  modifiedLayer.tileSize = self.tileSize;
-  return modifiedLayer;
+  return (JCTiledLayer *)self.layer;
+}
+
+- (CGSize)tileSize
+{
+  return CGSizeMake(kDefaultTileSize, kDefaultTileSize);
 }
 
 - (size_t)numberOfZoomLevels
