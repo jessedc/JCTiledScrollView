@@ -145,7 +145,9 @@ class RootViewController: UIViewController, JCTileSource, JCTiledScrollViewDeleg
     
     let annotationView = DemoAnnotationView(frame:.zero, annotation:annotation, reuseIdentifier: "ReuseIdentifier")
     annotationView.imageView?.image = UIImage(named:"marker-red.png")
-    annotationView.centerOffset = CGPoint(x: 0, y: -30)
+    if let height = annotationView.imageView?.image?.size.height {
+      annotationView.centerOffset = CGPoint(x: 0, y: -height/2)
+    }
     annotationView.sizeToFit()
     
     return annotationView
