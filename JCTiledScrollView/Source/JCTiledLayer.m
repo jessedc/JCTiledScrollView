@@ -27,7 +27,6 @@
 static const CFTimeInterval kDefaultFadeDuration = 0.08;
 
 @implementation JCTiledLayer
-@synthesize tileSize = _tileSize;
 
 + (CFTimeInterval)fadeDuration
 {
