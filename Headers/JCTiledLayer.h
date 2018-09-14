@@ -25,4 +25,5 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface JCTiledLayer : CATiledLayer
+@property (atomic, assign) CGSize tileSize;
 @end
