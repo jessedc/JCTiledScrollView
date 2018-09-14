@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JCTiledView : UIView
 
 @property (nonatomic, weak, nullable) id<JCTiledViewDelegate> delegate;
-@property (nonatomic, readonly) CGSize tileSize;
+@property (nonatomic, assign) CGSize tileSize;
 @property (nonatomic, assign) size_t numberOfZoomLevels;
 @property (nonatomic, assign) BOOL shouldAnnotateRect;
 
