@@ -73,10 +73,10 @@
 {
 	if ((self = [super initWithFrame:frame]))
   {
-    self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    self.autoresizingMask = (UIViewAutoresizing)(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
 
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    _scrollView.autoresizingMask = (UIViewAutoresizing)(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     _scrollView.delegate = self;
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.contentSize = contentSize;
@@ -440,7 +440,7 @@
 - (void)setLevelsOfZoom:(size_t)levelsOfZoom
 {
   _levelsOfZoom = levelsOfZoom;
-  _scrollView.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, levelsOfZoom));
+  _scrollView.maximumZoomScale = (float)powf(2.0f, MAX(0.0f, (float)levelsOfZoom));
 }
 
 - (void)setLevelsOfDetail:(size_t)levelsOfDetail

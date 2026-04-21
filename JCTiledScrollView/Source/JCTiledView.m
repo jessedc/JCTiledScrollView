@@ -80,7 +80,7 @@ static const CGFloat kDefaultTileSize = 256.0f;
   CGContextRef ctx = UIGraphicsGetCurrentContext();
   NSInteger tileScale = (NSInteger) CGContextGetCTM(ctx).a;
   
-  CGRect scaleRect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(tileScale, tileScale));
+  CGRect scaleRect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale((CGFloat)tileScale, (CGFloat)tileScale));
 
   NSInteger col = (NSInteger) round((CGRectGetMinX(scaleRect) / self.tileSize.width));
   NSInteger row = (NSInteger) round((CGRectGetMinY(scaleRect) / self.tileSize.height));
@@ -105,8 +105,8 @@ static const CGFloat kDefaultTileSize = 256.0f;
   
   CGRect scaleRect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(tileScale, tileScale));
   
-  CGFloat col = (NSInteger) round((CGRectGetMinX(scaleRect) / self.tileSize.width));
-  CGFloat row = (NSInteger) round((CGRectGetMinY(scaleRect) / self.tileSize.height));
+  CGFloat col = (CGFloat)((NSInteger) round((CGRectGetMinX(scaleRect) / self.tileSize.width)));
+  CGFloat row = (CGFloat)((NSInteger) round((CGRectGetMinY(scaleRect) / self.tileSize.height)));
   
   CGFloat line_width = 2.0f / tileScale;
   CGFloat font_size = 12.0f / tileScale;
